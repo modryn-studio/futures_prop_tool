@@ -1,0 +1,900 @@
+// Auto-generated from futures_prop_firm_database.xlsx
+// Generated: 2025-12-29T16:11:41.495298
+
+export const firms = [
+  {
+    "Firm Name": "Apex Trader Funding",
+    "Account Sizes": "$25K-$300K",
+    "Challenge Fee": "$147-$657/mo (often 80-90% off)",
+    "Profit Target": "6% ($1.5K-$20K)",
+    "Max Daily Loss": "",
+    "Max Drawdown": "$1.5K-$7.5K trailing",
+    "Drawdown Type": "Trailing (EOD)",
+    "Profit Split": "100% first $25K, then 90/10",
+    "Payout Frequency": "2x/month (1st-5th, 15th-20th)",
+    "Min Trading Days": "7 days",
+    "Time Limit": "Unlimited",
+    "Consistency Rule": "30% max single day",
+    "Platforms": "Rithmic, Tradovate, TradingView, NinjaTrader",
+    "Activation Fee": "",
+    "Trustpilot": 4.8,
+    "Founded": 2021,
+    "HQ": "USA (Austin, TX)",
+    "Key Differentiator": "Most accounts (up to 20), best first payout bonus"
+  },
+  {
+    "Firm Name": "Topstep",
+    "Account Sizes": "$50K-$150K",
+    "Challenge Fee": "$49-$149/mo",
+    "Profit Target": "6% ($3K-$9K)",
+    "Max Daily Loss": "",
+    "Max Drawdown": "$2K-$4.5K trailing",
+    "Drawdown Type": "Trailing (EOD eval, Intraday live)",
+    "Profit Split": "100% first $10K, then 90/10",
+    "Payout Frequency": "Daily (after 30 winning days)",
+    "Min Trading Days": "2 days",
+    "Time Limit": "Unlimited",
+    "Consistency Rule": "50% max single day",
+    "Platforms": "TopstepX (proprietary), NinjaTrader, TradingView",
+    "Activation Fee": "$149",
+    "Trustpilot": 4.6,
+    "Founded": 2012,
+    "HQ": "USA (Chicago)",
+    "Key Differentiator": "Most established, best education/coaching"
+  },
+  {
+    "Firm Name": "MyFundedFutures",
+    "Account Sizes": "$50K-$150K",
+    "Challenge Fee": "$77-$247/mo",
+    "Profit Target": "6-8% ($3K-$12K)",
+    "Max Daily Loss": "Varies by plan",
+    "Max Drawdown": "$2.5K-$4.5K trailing",
+    "Drawdown Type": "Trailing (EOD)",
+    "Profit Split": "100% first $10K, then 90/10",
+    "Payout Frequency": "Every 5 winning days (Starter), 14 days (Expert)",
+    "Min Trading Days": "2 days",
+    "Time Limit": "Unlimited",
+    "Consistency Rule": "40-50% (eval only, removed in funded)",
+    "Platforms": "NinjaTrader, Tradovate, TradingView, Quantower",
+    "Activation Fee": "",
+    "Trustpilot": 4.9,
+    "Founded": 2023,
+    "HQ": "USA",
+    "Key Differentiator": "No activation fee, fastest payouts (32 min avg)"
+  },
+  {
+    "Firm Name": "TradeDay",
+    "Account Sizes": "$50K-$150K",
+    "Challenge Fee": "$99-$199/mo",
+    "Profit Target": "6% ($3K-$9K)",
+    "Max Daily Loss": "",
+    "Max Drawdown": "$2K-$3K trailing",
+    "Drawdown Type": "Trailing (EOD)",
+    "Profit Split": "80-95%",
+    "Payout Frequency": "Bi-weekly",
+    "Min Trading Days": "1 day",
+    "Time Limit": "Unlimited",
+    "Consistency Rule": "30%",
+    "Platforms": "TradeDayX, Tradovate, NinjaTrader, TradingView, Jigsaw",
+    "Activation Fee": "",
+    "Trustpilot": 4.7,
+    "Founded": 2023,
+    "HQ": "USA",
+    "Key Differentiator": "1-day minimum, path to live capital"
+  },
+  {
+    "Firm Name": "Bulenox",
+    "Account Sizes": "$10K-$250K",
+    "Challenge Fee": "$85-$535 one-time",
+    "Profit Target": "6%",
+    "Max Daily Loss": "",
+    "Max Drawdown": "4% trailing",
+    "Drawdown Type": "Trailing",
+    "Profit Split": "90%",
+    "Payout Frequency": "Bi-weekly",
+    "Min Trading Days": "5 days",
+    "Time Limit": "Unlimited",
+    "Consistency Rule": "40%",
+    "Platforms": "NinjaTrader, Tradovate, TradingView",
+    "Activation Fee": "",
+    "Trustpilot": 4.6,
+    "Founded": 2022,
+    "HQ": "USA",
+    "Key Differentiator": "One-time fee option, no monthly recurring"
+  },
+  {
+    "Firm Name": "Earn2Trade",
+    "Account Sizes": "$25K-$200K",
+    "Challenge Fee": "$150-$350/mo (often 50% off)",
+    "Profit Target": "6-8% ($3K-$12K)",
+    "Max Daily Loss": "$1.1K-$3.3K",
+    "Max Drawdown": "$2K-$4.5K trailing",
+    "Drawdown Type": "Trailing (EOD)",
+    "Profit Split": "80/20",
+    "Payout Frequency": "Weekly (Wednesdays)",
+    "Min Trading Days": "10 days",
+    "Time Limit": "Unlimited",
+    "Consistency Rule": "",
+    "Platforms": "NinjaTrader, Finamark, R|Trader Pro, Overcharts",
+    "Activation Fee": "$139 (deducted from first payout)",
+    "Trustpilot": 4.7,
+    "Founded": 2016,
+    "HQ": "USA (Wyoming)",
+    "Key Differentiator": "Best education, Trader Career Path scaling to $400K"
+  },
+  {
+    "Firm Name": "BluSky Trading",
+    "Account Sizes": "$25K-$300K",
+    "Challenge Fee": "$49-$199/mo",
+    "Profit Target": "6%",
+    "Max Daily Loss": "",
+    "Max Drawdown": "$1.5K-$4.5K",
+    "Drawdown Type": "Trailing or Static (choice)",
+    "Profit Split": "90/10 (scales higher)",
+    "Payout Frequency": "Daily",
+    "Min Trading Days": "4 days",
+    "Time Limit": "30 days",
+    "Consistency Rule": "30%",
+    "Platforms": "NinjaTrader, Tradovate (Rithmic data)",
+    "Activation Fee": "",
+    "Trustpilot": 4.7,
+    "Founded": 2023,
+    "HQ": "USA",
+    "Key Differentiator": "Daily payouts, same-day processing, free coaching"
+  },
+  {
+    "Firm Name": "Take Profit Trader",
+    "Account Sizes": "$25K-$150K",
+    "Challenge Fee": "$150-$360/mo",
+    "Profit Target": "6% ($1.5K-$9K)",
+    "Max Daily Loss": "None (removed Jan 2025)",
+    "Max Drawdown": "$1.5K-$9K trailing",
+    "Drawdown Type": "Trailing (EOD eval, Intraday PRO)",
+    "Profit Split": "80/20 (PRO), 90/10 (PRO+)",
+    "Payout Frequency": "Daily (no restrictions)",
+    "Min Trading Days": "5 days",
+    "Time Limit": "Unlimited",
+    "Consistency Rule": "50% (eval only)",
+    "Platforms": "NinjaTrader, Tradovate, TradingView, 15+ platforms",
+    "Activation Fee": "$130",
+    "Trustpilot": 4.4,
+    "Founded": 2021,
+    "HQ": "USA",
+    "Key Differentiator": "Day-one withdrawals, no payout windows"
+  },
+  {
+    "Firm Name": "Elite Trader Funding",
+    "Account Sizes": "$50K-$300K",
+    "Challenge Fee": "$75-$365",
+    "Profit Target": "6%",
+    "Max Daily Loss": "",
+    "Max Drawdown": "4% trailing",
+    "Drawdown Type": "Multiple options (EOD, Static, Trailing)",
+    "Profit Split": "100% first $12.5K, then 90/10",
+    "Payout Frequency": "Weekly (Live Elite), Wednesdays (Sim)",
+    "Min Trading Days": "1 day (Fast Track)",
+    "Time Limit": "Unlimited",
+    "Consistency Rule": "40%",
+    "Platforms": "NinjaTrader, Tradovate, TradingView, 31+ platforms",
+    "Activation Fee": "$150-$300 + $80/mo",
+    "Trustpilot": 4.1,
+    "Founded": 2022,
+    "HQ": "USA",
+    "Key Differentiator": "5 evaluation types, Diamond Hands (overnight allowed)"
+  },
+  {
+    "Firm Name": "Alpha Futures",
+    "Account Sizes": "$50K-$150K",
+    "Challenge Fee": "$79-$179/mo",
+    "Profit Target": "6-8%",
+    "Max Daily Loss": "",
+    "Max Drawdown": "3.5-4% trailing",
+    "Drawdown Type": "Trailing (EOD)",
+    "Profit Split": "90%",
+    "Payout Frequency": "Bi-weekly",
+    "Min Trading Days": "2 days",
+    "Time Limit": "Unlimited",
+    "Consistency Rule": "50%",
+    "Platforms": "NinjaTrader, Tradovate",
+    "Activation Fee": "",
+    "Trustpilot": 4.5,
+    "Founded": 2024,
+    "HQ": "USA",
+    "Key Differentiator": "Newest major player, competitive pricing"
+  },
+  {
+    "Firm Name": "Tradeify",
+    "Account Sizes": "$50K-$150K",
+    "Challenge Fee": "$65-$185/mo",
+    "Profit Target": "6%",
+    "Max Daily Loss": "",
+    "Max Drawdown": "$2K-$3.5K trailing",
+    "Drawdown Type": "Trailing (EOD)",
+    "Profit Split": "80-90%",
+    "Payout Frequency": "Bi-weekly",
+    "Min Trading Days": "3 days",
+    "Time Limit": "Unlimited",
+    "Consistency Rule": "30%",
+    "Platforms": "Tradovate, NinjaTrader, TradingView",
+    "Activation Fee": "",
+    "Trustpilot": 4.6,
+    "Founded": 2023,
+    "HQ": "USA",
+    "Key Differentiator": "Low monthly cost, straightforward rules"
+  },
+  {
+    "Firm Name": "Goat Funded Futures",
+    "Account Sizes": "$50K-$150K",
+    "Challenge Fee": "$97-$277 one-time",
+    "Profit Target": "None (instant funding)",
+    "Max Daily Loss": "3-4%",
+    "Max Drawdown": "6-8%",
+    "Drawdown Type": "Static",
+    "Profit Split": "80%",
+    "Payout Frequency": "Bi-weekly",
+    "Min Trading Days": "5 days",
+    "Time Limit": "",
+    "Consistency Rule": "",
+    "Platforms": "NinjaTrader, Tradovate",
+    "Activation Fee": "$150-$350",
+    "Trustpilot": 4.3,
+    "Founded": 2024,
+    "HQ": "USA",
+    "Key Differentiator": "No evaluation required - instant funding"
+  }
+];
+
+export const rankings = {
+  "best_for_beginners": [
+    {
+      "rank": "1",
+      "firm": "Topstep",
+      "why": "Best education, coaching, established reputation",
+      "cost": "$49/mo",
+      "rating": "4.6"
+    },
+    {
+      "rank": "2",
+      "firm": "MyFundedFutures",
+      "why": "Simple rules, no activation fee, high pass rate (25%)",
+      "cost": "$77/mo",
+      "rating": "4.9"
+    },
+    {
+      "rank": "3",
+      "firm": "Earn2Trade",
+      "why": "Structured career path, free resets on renewal",
+      "cost": "$150/mo",
+      "rating": "4.7"
+    },
+    {
+      "rank": "4",
+      "firm": "BluSky Trading",
+      "why": "Free coaching, active Discord community",
+      "cost": "$49/mo",
+      "rating": "4.7"
+    }
+  ],
+  "best_profit_split": [
+    {
+      "rank": "1",
+      "firm": "Apex Trader Funding",
+      "why": "100% of first $25K, then 90/10",
+      "cost": "$147/mo",
+      "rating": "4.8"
+    },
+    {
+      "rank": "2",
+      "firm": "Elite Trader Funding",
+      "why": "100% of first $12.5K, then 90/10",
+      "cost": "$75+",
+      "rating": "4.1"
+    },
+    {
+      "rank": "3",
+      "firm": "MyFundedFutures",
+      "why": "100% of first $10K, then 90/10",
+      "cost": "$77/mo",
+      "rating": "4.9"
+    },
+    {
+      "rank": "4",
+      "firm": "Topstep",
+      "why": "100% of first $10K, then 90/10",
+      "cost": "$49/mo",
+      "rating": "4.6"
+    }
+  ],
+  "fastest_to_funded": [
+    {
+      "rank": "1",
+      "firm": "Goat Funded Futures",
+      "why": "Instant funding - no evaluation",
+      "cost": "$97+ one-time",
+      "rating": "4.3"
+    },
+    {
+      "rank": "2",
+      "firm": "TradeDay",
+      "why": "1-day minimum trading days",
+      "cost": "$99/mo",
+      "rating": "4.7"
+    },
+    {
+      "rank": "3",
+      "firm": "Elite Trader Funding (Fast Track)",
+      "why": "1-day minimum",
+      "cost": "$75+",
+      "rating": "4.1"
+    },
+    {
+      "rank": "4",
+      "firm": "MyFundedFutures",
+      "why": "2-day minimum, can pass day 1",
+      "cost": "$77/mo",
+      "rating": "4.9"
+    }
+  ],
+  "lowest_cost": [
+    {
+      "rank": "1",
+      "firm": "Topstep",
+      "why": "$49/mo for $50K account",
+      "cost": "$49/mo",
+      "rating": "4.6"
+    },
+    {
+      "rank": "2",
+      "firm": "BluSky Trading",
+      "why": "$49/mo for $25K account",
+      "cost": "$49/mo",
+      "rating": "4.7"
+    },
+    {
+      "rank": "3",
+      "firm": "Tradeify",
+      "why": "$65/mo for $50K account",
+      "cost": "$65/mo",
+      "rating": "4.6"
+    },
+    {
+      "rank": "4",
+      "firm": "Elite Trader Funding",
+      "why": "$75 one-time (Fast Track)",
+      "cost": "$75",
+      "rating": "4.1"
+    }
+  ],
+  "fastest_payouts": [
+    {
+      "rank": "1",
+      "firm": "MyFundedFutures",
+      "why": "32-min average approval, same-day processing",
+      "cost": "$77/mo",
+      "rating": "4.9"
+    },
+    {
+      "rank": "2",
+      "firm": "BluSky Trading",
+      "why": "Same-day if requested before 11am EST",
+      "cost": "$49/mo",
+      "rating": "4.7"
+    },
+    {
+      "rank": "3",
+      "firm": "Take Profit Trader",
+      "why": "Daily payouts, 24-hour processing",
+      "cost": "$150/mo",
+      "rating": "4.4"
+    },
+    {
+      "rank": "4",
+      "firm": "Topstep",
+      "why": "Daily payouts after 30 winning days",
+      "cost": "$49/mo",
+      "rating": "4.6"
+    }
+  ],
+  "most_flexible_rules": [
+    {
+      "rank": "1",
+      "firm": "Elite Trader Funding (Diamond Hands)",
+      "why": "Overnight + weekend holding allowed",
+      "cost": "$165+",
+      "rating": "4.1"
+    },
+    {
+      "rank": "2",
+      "firm": "Apex Trader Funding",
+      "why": "No daily loss limit, news trading allowed",
+      "cost": "$147/mo",
+      "rating": "4.8"
+    },
+    {
+      "rank": "3",
+      "firm": "Take Profit Trader",
+      "why": "No daily loss limit (removed Jan 2025)",
+      "cost": "$150/mo",
+      "rating": "4.4"
+    },
+    {
+      "rank": "4",
+      "firm": "MyFundedFutures (Expert)",
+      "why": "No consistency rule in funded",
+      "cost": "$167/mo",
+      "rating": "4.9"
+    }
+  ]
+};
+
+export const rules = [
+  {
+    "Firm": "Apex Trader Funding",
+    "Eval Steps": "1-step",
+    "Drawdown Calc": "EOD trailing",
+    "News Trading": "Yes",
+    "Overnight/Weekend": "No (closes 5pm EST)",
+    "Bots/EAs": "Yes",
+    "Copy Trading": "Yes (to your own accounts)",
+    "Scaling Rule": "Half contracts until threshold",
+    "Contract Limits": "4-40 depending on account"
+  },
+  {
+    "Firm": "Topstep",
+    "Eval Steps": "1-step (Trading Combine)",
+    "Drawdown Calc": "EOD eval, Intraday live",
+    "News Trading": "Yes",
+    "Overnight/Weekend": "No",
+    "Bots/EAs": "Yes",
+    "Copy Trading": "No",
+    "Scaling Rule": "Scaling Plan by balance",
+    "Contract Limits": "5-15 depending on account"
+  },
+  {
+    "Firm": "MyFundedFutures",
+    "Eval Steps": "1-step",
+    "Drawdown Calc": "EOD trailing",
+    "News Trading": "Yes",
+    "Overnight/Weekend": "Expert plan only",
+    "Bots/EAs": "Yes",
+    "Copy Trading": "No",
+    "Scaling Rule": "Tiered by profit",
+    "Contract Limits": "3-12 depending on account"
+  },
+  {
+    "Firm": "TradeDay",
+    "Eval Steps": "1-step",
+    "Drawdown Calc": "EOD trailing",
+    "News Trading": "Yes",
+    "Overnight/Weekend": "No",
+    "Bots/EAs": "Yes",
+    "Copy Trading": "No",
+    "Scaling Rule": "Standard",
+    "Contract Limits": "3-15 depending on account"
+  },
+  {
+    "Firm": "Bulenox",
+    "Eval Steps": "1-step",
+    "Drawdown Calc": "Trailing",
+    "News Trading": "Yes",
+    "Overnight/Weekend": "No",
+    "Bots/EAs": "Yes",
+    "Copy Trading": "No",
+    "Scaling Rule": "By profit level",
+    "Contract Limits": "Varies"
+  },
+  {
+    "Firm": "Earn2Trade",
+    "Eval Steps": "1-step (TCP or Gauntlet)",
+    "Drawdown Calc": "EOD trailing",
+    "News Trading": "Yes (check hours)",
+    "Overnight/Weekend": "No (close by 3:50pm CT)",
+    "Bots/EAs": "Yes",
+    "Copy Trading": "No",
+    "Scaling Rule": "Career Path: $25K\u2192$400K",
+    "Contract Limits": "6-15 by account size"
+  },
+  {
+    "Firm": "BluSky Trading",
+    "Eval Steps": "1-step + BluLive buffer",
+    "Drawdown Calc": "EOD or Static (choice)",
+    "News Trading": "Yes",
+    "Overnight/Weekend": "No",
+    "Bots/EAs": "Yes",
+    "Copy Trading": "No",
+    "Scaling Rule": "By withdrawal milestones",
+    "Contract Limits": "3-20 depending on account"
+  },
+  {
+    "Firm": "Take Profit Trader",
+    "Eval Steps": "1-step (Test)",
+    "Drawdown Calc": "EOD eval, Intraday PRO",
+    "News Trading": "Yes",
+    "Overnight/Weekend": "No",
+    "Bots/EAs": "No",
+    "Copy Trading": "Yes",
+    "Scaling Rule": "",
+    "Contract Limits": "3-15 depending on account"
+  },
+  {
+    "Firm": "Elite Trader Funding",
+    "Eval Steps": "1-step (5 types)",
+    "Drawdown Calc": "Multiple options",
+    "News Trading": "Yes (not into releases)",
+    "Overnight/Weekend": "Diamond Hands only",
+    "Bots/EAs": "Yes",
+    "Copy Trading": "No",
+    "Scaling Rule": "",
+    "Contract Limits": "2-15 depending on account"
+  },
+  {
+    "Firm": "Alpha Futures",
+    "Eval Steps": "1-step",
+    "Drawdown Calc": "EOD trailing",
+    "News Trading": "Yes",
+    "Overnight/Weekend": "Varies",
+    "Bots/EAs": "Yes",
+    "Copy Trading": "No",
+    "Scaling Rule": "Tiered",
+    "Contract Limits": "Standard"
+  },
+  {
+    "Firm": "Tradeify",
+    "Eval Steps": "1-step",
+    "Drawdown Calc": "EOD trailing",
+    "News Trading": "Yes",
+    "Overnight/Weekend": "No",
+    "Bots/EAs": "Yes",
+    "Copy Trading": "No",
+    "Scaling Rule": "Standard",
+    "Contract Limits": "Standard"
+  },
+  {
+    "Firm": "Goat Funded Futures",
+    "Eval Steps": "None (instant)",
+    "Drawdown Calc": "Static",
+    "News Trading": "Yes",
+    "Overnight/Weekend": "Check rules",
+    "Bots/EAs": "Yes",
+    "Copy Trading": "No",
+    "Scaling Rule": "",
+    "Contract Limits": "Varies"
+  }
+];
+
+export const vsComparisons = [
+  {
+    "Comparison": "Comparison",
+    "Priority": "Priority",
+    "Angle": "Angle"
+  },
+  {
+    "Comparison": "Apex vs Topstep",
+    "Priority": "HIGH",
+    "Angle": "Two biggest names - mandatory page"
+  },
+  {
+    "Comparison": "Apex vs MyFundedFutures",
+    "Priority": "HIGH",
+    "Angle": "MFFU rising fast, direct competitor"
+  },
+  {
+    "Comparison": "Topstep vs MyFundedFutures",
+    "Priority": "HIGH",
+    "Angle": "Education vs speed comparison"
+  },
+  {
+    "Comparison": "Apex vs Earn2Trade",
+    "Priority": "MEDIUM",
+    "Angle": "Different models - subscription vs career path"
+  },
+  {
+    "Comparison": "Topstep vs Earn2Trade",
+    "Priority": "MEDIUM",
+    "Angle": "Both education-focused"
+  },
+  {
+    "Comparison": "MyFundedFutures vs Take Profit Trader",
+    "Priority": "MEDIUM",
+    "Angle": "Both emphasize fast payouts"
+  },
+  {
+    "Comparison": "Apex vs BluSky",
+    "Priority": "MEDIUM",
+    "Angle": "Established vs rising star"
+  },
+  {
+    "Comparison": "Topstep vs TradeDay",
+    "Priority": "MEDIUM",
+    "Angle": "Live capital comparison"
+  },
+  {
+    "Comparison": "Apex vs Elite Trader Funding",
+    "Priority": "MEDIUM",
+    "Angle": "Multiple accounts comparison"
+  },
+  {
+    "Comparison": "MyFundedFutures vs Bulenox",
+    "Priority": "LOW",
+    "Angle": "Monthly vs one-time fee"
+  }
+];
+
+export const affiliates = [
+  {
+    "Firm": "Apex Trader Funding",
+    "Has Affiliate": "Yes",
+    "Est. Commission": "$50-100+ per signup",
+    "Common Promo Codes": "80-90% off common",
+    "Promo Frequency": "Weekly+",
+    "Notes": "Most aggressive promotions in industry"
+  },
+  {
+    "Firm": "Topstep",
+    "Has Affiliate": "Yes",
+    "Est. Commission": "$50-100",
+    "Common Promo Codes": "20-50% off",
+    "Promo Frequency": "Monthly",
+    "Notes": "Established, consistent program"
+  },
+  {
+    "Firm": "MyFundedFutures",
+    "Has Affiliate": "Yes",
+    "Est. Commission": "$50-100",
+    "Common Promo Codes": "50% off common",
+    "Promo Frequency": "Frequent",
+    "Notes": "Growing program, good commissions"
+  },
+  {
+    "Firm": "TradeDay",
+    "Has Affiliate": "Yes",
+    "Est. Commission": "$30-80",
+    "Common Promo Codes": "40% off (NOFEE40)",
+    "Promo Frequency": "Monthly",
+    "Notes": "Newer but active"
+  },
+  {
+    "Firm": "Bulenox",
+    "Has Affiliate": "Yes",
+    "Est. Commission": "$30-80",
+    "Common Promo Codes": "Various",
+    "Promo Frequency": "Occasional",
+    "Notes": "Standard program"
+  },
+  {
+    "Firm": "Earn2Trade",
+    "Has Affiliate": "Yes",
+    "Est. Commission": "$30-80",
+    "Common Promo Codes": "50-60% off common",
+    "Promo Frequency": "Monthly",
+    "Notes": "Education-focused marketing"
+  },
+  {
+    "Firm": "BluSky Trading",
+    "Has Affiliate": "Yes",
+    "Est. Commission": "$30-80",
+    "Common Promo Codes": "30% off (TradingPlus)",
+    "Promo Frequency": "Monthly",
+    "Notes": "Growing community focus"
+  },
+  {
+    "Firm": "Take Profit Trader",
+    "Has Affiliate": "Yes",
+    "Est. Commission": "$30-80",
+    "Common Promo Codes": "40% off, no activation fee promos",
+    "Promo Frequency": "Monthly",
+    "Notes": "Standard program"
+  },
+  {
+    "Firm": "Elite Trader Funding",
+    "Has Affiliate": "Yes",
+    "Est. Commission": "$25-75",
+    "Common Promo Codes": "Various",
+    "Promo Frequency": "Weekly",
+    "Notes": "Multiple challenge types = more funnels"
+  },
+  {
+    "Firm": "Alpha Futures",
+    "Has Affiliate": "Yes",
+    "Est. Commission": "$25-75",
+    "Common Promo Codes": "40% off",
+    "Promo Frequency": "Monthly",
+    "Notes": "New firm, building program"
+  },
+  {
+    "Firm": "Tradeify",
+    "Has Affiliate": "Yes",
+    "Est. Commission": "$25-75",
+    "Common Promo Codes": "35% off",
+    "Promo Frequency": "Monthly",
+    "Notes": "Newer program"
+  },
+  {
+    "Firm": "Goat Funded Futures",
+    "Has Affiliate": "Yes",
+    "Est. Commission": "$25-50",
+    "Common Promo Codes": "Various",
+    "Promo Frequency": "Occasional",
+    "Notes": "Instant funding angle"
+  }
+];
+
+export const quickReference = [
+  {
+    "Trader Type": "Complete beginner",
+    "Best Fit": "Topstep or Earn2Trade",
+    "Why": "Best education, coaching, community support"
+  },
+  {
+    "Trader Type": "Budget-conscious",
+    "Best Fit": "Topstep ($49) or BluSky ($49)",
+    "Why": "Lowest monthly cost to start"
+  },
+  {
+    "Trader Type": "Want fastest funding",
+    "Best Fit": "Goat Funded Futures or TradeDay",
+    "Why": "Instant or 1-day minimum"
+  },
+  {
+    "Trader Type": "Want max first payout",
+    "Best Fit": "Apex Trader Funding",
+    "Why": "100% of first $25K - unmatched"
+  },
+  {
+    "Trader Type": "Want daily payouts",
+    "Best Fit": "BluSky or Take Profit Trader",
+    "Why": "Same-day or daily processing"
+  },
+  {
+    "Trader Type": "Want to hold overnight",
+    "Best Fit": "Elite Trader Funding (Diamond Hands)",
+    "Why": "Only firm allowing overnight+weekend"
+  },
+  {
+    "Trader Type": "Hate consistency rules",
+    "Best Fit": "Take Profit Trader (funded) or MFFU Expert",
+    "Why": "No consistency rule after eval"
+  },
+  {
+    "Trader Type": "Want multiple accounts",
+    "Best Fit": "Apex Trader Funding",
+    "Why": "Up to 20 accounts simultaneously"
+  },
+  {
+    "Trader Type": "Want path to real capital",
+    "Best Fit": "Topstep or TradeDay",
+    "Why": "Clear path to live funded accounts"
+  },
+  {
+    "Trader Type": "Scalper/aggressive style",
+    "Best Fit": "Elite Trader Funding Fast Track",
+    "Why": "1-day minimum, no time limit"
+  },
+  {
+    "Trader Type": "Risk-averse, steady style",
+    "Best Fit": "Earn2Trade TCP",
+    "Why": "EOD drawdown, structured progression"
+  },
+  {
+    "Trader Type": "One-time fee preference",
+    "Best Fit": "Bulenox or Goat Funded",
+    "Why": "No monthly recurring fees"
+  }
+];
+
+export const seoKeywords = [
+  {
+    "Keyword Pattern": "[Firm A] vs [Firm B]",
+    "Example Keywords": "Apex vs Topstep, MyFundedFutures vs Apex, Topstep vs Earn2Trade",
+    "Search Intent": "Comparison shopping",
+    "Content Type": "VS comparison page",
+    "Priority": "HIGH",
+    "Est. Monthly Searches": "1K-5K each"
+  },
+  {
+    "Keyword Pattern": "best [attribute] prop firm",
+    "Example Keywords": "best futures prop firm, best prop firm for beginners, cheapest prop firm",
+    "Search Intent": "Research",
+    "Content Type": "Ranked listicle",
+    "Priority": "HIGH",
+    "Est. Monthly Searches": "5K-20K"
+  },
+  {
+    "Keyword Pattern": "[Firm] review [year]",
+    "Example Keywords": "Apex Trader Funding review 2025, Topstep review 2025",
+    "Search Intent": "Validation",
+    "Content Type": "Detailed review page",
+    "Priority": "HIGH",
+    "Est. Monthly Searches": "2K-10K each"
+  },
+  {
+    "Keyword Pattern": "[Firm] discount/promo code",
+    "Example Keywords": "Apex discount code, MyFundedFutures promo code, Topstep coupon",
+    "Search Intent": "Purchase intent",
+    "Content Type": "Deals/coupon page",
+    "Priority": "HIGH",
+    "Est. Monthly Searches": "1K-5K each"
+  },
+  {
+    "Keyword Pattern": "[Firm] rules",
+    "Example Keywords": "Apex rules, Topstep consistency rule, MFFU drawdown rules",
+    "Search Intent": "Education",
+    "Content Type": "Rules explainer",
+    "Priority": "MEDIUM",
+    "Est. Monthly Searches": "500-2K each"
+  },
+  {
+    "Keyword Pattern": "[Firm] payout proof",
+    "Example Keywords": "Apex payout proof, Topstep payout, MyFundedFutures withdrawals",
+    "Search Intent": "Trust validation",
+    "Content Type": "Proof gallery",
+    "Priority": "MEDIUM",
+    "Est. Monthly Searches": "500-1K each"
+  },
+  {
+    "Keyword Pattern": "how to pass [Firm]",
+    "Example Keywords": "how to pass Apex evaluation, how to pass Topstep combine",
+    "Search Intent": "Education",
+    "Content Type": "Strategy guide",
+    "Priority": "MEDIUM",
+    "Est. Monthly Searches": "500-2K each"
+  },
+  {
+    "Keyword Pattern": "[Firm] vs [Firm] vs [Firm]",
+    "Example Keywords": "Apex vs Topstep vs MFFU",
+    "Search Intent": "Deep comparison",
+    "Content Type": "Multi-way comparison",
+    "Priority": "MEDIUM",
+    "Est. Monthly Searches": "500-1K"
+  },
+  {
+    "Keyword Pattern": "prop firm calculator",
+    "Example Keywords": "prop firm profit calculator, futures prop firm calculator",
+    "Search Intent": "Tool usage",
+    "Content Type": "Interactive calculator",
+    "Priority": "HIGH",
+    "Est. Monthly Searches": "2K-5K"
+  },
+  {
+    "Keyword Pattern": "which prop firm should I use",
+    "Example Keywords": "best prop firm for me, prop firm quiz",
+    "Search Intent": "Decision help",
+    "Content Type": "Quiz/recommendation tool",
+    "Priority": "HIGH",
+    "Est. Monthly Searches": "1K-3K"
+  },
+  {
+    "Keyword Pattern": "prop firm with [feature]",
+    "Example Keywords": "prop firm with no daily loss limit, prop firm instant funding, prop firm overnight trading",
+    "Search Intent": "Feature shopping",
+    "Content Type": "Feature-focused page",
+    "Priority": "MEDIUM",
+    "Est. Monthly Searches": "500-2K each"
+  },
+  {
+    "Keyword Pattern": "[Firm] failed/scam",
+    "Example Keywords": "Is Apex legit, Topstep scam, prop firm reviews",
+    "Search Intent": "Trust research",
+    "Content Type": "Legitimacy page",
+    "Priority": "MEDIUM",
+    "Est. Monthly Searches": "1K-3K"
+  },
+  {
+    "Keyword Pattern": "futures prop firm [location]",
+    "Example Keywords": "futures prop firm USA, prop firm for US traders",
+    "Search Intent": "Location-specific",
+    "Content Type": "Location page",
+    "Priority": "LOW",
+    "Est. Monthly Searches": "500-1K"
+  },
+  {
+    "Keyword Pattern": "prop firm news/updates",
+    "Example Keywords": "prop firm rule changes, Apex new rules 2025",
+    "Search Intent": "News",
+    "Content Type": "Blog/news section",
+    "Priority": "LOW",
+    "Est. Monthly Searches": "Varies"
+  }
+];
+
+export default { firms, rankings, rules, vsComparisons, affiliates, quickReference, seoKeywords };
