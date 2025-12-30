@@ -5,7 +5,7 @@ Option 2: Specific Pain Point
 > **Tired of Paying Reset Fees?**
 > This quiz matches you with a prop firm that fits your style — so you stop failing evaluations.
 Option 3: Curiosity + Outcome
-> **Which of These 12 Prop Firms Is Right for You?**
+> **Which of These 13 Prop Firms Is Right for You?**
 > Answer 10 questions. Get a personalized recommendation — not a paid ranking.
 **Option 4: Fear of Loss (clearer version)**
 > **Before You Buy Another Challenge...**

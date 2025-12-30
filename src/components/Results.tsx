@@ -15,7 +15,8 @@ import {
   Copy,
   Check,
   Mail,
-  Shield
+  Shield,
+  Bell
 } from 'lucide-react'
 import { useState, useEffect } from 'react'
 
@@ -155,6 +156,7 @@ interface ResultsProps {
   eliminated: FirmWithKey[]
   matchStrength: number
   answers: QuizAnswers
+  onEmailSubmit?: (email: string) => Promise<boolean>
 }
 
 // Count-up animation hook
@@ -185,8 +187,20 @@ function useCountUp(target: number, duration: number = 1500) {
   return count
 }
 
-export function Results({ recommended, eliminated, matchStrength, answers }: ResultsProps) {
+export function Results({ recommended, eliminated, matchStrength, answers, onEmailSubmit }: ResultsProps) {
   const animatedMatchStrength = useCountUp(matchStrength, 1200)
+  const [email, setEmail] = useState('')
+  const [emailStatus, setEmailStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const topFirmName = recommended[0]?.name || 'your top match'
+
+  const handleEmailSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!email || !onEmailSubmit) return
+    
+    setEmailStatus('loading')
+    const success = await onEmailSubmit(email)
+    setEmailStatus(success ? 'success' : 'error')
+  }
   
   return (
     <div className="min-h-screen bg-background py-12 px-4">
@@ -287,7 +301,7 @@ export function Results({ recommended, eliminated, matchStrength, answers }: Res
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle className="w-4 h-4 text-accent" />
-              <span>12 firms compared</span>
+              <span>13 firms compared</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle className="w-4 h-4 text-accent" />
@@ -296,36 +310,75 @@ export function Results({ recommended, eliminated, matchStrength, answers }: Res
           </div>
         </motion.div>
 
-        {/* Check Your Email */}
+        {/* Optional Email - Deal Alerts */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.65 }}
           className="mt-8 bg-accent/5 border border-accent/20 rounded-card p-6"
         >
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center">
-              <Mail className="w-5 h-5 text-accent" />
+          {emailStatus === 'success' ? (
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center">
+                <Check className="w-5 h-5 text-accent" />
+              </div>
+              <div>
+                <h3 className="text-subtitle text-text-primary">You're subscribed</h3>
+                <p className="text-small text-text-muted">Watch your inbox for {topFirmName} deals</p>
+              </div>
             </div>
-            <div>
-              <h3 className="text-subtitle text-text-primary">Check Your Email</h3>
-              <p className="text-small text-text-muted">We just sent you the good stuff</p>
-            </div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-body text-text-secondary">
-            <div className="flex items-center gap-2">
-              <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
-              <span>Detailed breakdown of your matches</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
-              <span>Week 1 strategy guide</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
-              <span>Promo code alerts when they drop</span>
-            </div>
-          </div>
+          ) : (
+            <>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center">
+                  <Bell className="w-5 h-5 text-accent" />
+                </div>
+                <div>
+                  <h3 className="text-subtitle text-text-primary">Get notified when {topFirmName} runs a promo</h3>
+                  <p className="text-small text-text-muted">I track deals so you don't have to</p>
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-body text-text-secondary mb-4">
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
+                  <span>Promo alerts for {topFirmName.split(' ')[0]}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
+                  <span>I'll email if their rules change</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
+                  <span>Weekly deals from all 12 firms</span>
+                </div>
+              </div>
+
+              <form onSubmit={handleEmailSubmit} className="flex gap-3">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Your email"
+                  className="flex-1 px-4 py-3 bg-background border border-border rounded-lg text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent"
+                  required
+                />
+                <Button 
+                  type="submit" 
+                  variant="primary"
+                  disabled={emailStatus === 'loading'}
+                >
+                  {emailStatus === 'loading' ? 'Subscribing...' : 'Get Alerts'}
+                </Button>
+              </form>
+              
+              {emailStatus === 'error' && (
+                <p className="text-small text-status-error mt-2">Something went wrong. Try again?</p>
+              )}
+              
+              <p className="text-micro text-text-muted mt-3">No spam. Unsubscribe anytime.</p>
+            </>
+          )}
         </motion.div>
 
         {/* Footer CTA */}

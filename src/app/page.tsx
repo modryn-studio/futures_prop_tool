@@ -8,11 +8,14 @@ import {
   CheckCircle,
   Star,
   TrendingUp,
-  Zap
+  Zap,
+  FileText,
+  Target,
+  Rocket
 } from 'lucide-react'
 
 const trustPoints = [
-  '12 futures prop firms compared',
+  '13 futures prop firms',
   'Updated December 2025',
   '11 questions, real recommendation',
 ]
@@ -29,7 +32,7 @@ const firmLogosRow1 = [
 ]
 
 const firmLogosRow2 = [
-  'BluSky Trading', 'Take Profit Trader', 'Elite Trader Funding', 'Alpha Futures', 'Tradeify', 'Goat Funded Futures'
+  'BluSky Trading', 'Take Profit Trader', 'Elite Trader Funding', 'Alpha Futures', 'Tradeify', 'Goat Funded Futures', 'Lucid Trading'
 ]
 
 export default function Home() {
@@ -67,8 +70,7 @@ export default function Home() {
             {/* CTA */}
             <Link href="/quiz">
               <Button variant="primary" size="lg" className="shadow-glow group">
-                Take the Quiz
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                See Which Firm Fits You →
               </Button>
             </Link>
 
@@ -96,6 +98,84 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* 3-Step Process */}
+      <section className="py-16 bg-background border-y border-border">
+        <div className="max-w-5xl mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          >
+            {/* Step 1 */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.4 }}
+              className="relative bg-background-card border border-border rounded-card p-6 hover:border-accent transition-all duration-300 group"
+            >
+              <div className="flex items-start gap-4">
+                <div className="relative flex-shrink-0">
+                  <div className="absolute inset-0 bg-accent/20 blur-xl rounded-full group-hover:bg-accent/30 transition-all duration-300" />
+                  <div className="relative w-12 h-12 rounded-full bg-accent-muted border border-accent flex items-center justify-center">
+                    <FileText className="w-6 h-6 text-accent" />
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <div className="font-mono text-micro text-accent mb-2">STEP 01</div>
+                  <div className="text-text-primary font-medium mb-1">Answer 11 questions</div>
+                  <div className="text-small text-text-muted">Trading style, budget, dealbreakers</div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Step 2 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              className="relative bg-background-card border border-border rounded-card p-6 hover:border-accent transition-all duration-300 group"
+            >
+              <div className="flex items-start gap-4">
+                <div className="relative flex-shrink-0">
+                  <div className="absolute inset-0 bg-accent/20 blur-xl rounded-full group-hover:bg-accent/30 transition-all duration-300" />
+                  <div className="relative w-12 h-12 rounded-full bg-accent-muted border border-accent flex items-center justify-center">
+                    <Target className="w-6 h-6 text-accent" />
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <div className="font-mono text-micro text-accent mb-2">STEP 02</div>
+                  <div className="text-text-primary font-medium mb-1">Get your match</div>
+                  <div className="text-small text-text-muted">Personalized firm recommendations</div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Step 3 */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.6 }}
+              className="relative bg-background-card border border-border rounded-card p-6 hover:border-accent transition-all duration-300 group"
+            >
+              <div className="flex items-start gap-4">
+                <div className="relative flex-shrink-0">
+                  <div className="absolute inset-0 bg-accent/20 blur-xl rounded-full group-hover:bg-accent/30 transition-all duration-300" />
+                  <div className="relative w-12 h-12 rounded-full bg-accent-muted border border-accent flex items-center justify-center">
+                    <Rocket className="w-6 h-6 text-accent" />
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <div className="font-mono text-micro text-accent mb-2">STEP 03</div>
+                  <div className="text-text-primary font-medium mb-1">Start funded</div>
+                  <div className="text-small text-text-muted">Apply with confidence</div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
@@ -169,7 +249,7 @@ export default function Home() {
               We analyze every major futures prop firm
             </h2>
             <p className="text-body text-text-secondary">
-              12 firms compared across rules, fees, payouts, and platforms
+              13 firms compared across rules, fees, payouts, and platforms
             </p>
           </motion.div>
 
@@ -277,8 +357,7 @@ export default function Home() {
 
             <Link href="/quiz">
               <Button variant="primary" size="lg" className="shadow-glow animate-pulse-glow">
-                Start the Quiz Now
-                <ArrowRight className="w-5 h-5 ml-2" />
+                See Which Firm Fits You →
               </Button>
             </Link>
           </motion.div>

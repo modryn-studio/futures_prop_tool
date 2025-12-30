@@ -6,7 +6,7 @@
 - CTA: "Find Your Firm →" (links to quiz)
 
 **Main content:**
-- Sortable/filterable comparison table (12 firms)
+- Sortable/filterable comparison table (13 firms)
 - Filter by: Account size, Monthly cost, Profit split, Payout speed
 - Quick badges: "Best for beginners" "Fastest payouts" "Lowest cost"
 

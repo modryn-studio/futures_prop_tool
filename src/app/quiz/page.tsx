@@ -2,11 +2,10 @@
 
 import { useState } from 'react'
 import { Quiz } from '@/components/Quiz'
-import { EmailCapture } from '@/components/EmailCapture'
 import { Results } from '@/components/Results'
 import { scoreQuiz, QuizAnswers, QuizResults } from '@/lib/scoring'
 
-type QuizStep = 'quiz' | 'email' | 'results'
+type QuizStep = 'quiz' | 'results'
 
 export default function QuizPage() {
   const [step, setStep] = useState<QuizStep>('quiz')
@@ -21,14 +20,13 @@ export default function QuizPage() {
     const quizResults = scoreQuiz(quizAnswers)
     setResults(quizResults)
     
-    // Move to email capture
-    setStep('email')
+    // Show results immediately (no email gate)
+    setStep('results')
   }
 
-  const handleEmailSubmit = async (email: string) => {
+  // Optional email submission (called from Results page)
+  const handleOptionalEmailSubmit = async (email: string) => {
     if (!answers || !results) return
-
-    setLoading(true)
 
     try {
       // Get UTM params from URL if present
@@ -48,23 +46,18 @@ export default function QuizPage() {
           answers,
           recommendedFirms: results.recommended.map((f) => f.name),
           utmParams,
+          submissionType: 'post-results', // Track that this was optional
         }),
       })
+      return true
     } catch (error) {
       console.error('Failed to submit:', error)
-      // Still show results even if submission failed
+      return false
     }
-
-    setLoading(false)
-    setStep('results')
   }
 
   if (step === 'quiz') {
     return <Quiz onComplete={handleQuizComplete} />
-  }
-
-  if (step === 'email') {
-    return <EmailCapture onSubmit={handleEmailSubmit} loading={loading} />
   }
 
   if (step === 'results' && results && answers) {
@@ -74,6 +67,7 @@ export default function QuizPage() {
         eliminated={results.eliminated}
         matchStrength={results.matchStrength}
         answers={answers}
+        onEmailSubmit={handleOptionalEmailSubmit}
       />
     )
   }

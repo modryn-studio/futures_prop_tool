@@ -44,7 +44,7 @@ The developer (Luke) operates at 5-10x typical speed:
 
 ### Key Files Reference
 - `scoring.js` — Complete quiz scoring logic (port to TypeScript)
-- `futures_prop_firms.json` — Full firm data (12 firms)
+- `futures_prop_firms.json` — Full firm data (13 firms)
 - `propFirmData.ts` — TypeScript firm data export
 - `futures_prop_firm_funnel.md` — All copy (landing, quiz, emails)
 - `roadmap.md` — Project phases and success criteria
@@ -180,7 +180,7 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=
 NEXT_PUBLIC_APEX_AFFILIATE_ID=PENDING
 NEXT_PUBLIC_TOPSTEP_AFFILIATE_ID=PENDING
 NEXT_PUBLIC_MFFU_AFFILIATE_ID=PENDING
-# ... etc for all 12 firms
+# ... etc for all 13 firms
 
 # Analytics
 NEXT_PUBLIC_GA_ID=

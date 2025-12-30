@@ -54,7 +54,7 @@ export interface QuizResults {
   firmsEliminated: number
 }
 
-type FirmKey = 'apex' | 'topstep' | 'mffu' | 'tradeday' | 'blusky' | 'tpt' | 'earn2trade' | 'elite' | 'bulenox' | 'alpha' | 'tradeify' | 'goat'
+type FirmKey = 'apex' | 'topstep' | 'mffu' | 'tradeday' | 'blusky' | 'tpt' | 'earn2trade' | 'elite' | 'bulenox' | 'alpha' | 'tradeify' | 'goat' | 'lucid'
 type FirmData = Record<FirmKey, Firm>
 
 // ============================================
@@ -74,6 +74,7 @@ const AFFILIATE_IDS: Record<FirmKey, string> = {
   alpha: process.env.NEXT_PUBLIC_ALPHA_AFFILIATE_ID || 'PENDING',
   tradeify: process.env.NEXT_PUBLIC_TRADEIFY_AFFILIATE_ID || 'PENDING',
   goat: process.env.NEXT_PUBLIC_GOAT_AFFILIATE_ID || 'PENDING',
+  lucid: process.env.NEXT_PUBLIC_LUCID_AFFILIATE_ID || 'PENDING',
 }
 
 // ============================================
@@ -252,6 +253,24 @@ export const createFirmData = (): FirmData => ({
     keyStrength: 'Instant funding - no evaluation required',
     affiliateLink: `https://goatfundedfutures.com/?ref=${AFFILIATE_IDS.goat}`,
   },
+  lucid: {
+    name: 'Lucid Trading',
+    score: 0,
+    eliminated: false,
+    eliminationReason: '',
+    promoCode: 'LUCID50',
+    promoDiscount: '50% off',
+    monthlyFee: '$60-$221 one-time',
+    profitSplit: '90/10',
+    trustpilot: 4.8,
+    activationFee: 'None',
+    consistencyRule: '40% (eval only) - None in LucidFlex funded',
+    platforms: 'Rithmic, Tradovate, NinjaTrader, Quantower',
+    drawdownType: 'Trailing (EOD)',
+    founded: 2025,
+    keyStrength: '~15 min payouts, one-time fee, no activation fee',
+    affiliateLink: `https://lucidtrading.com/?ref=${AFFILIATE_IDS.lucid}`,
+  },
 })
 
 // ============================================
@@ -268,6 +287,7 @@ export function scoreQuiz(answers: QuizAnswers): QuizResults {
       firms.earn2trade.score += 4
       firms.mffu.score += 2
       firms.blusky.score += 2
+      firms.lucid.score += 2
       firms.elite.score -= 1
       firms.goat.score -= 2
       break
@@ -277,6 +297,7 @@ export function scoreQuiz(answers: QuizAnswers): QuizResults {
       firms.tradeday.score += 2
       firms.apex.score += 2
       firms.blusky.score += 2
+      firms.lucid.score += 3
       break
     case '1_to_3yr':
       firms.apex.score += 3
@@ -284,6 +305,7 @@ export function scoreQuiz(answers: QuizAnswers): QuizResults {
       firms.tpt.score += 3
       firms.tradeday.score += 2
       firms.elite.score += 2
+      firms.lucid.score += 2
       break
     case '3yr_plus':
       firms.apex.score += 4
@@ -291,6 +313,7 @@ export function scoreQuiz(answers: QuizAnswers): QuizResults {
       firms.tpt.score += 3
       firms.goat.score += 2
       firms.bulenox.score += 2
+      firms.lucid.score += 2
       break
   }
 
@@ -301,23 +324,27 @@ export function scoreQuiz(answers: QuizAnswers): QuizResults {
       firms.earn2trade.score += 3
       firms.mffu.score += 2
       firms.blusky.score += 2
+      firms.lucid.score += 2
       break
     case 'attempted_not_passed':
       firms.mffu.score += 3
       firms.tpt.score += 2
       firms.tradeday.score += 2
       firms.goat.score += 2
+      firms.lucid.score += 3
       break
     case 'passed_didnt_work':
       firms.mffu.score += 2
       firms.apex.score += 2
       firms.tpt.score += 2
       firms.blusky.score += 2
+      firms.lucid.score += 2
       break
     case 'currently_funded':
       firms.apex.score += 4
       firms.elite.score += 2
       firms.mffu.score += 2
+      firms.lucid.score += 2
       break
   }
 
@@ -327,6 +354,7 @@ export function scoreQuiz(answers: QuizAnswers): QuizResults {
       firms.topstep.score += 4
       firms.blusky.score += 4
       firms.tradeify.score += 3
+      firms.lucid.score += 4
       firms.elite.score += 2
       firms.apex.score -= 2
       firms.tpt.score -= 2
@@ -338,6 +366,7 @@ export function scoreQuiz(answers: QuizAnswers): QuizResults {
       firms.tradeday.score += 3
       firms.alpha.score += 2
       firms.tradeify.score += 2
+      firms.lucid.score += 3
       break
     case '200_to_400':
       firms.apex.score += 3
@@ -345,6 +374,7 @@ export function scoreQuiz(answers: QuizAnswers): QuizResults {
       firms.tpt.score += 3
       firms.mffu.score += 2
       firms.elite.score += 2
+      firms.lucid.score += 2
       break
     case '400_plus':
       firms.apex.score += 3
@@ -362,10 +392,12 @@ export function scoreQuiz(answers: QuizAnswers): QuizResults {
       firms.apex.score += 1
       firms.bulenox.score -= 1
       firms.goat.score -= 1
+      firms.lucid.score -= 1
       break
     case 'one_time':
       firms.bulenox.score += 5
       firms.goat.score += 5
+      firms.lucid.score += 5
       firms.topstep.score -= 1
       firms.mffu.score -= 1
       break
@@ -380,6 +412,7 @@ export function scoreQuiz(answers: QuizAnswers): QuizResults {
       firms.mffu.score += 2
       firms.blusky.score += 2
       firms.earn2trade.score += 2
+      firms.lucid.score += 3
       break
     case '50k_to_100k':
       firms.apex.score += 2
@@ -387,6 +420,7 @@ export function scoreQuiz(answers: QuizAnswers): QuizResults {
       firms.topstep.score += 2
       firms.tradeday.score += 2
       firms.tpt.score += 2
+      firms.lucid.score += 2
       break
     case '100k_to_150k':
       firms.apex.score += 3
@@ -394,6 +428,7 @@ export function scoreQuiz(answers: QuizAnswers): QuizResults {
       firms.topstep.score += 2
       firms.elite.score += 2
       firms.tpt.score += 2
+      firms.lucid.score += 2
       break
     case '150k_plus':
       firms.apex.score += 4
@@ -401,6 +436,7 @@ export function scoreQuiz(answers: QuizAnswers): QuizResults {
       firms.bulenox.score += 3
       firms.earn2trade.score += 3
       firms.tpt.score -= 1
+      firms.lucid.score -= 1
       break
   }
 
@@ -411,6 +447,7 @@ export function scoreQuiz(answers: QuizAnswers): QuizResults {
       firms.tpt.score += 3
       firms.mffu.score += 2
       firms.tradeday.score += 2
+      firms.lucid.score += 2
       break
     case 'day_trading':
       firms.apex.score += 2
@@ -419,6 +456,7 @@ export function scoreQuiz(answers: QuizAnswers): QuizResults {
       firms.tpt.score += 2
       firms.tradeday.score += 2
       firms.blusky.score += 2
+      firms.lucid.score += 2
       break
     case 'swing_trading':
       firms.elite.score += 5
@@ -433,6 +471,7 @@ export function scoreQuiz(answers: QuizAnswers): QuizResults {
       firms.mffu.score += 2
       firms.tpt.score += 2
       firms.elite.score += 2
+      firms.lucid.score += 2
       break
   }
 
@@ -443,6 +482,7 @@ export function scoreQuiz(answers: QuizAnswers): QuizResults {
       firms.earn2trade.score += 4
       firms.blusky.score += 3
       firms.topstep.score += 2
+      firms.lucid.score += 3
       firms.tpt.score -= 2
       break
     case 'consistency_rules':
@@ -451,6 +491,7 @@ export function scoreQuiz(answers: QuizAnswers): QuizResults {
       firms.elite.score += 3
       firms.earn2trade.score += 2
       firms.bulenox.score += 2
+      firms.lucid.score += 3
       firms.apex.score -= 3
       firms.topstep.score -= 3
       firms.blusky.score -= 2
@@ -470,12 +511,14 @@ export function scoreQuiz(answers: QuizAnswers): QuizResults {
       firms.mffu.score += 2
       firms.apex.score += 2
       firms.earn2trade.score += 2
+      firms.lucid.score += 2
       firms.goat.score += 1
       break
     case 'payout_restrictions':
       firms.mffu.score += 4
       firms.blusky.score += 4
       firms.tpt.score += 4
+      firms.lucid.score += 5
       firms.earn2trade.score -= 2
       firms.elite.score -= 2
       break
@@ -490,12 +533,14 @@ export function scoreQuiz(answers: QuizAnswers): QuizResults {
       firms.earn2trade.score += 2
       firms.tradeday.score += 2
       firms.mffu.score += 2
+      firms.lucid.score += 2
       break
     case 'moderate':
       firms.mffu.score += 3
       firms.earn2trade.score += 3
       firms.topstep.score += 2
       firms.apex.score += 2
+      firms.lucid.score += 2
       firms.tpt.score -= 1
       break
     case 'aggressive':
@@ -509,6 +554,7 @@ export function scoreQuiz(answers: QuizAnswers): QuizResults {
       firms.apex.score += 2
       firms.mffu.score += 2
       firms.blusky.score += 2
+      firms.lucid.score += 2
       break
   }
 
@@ -518,6 +564,7 @@ export function scoreQuiz(answers: QuizAnswers): QuizResults {
       firms.mffu.score += 4
       firms.blusky.score += 4
       firms.tpt.score += 4
+      firms.lucid.score += 5
       firms.topstep.score += 2
       firms.earn2trade.score -= 2
       firms.elite.score -= 1
@@ -527,6 +574,7 @@ export function scoreQuiz(answers: QuizAnswers): QuizResults {
       firms.mffu.score += 2
       firms.blusky.score += 2
       firms.tradeday.score += 2
+      firms.lucid.score += 3
       break
     case 'flexible':
     case 'other_factors':
@@ -540,12 +588,14 @@ export function scoreQuiz(answers: QuizAnswers): QuizResults {
       firms.tpt.score += 3
       firms.bulenox.score += 2
       firms.goat.score += 2
+      firms.lucid.score += 2
       break
     case 'minimal':
       firms.mffu.score += 2
       firms.apex.score += 2
       firms.blusky.score += 2
       firms.tradeday.score += 2
+      firms.lucid.score += 2
       break
     case 'moderate':
       firms.topstep.score += 4
@@ -559,6 +609,7 @@ export function scoreQuiz(answers: QuizAnswers): QuizResults {
       firms.apex.score -= 1
       firms.tpt.score -= 1
       firms.bulenox.score -= 1
+      firms.lucid.score -= 1
       break
   }
 
@@ -568,6 +619,7 @@ export function scoreQuiz(answers: QuizAnswers): QuizResults {
   if (dealbreakers.includes('monthly_fees')) {
     firms.bulenox.score += 4
     firms.goat.score += 4
+    firms.lucid.score += 4
     const monthlyFirms: FirmKey[] = ['topstep', 'mffu', 'apex', 'tradeday', 'tpt', 'earn2trade', 'blusky', 'alpha', 'tradeify']
     monthlyFirms.forEach((key) => {
       firms[key].eliminated = true
@@ -591,6 +643,7 @@ export function scoreQuiz(answers: QuizAnswers): QuizResults {
     firms.tpt.score += 3
     firms.mffu.score += 2
     firms.earn2trade.score += 2
+    firms.lucid.score += 3
   }
 
   if (dealbreakers.includes('overnight_restrictions')) {
@@ -610,6 +663,7 @@ export function scoreQuiz(answers: QuizAnswers): QuizResults {
     firms.earn2trade.score += 3
     firms.topstep.score += 2
     firms.blusky.score += 2
+    firms.lucid.score += 3
   }
 
   if (dealbreakers.includes('activation_fees')) {
@@ -622,6 +676,7 @@ export function scoreQuiz(answers: QuizAnswers): QuizResults {
     firms.blusky.score += 3
     firms.apex.score += 2
     firms.tradeday.score += 2
+    firms.lucid.score += 4
   }
 
   if (dealbreakers.includes('limited_platforms')) {
@@ -630,6 +685,7 @@ export function scoreQuiz(answers: QuizAnswers): QuizResults {
     firms.tpt.score += 2
     firms.apex.score += 1
     firms.mffu.score += 1
+    firms.lucid.score += 1
   }
 
   // Calculate final results
@@ -656,7 +712,7 @@ export function scoreQuiz(answers: QuizAnswers): QuizResults {
     eliminated: eliminatedFirms,
     allFirms: validFirms,
     matchStrength,
-    totalFirmsEvaluated: 12,
+    totalFirmsEvaluated: 13,
     firmsEliminated: eliminatedFirms.length,
   }
 }
@@ -668,7 +724,7 @@ export function scoreQuiz(answers: QuizAnswers): QuizResults {
 export function generateMatchReason(firmKey: string, answers: QuizAnswers): string[] {
   const reasons: string[] = []
 
-  if (answers.q3_budget === 'under_100' && ['topstep', 'blusky', 'tradeify'].includes(firmKey)) {
+  if (answers.q3_budget === 'under_100' && ['topstep', 'blusky', 'tradeify', 'lucid'].includes(firmKey)) {
     reasons.push('Fits your budget at under $100/month')
   }
 
@@ -678,6 +734,7 @@ export function generateMatchReason(firmKey: string, answers: QuizAnswers): stri
 
   if (answers.q8_payout_priority === 'critical') {
     if (firmKey === 'mffu') reasons.push('Fastest payouts in the industry (32-min average)')
+    if (firmKey === 'lucid') reasons.push('Ultra-fast payouts (~15 min average)')
     if (firmKey === 'blusky') reasons.push('Same-day payout processing')
     if (firmKey === 'tpt') reasons.push('Day-one withdrawal capability')
   }
@@ -685,10 +742,11 @@ export function generateMatchReason(firmKey: string, answers: QuizAnswers): stri
   if (answers.q6_concern === 'consistency_rules') {
     if (firmKey === 'tpt') reasons.push('No consistency rule in funded account')
     if (firmKey === 'mffu') reasons.push('Consistency rule removed after evaluation')
+    if (firmKey === 'lucid') reasons.push('LucidFlex removes consistency rule in funded account')
   }
 
   if (answers.q6_concern === 'drawdown_limits') {
-    if (['mffu', 'earn2trade', 'topstep'].includes(firmKey)) {
+    if (['mffu', 'earn2trade', 'topstep', 'lucid'].includes(firmKey)) {
       reasons.push('End-of-day drawdown calculation gives you room to recover')
     }
   }
@@ -723,6 +781,7 @@ export function generateWarning(firmKey: string): string {
     tradeday: '30% consistency rule',
     alpha: '50% consistency rule, newer firm with less track record',
     tradeify: '30% consistency rule',
+    lucid: '40% consistency rule during evaluation, founded 2025 (new firm)',
   }
 
   return warnings[firmKey] || 'Review all rules carefully before starting'

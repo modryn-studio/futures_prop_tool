@@ -239,6 +239,26 @@
       "Founded": 2024,
       "HQ": "USA",
       "Key Differentiator": "No evaluation required - instant funding"
+    },
+    {
+      "Firm Name": "Lucid Trading",
+      "Account Sizes": "$25K-$150K",
+      "Challenge Fee": "$60-$221 one-time (often 40-50% off)",
+      "Profit Target": "6% ($1.5K-$6K)",
+      "Max Daily Loss": "$1.2K-$2.7K (soft breach, none on 25K)",
+      "Max Drawdown": "$1K-$4.5K EOD trailing",
+      "Drawdown Type": "Trailing (EOD)",
+      "Profit Split": "90/10",
+      "Payout Frequency": "Daily (5 profitable days per cycle)",
+      "Min Trading Days": "1 day to pass",
+      "Time Limit": "Unlimited",
+      "Consistency Rule": "40% (eval), none on LucidFlex funded",
+      "Platforms": "Rithmic, Tradovate, NinjaTrader, Quantower",
+      "Activation Fee": "None",
+      "Trustpilot": 4.8,
+      "Founded": 2025,
+      "HQ": "USA",
+      "Key Differentiator": "~15 min payouts, one-time fee, no activation fee, LucidFlex has no DLL/consistency in funded"
     }
   ],
   "rankings": {

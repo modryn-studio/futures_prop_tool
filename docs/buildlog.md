@@ -11,7 +11,7 @@
 - [x] Purchased domain: futuresproptool.com (via Vercel)
 - [x] Signed up for Kit (ConvertKit) - free tier
 - [x] Created comprehensive funnel document (`futures_prop_firm_funnel.md`)
-- [x] Built scoring algorithm (`scoring.js`) - 11 questions, 12 firms
+- [x] Built scoring algorithm (`scoring.js`) - 11 questions, 13 firms
 - [x] Defined tech stack: Next.js + Tailwind + Vercel + Kit + Supabase
 - [x] Created landing page headline options
 - [x] Created roadmap and build log
@@ -34,7 +34,7 @@
 - `.github/copilot-instructions.md` — AI coding guidelines
 
 ### Data Files (Pre-existing)
-- `futures_prop_firms.json` — 12 firms with full data
+- `futures_prop_firms.json` — 13 firms with full data
 - `propFirmData.ts` — TypeScript export of firm data
 - `futures_prop_firm_database.xlsx` — Source spreadsheet
 
@@ -160,6 +160,46 @@
 
 ---
 
+## December 30, 2025 — Day 1: Added Lucid Trading (13th Firm)
+
+### Completed
+- [x] Updated `futures_prop_firms.json` to include Lucid Trading
+- [x] Added Lucid to scoring system (src/lib/scoring.ts)
+  - Added 'lucid' to FirmKey type union
+  - Added NEXT_PUBLIC_LUCID_AFFILIATE_ID to affiliate IDs
+  - Added complete firm data (4.8 Trustpilot, one-time $60-221 fee, ~15 min payouts)
+  - Implemented scoring logic for all 11 quiz questions
+  - Added to generateMatchReasons and generateWarning functions
+  - Updated totalFirmsEvaluated from 12 to 13
+- [x] Updated UI components
+  - Updated page.tsx trust points (12→13 firms)
+  - Added Lucid Trading to firm logos marquee
+  - Updated Results.tsx (12→13 firms compared)
+- [x] Updated documentation
+  - copilot-instructions.md (13 firms)
+  - buildlog.md (13 firms)
+  - landing_page_headline_options.md (13 firms)
+  - page_templates.md (13 firms)
+  - ui_design_system.md (13 firms)
+
+### Lucid Trading Key Attributes
+- **Strengths:** One-time fee ($60-221), ~15 min payouts (fastest!), no activation fee, 4.8 Trustpilot, LucidFlex removes consistency rule in funded
+- **Scoring:** Strong for budget-conscious, fast payout seekers, consistency rule avoiders, one-time payment preference
+- **Founded:** 2025 (brand new firm)
+
+### Files Modified
+- `src/lib/scoring.ts` — 50+ scoring additions
+- `src/app/page.tsx` — Firm count + logo
+- `src/components/Results.tsx` — Firm count
+- All documentation files listed above
+
+### Next Session
+- [ ] Test quiz with Lucid scenarios
+- [ ] Verify Lucid affiliate program status
+- [ ] Consider adding Lucid to "fastest payouts" marketing copy
+
+---
+
 ## Template for Future Entries
 
 ```markdown
@@ -195,3 +235,4 @@
 | 2025-12-29 | Fixed maxPossibleScore 30→40 | scoring.js |
 | 2025-12-29 | Complete MVP implementation | 44 files created |
 | 2025-12-29 | Pushed to GitHub | Initial commit |
+| 2025-12-30 | Added Lucid Trading (13th firm) | scoring.ts, page.tsx, Results.tsx, all docs |
