@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { Button } from '@/components/ui'
+import { Button, Marquee } from '@/components/ui'
 import { 
   ArrowRight, 
   CheckCircle,
@@ -24,9 +24,12 @@ const painPoints = [
   'Limited platform options for your trading setup',
 ]
 
-const firmLogos = [
-  'Apex', 'Topstep', 'MyFundedFutures', 'TradeDay', 
-  'BluSky', 'Take Profit Trader', 'Earn2Trade', 'Elite'
+const firmLogosRow1 = [
+  'Apex Trader Funding', 'Topstep', 'MyFundedFutures', 'TradeDay', 'Bulenox', 'Earn2Trade'
+]
+
+const firmLogosRow2 = [
+  'BluSky Trading', 'Take Profit Trader', 'Elite Trader Funding', 'Alpha Futures', 'Tradeify', 'Goat Funded Futures'
 ]
 
 export default function Home() {
@@ -155,7 +158,7 @@ export default function Home() {
 
       {/* Firms We Analyze */}
       <section className="py-20 bg-background-card/30 border-y border-border">
-        <div className="max-w-5xl mx-auto px-4">
+        <div className="max-w-full mx-auto px-4">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -170,28 +173,36 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="flex flex-wrap justify-center gap-4">
-            {firmLogos.map((firm, index) => (
-              <motion.div
-                key={firm}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
-                className="bg-background-card border border-border rounded-lg px-6 py-3 text-text-secondary font-medium"
-              >
-                {firm}
-              </motion.div>
-            ))}
-            <div className="bg-background-elevated border border-border rounded-lg px-6 py-3 text-text-muted">
-              +4 more
-            </div>
+          <div className="space-y-6">
+            {/* First row - scrolling left */}
+            <Marquee speed={40} pauseOnHover className="py-2">
+              {firmLogosRow1.map((firm) => (
+                <div
+                  key={firm}
+                  className="bg-background-card border border-border rounded-lg px-8 py-4 text-text-secondary font-medium text-lg whitespace-nowrap"
+                >
+                  {firm}
+                </div>
+              ))}
+            </Marquee>
+
+            {/* Second row - scrolling right */}
+            <Marquee speed={40} pauseOnHover reverse className="py-2">
+              {firmLogosRow2.map((firm) => (
+                <div
+                  key={firm}
+                  className="bg-background-card border border-border rounded-lg px-8 py-4 text-text-secondary font-medium text-lg whitespace-nowrap"
+                >
+                  {firm}
+                </div>
+              ))}
+            </Marquee>
           </div>
         </div>
       </section>
 
       {/* Social Proof */}
-      <section className="py-20">
+      {/* <section className="py-20">
         <div className="max-w-3xl mx-auto px-4">
           <motion.div
             initial={{ opacity: 0 }}
@@ -244,7 +255,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Final CTA */}
       <section className="py-20 bg-gradient-to-t from-accent/5 via-transparent to-transparent">
