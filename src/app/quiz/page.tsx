@@ -25,8 +25,8 @@ export default function QuizPage() {
   }
 
   // Optional email submission (called from Results page)
-  const handleOptionalEmailSubmit = async (email: string) => {
-    if (!answers || !results) return
+  const handleOptionalEmailSubmit = async (email: string): Promise<boolean> => {
+    if (!answers || !results) return false
 
     try {
       // Get UTM params from URL if present
