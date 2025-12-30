@@ -8,19 +8,19 @@
 
 ## Phase 1: Environment Setup
 
-- [ ] Copy `.env.example` to `.env.local`
-- [ ] Add Kit API credentials to `.env.local`:
-  - `NEXT_PUBLIC_KIT_FORM_ID=` (get from Kit dashboard)
-  - `KIT_API_SECRET=` (get from Kit dashboard)
-- [ ] Leave affiliate IDs as blank for now (will fill as approved)
+- [x] Copy `.env.example` to `.env.local`
+- [x] Add Kit API credentials to `.env.local`:
+  - `NEXT_PUBLIC_KIT_FORM_ID=8921202`
+  - `KIT_API_SECRET=t0yinn-5NXEbAkfvw2iJYGJ8-HuRse2tp6GnS579GzI`
+- [x] Leave affiliate IDs as blank for now (will fill as approved)
 
 ---
 
 ## Phase 2: Kit (ConvertKit) Setup
 
-- [ ] Create free Kit account at convertkit.com
-- [ ] Create a new Form, copy Form ID to `.env.local`
-- [ ] Create API Secret from Kit Settings → API, copy to `.env.local`
+- [x] Create free Kit account at convertkit.com
+- [x] Create a new Form ('Quiz Signup'), copy Form ID to `.env.local`
+- [x] Create API Secret from Kit Settings → API, copy to `.env.local`
 - [ ] Create 11 custom fields in Kit:
   - `first_name`
   - `your_name` (set default to your name, e.g., "Luke")
@@ -169,9 +169,9 @@ For each of the 13 firms, collect these URLs:
 
 - [ ] Push latest code to GitHub (if not already)
 - [ ] Connect GitHub repo to Vercel (vercel.com)
-- [ ] Add environment variables in Vercel dashboard:
-  - `NEXT_PUBLIC_KIT_FORM_ID`
-  - `KIT_API_SECRET`
+- [x] Add environment variables in Vercel dashboard:
+  - `NEXT_PUBLIC_KIT_FORM_ID=8921202`
+  - `KIT_API_SECRET=t0yinn-5NXEbAkfvw2iJYGJ8-HuRse2tp6GnS579GzI`
   - All affiliate IDs (add as you get approved)
 - [ ] Deploy to production
 - [ ] Verify domain: futuresproptool.com
