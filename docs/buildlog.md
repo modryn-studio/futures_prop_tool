@@ -236,3 +236,93 @@
 | 2025-12-29 | Complete MVP implementation | 44 files created |
 | 2025-12-29 | Pushed to GitHub | Initial commit |
 | 2025-12-30 | Added Lucid Trading (13th firm) | scoring.ts, page.tsx, Results.tsx, all docs |
+| 2025-12-30 | Removed email gate - results first | quiz/page.tsx, Results.tsx, funnel.md |
+| 2025-12-30 | Added post-results email capture | Results.tsx, submit-quiz/route.ts |
+| 2025-12-30 | Removed Supabase - Kit only | submit-quiz/route.ts, package.json, .env.example, copilot-instructions.md |
+
+---
+
+## December 30, 2025 — Day 1: Trust-First Conversion (Major Pivot)
+
+### Completed
+- [x] Removed email gate from quiz flow
+  - Changed quiz/page.tsx: Quiz → Results (direct, no email step)
+  - Removed 'email' from QuizStep type union
+  - Removed EmailCapture component from quiz flow
+  - Results now show immediately after Q11
+- [x] Added optional post-results email capture
+  - Built inline email form in Results.tsx
+  - New section: "Get notified when [#1 match] runs a promo"
+  - 3 value props: promo alerts, rule change notifications, weekly deals
+  - Success/error states with clean UX
+  - "No spam. Unsubscribe anytime." trust footer
+- [x] Updated email sequence for post-results context
+  - Email #1 repositioned: "Your results (save this)" - reference doc, not reveal
+  - Removed redundant match reveal (they already saw it)
+  - Added bookmark value props
+  - Email #2 timing adjusted: "Two days ago" instead of "Yesterday"
+  - Rest of sequence unchanged (still valuable)
+- [x] Removed Supabase entirely
+  - Deleted Supabase import from submit-quiz/route.ts
+  - Removed saveQuizSubmission() logic
+  - Uninstalled @supabase/supabase-js package (-10 packages)
+  - Removed SUPABASE env vars from .env.example
+  - Updated copilot-instructions.md (removed from stack, API integrations)
+  - Kit now stores everything: email, custom fields, UTM params, submission_type
+- [x] Enhanced Kit integration
+  - Added submission_type field ('post-results' tracking)
+  - Added UTM params to Kit custom fields
+  - Made Kit submission fail-fast (no graceful degradation)
+
+### Architecture Change: Email Gate → Optional Capture
+
+**Old Flow:**
+Quiz (11 Q's) → Email Gate (required) → Results
+
+**New Flow:**
+Quiz (11 Q's) → Results (immediate) → Email Form (optional)
+
+**Reasoning:**
+- High-intent buyers (traders spending $100-500) trust honesty over gatekeeping
+- Gating contradicts "no-BS" brand positioning
+- Affiliate clicks happen on results page anyway
+- Optional email = higher quality subscribers (they want to hear from you)
+- 0.1% move: Be so useful people want to hear from you again
+
+### Files Modified
+- `src/app/quiz/page.tsx` — Removed email step, added handleOptionalEmailSubmit
+- `src/components/Results.tsx` — Added Bell icon, email form section, removed "Check Your Email" box
+- `src/app/api/submit-quiz/route.ts` — Removed Supabase, simplified to Kit-only
+- `.env.example` — Removed Supabase variables
+- `.github/copilot-instructions.md` — Removed Supabase from stack, integrations, env vars
+- `docs/futures_prop_firm_funnel.md` — Updated Email #1 and #2 for post-results context
+- `package.json` — Removed @supabase/supabase-js
+
+### Key Decisions
+1. **Trust over gating** — Show value first, ask for email after
+2. **Simplify stack** — Kit handles everything Day 1 (CSV export, segmentation, analytics)
+3. **Email quality over quantity** — Fewer emails, but they're worth 3-5x more
+4. **Supabase = Month 3 problem** — Only needed when Kit's UI limits become real pain points
+
+### What Kit Provides (Good Enough for Launch)
+- Email list management
+- Custom fields (top_firm, experience_level, budget, trading_style, utm_params)
+- Segmentation for targeted emails
+- Automation sequences (5-email welcome + weekly)
+- CSV export anytime
+- Basic analytics (opens, clicks)
+
+### When to Revisit Supabase
+- 5,000+ subscribers where full data control matters
+- Need to query across quiz answers + behavior (e.g., "Apex matches who didn't click")
+- Building custom dashboards
+- Joining email data with site analytics
+- Custom reporting beyond Kit's UI
+
+### Next Session
+- [ ] Test complete flow: Quiz → Results → Optional Email → Kit submission
+- [ ] Verify email sequence triggers correctly in Kit
+- [ ] Deploy to Vercel and test live
+- [ ] Drive first test users through funnel
+
+---

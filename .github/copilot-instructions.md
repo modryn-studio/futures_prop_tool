@@ -5,7 +5,7 @@
 **Name:** Futures Prop Firm Quiz  
 **Domain:** futuresproptool.com  
 **Type:** Affiliate lead-gen funnel for futures prop trading firms  
-**Stack:** Next.js 14 (App Router) + Tailwind CSS + Vercel + Kit (ConvertKit) + Supabase
+**Stack:** Next.js 14 (App Router) + Tailwind CSS + Vercel + Kit (ConvertKit)
 
 ---
 
@@ -30,7 +30,7 @@ The developer (Luke) operates at 5-10x typical speed:
   /results
     /page.tsx            → Personalized results (requires email)
   /api
-    /submit-quiz         → Store responses, send to Kit
+    /submit-quiz         → Send to Kit
 /lib
   /scoring.ts            → Port of scoring.js
   /firms.ts              → Firm data from propFirmData.ts
@@ -151,13 +151,8 @@ interface QuizAnswers {
 - Free tier: 1,000 subscribers
 - Use API v3 for subscriber creation
 - Tag subscribers based on quiz results
+- Custom fields: top_firm, experience_level, budget, trading_style, submission_type, UTM params
 - Trigger automation on quiz completion
-
-### Supabase (Quiz Storage)
-- Store raw quiz answers
-- Store recommended firms
-- Store timestamp and UTM params
-- Use for analytics and scoring optimization
 
 ### Vercel Analytics
 - Track funnel: Landing → Quiz Start → Email Capture → Results → Affiliate Click
@@ -171,10 +166,6 @@ interface QuizAnswers {
 # Kit (ConvertKit)
 NEXT_PUBLIC_KIT_FORM_ID=
 KIT_API_SECRET=
-
-# Supabase
-NEXT_PUBLIC_SUPABASE_URL=
-NEXT_PUBLIC_SUPABASE_ANON_KEY=
 
 # Affiliate IDs (add as approved)
 NEXT_PUBLIC_APEX_AFFILIATE_ID=PENDING
@@ -205,8 +196,7 @@ NEXT_PUBLIC_GA_ID=
 
 ### "Update promo codes"
 → Currently in `scoring.js` `createFirmData()`
-→ TODO: Move to Supabase for easy updates
-→ Promo codes change weekly — flag for DB migration
+→ Promo codes change weekly — consider database if this becomes a pain point
 
 ### "Fix scoring issue"
 → Check `scoring.js` for the specific question handler

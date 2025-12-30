@@ -165,32 +165,32 @@ See Which Firm Fits You →
 
 ---
 
-### EMAIL CAPTURE SCREEN (After Question 10)
+### POST-RESULTS EMAIL CAPTURE (Optional, Below Results)
+
+**NOTE:** Email is now OPTIONAL and shown AFTER results. This section replaces the pre-results email gate.
 
 **Headline:**
-Your personalized results are ready.
+Get notified when [Your #1 Match] runs a promo
 
 **Subhead:**
-Enter your email to see your top 3 prop firm matches — plus a breakdown of why each one fits your trading style.
+I track deals so you don't have to
 
-**What you'll get:**
-- Your #1 recommended firm (with current promo code)
-- Two runner-up options for comparison
-- Specific warnings based on your answers
-- Weekly updates when firms change rules or run deals
-
-**Preview of Results:**
-Sneak peek at your results:
-Based on your answers, you're likely a match for 2-3 firms in the [$X-$X] monthly cost range. Enter your email to see which ones and why.
+**What you'll get (3 value props):**
+- Promo alerts for [Firm Name]
+- I'll email you if their rules change
+- Weekly deals from all 12 firms
 
 **Email Input Field:**
 [your@email.com]
 
 **CTA Button:**
-Show My Results →
+Get Alerts
 
 **Fine Print:**
-Your data is analyzed anonymously. We don't sell or share emails. Unsubscribe anytime.
+No spam. Unsubscribe anytime.
+
+**Success State:**
+✓ You're subscribed — watch your inbox for [Firm Name] deals
 
 ---
 
@@ -272,88 +272,88 @@ This just saved you $[XXX] in wasted challenge fees.
 
 ---
 
-### EMAIL 1: Immediate (Trigger: Quiz completion)
+### EMAIL 1: Immediate (Trigger: Quiz completion + optional email capture)
 
-**Subject:** Your prop firm results + one thing most traders miss
+**Subject:** Your results (save this)
 
 **Body:**
 
 Hey [First Name],
 
-Your quiz results are locked in. Quick recap:
+You just took the quiz—here's a permanent link to your results:
 
-**Your #1 Match:** [Firm Name]
-**Current Promo:** [Code] for [X]% off
+→ [Link to saved results page]
 
-→ [Link to full results page]
+**Your top match:** [Firm Name]  
+**Current promo:** [X]% off with code [CODE]
 
-Before you buy a challenge, one thing most traders miss:
+**Why bookmark this email:**
+- Promo codes update weekly—I'll keep this link current
+- Your runner-ups ([Firm 2] and [Firm 3]) are here too
+- You can reference it when you're ready to start
 
-**The hidden cost isn't the challenge fee — it's the reset fees.**
+---
 
-Average trader takes 2-3 attempts to pass. At $100-200 per reset, that's $300-600 on top of your initial fee.
-
-Your match ([Firm Name]) handles this by: [specific reset policy — free resets on renewal, low reset fees, etc.]
-
-That's why we recommended them for your profile.
-
-Tomorrow I'll send you the specific rules that trip up most traders at [Firm Name] — and how to avoid them.
+I'll email you in 2 days with the mistakes that cause most [Firm Name] traders to reset. Worth reading before you start.
 
 — [Your Name]
 [Site Name]
 
-P.S. If [Firm Name] doesn't feel right, your runner-ups were [Firm 2] and [Firm 3]. [Link to results]
+P.S. Forward this to your trading buddy—their matches might be different based on their style/budget.
 
 ---
 
 ### EMAIL 2: Day 2
 
-**Subject:** The 3 rules that fail most prop firm traders (and how to avoid them)
+**Subject:** Before you start your {{ top_firm }} challenge, read this
 
 **Body:**
 
-Hey [First Name],
+Hey {{ first_name }},
 
-Yesterday you got matched with [Firm Name]. Before you start, here are the 3 rules that kill most evaluations — regardless of which firm you choose:
+Two days ago you got matched with {{ top_firm }}.
 
-1. The Consistency Rule Trap
+Before you start, here are the 3 rules that kill most evaluations — regardless of which firm you choose:
+
+**1. The Consistency Rule Trap**
 Most firms limit how much you can make on your best day (usually 30-50% of total profit).
 
 ❌ Bad: Make $2K Monday, grind $50/day rest of week = FAIL
 ✓ Good: Make $400-600/day consistently = PASS
 
-2. The Trailing Drawdown Confusion
+**2. The Trailing Drawdown Confusion**
 "Trailing" means your max loss moves UP as you profit. Most traders don't track this and hit their limit.
 
-[Link to calculator: "Track your trailing drawdown"]
-
-3. The "I'll Pass in 3 Days" Rush
+**3. The "I'll Pass in 3 Days" Rush**
 No time limit = no rush. Traders who take 10-15 days pass more often than traders who rush in 3 days.
 
-Your specific rules at [Firm Name]:
+---
 
-Profit target: $[X]
-Drawdown: $[X] [trailing/static]
-Consistency rule: [Yes/No]
-→ [Link to full [Firm Name] rules breakdown]
+**Want to review {{ top_firm }}'s specific rules?**
+→ [See {{ top_firm }} evaluation details]
+   (Link to firm's official rules page)
 
-Tomorrow: Your week 1 game plan.
+**Ready to start?**
+→ Use code {{ promo_code }} for {{ discount }}
+   (Affiliate link)
+
+---
+
+Tomorrow: Your Week 1 game plan.
 
 — [Your Name]
-
-P.S. Current deal at [Firm Name]: [Promo code] for [discount]. [Link]
 
 ---
 
 ### EMAIL 3: Day 4
 
-**Subject:** Week 1 game plan for passing [Firm Name]
+**Subject:** Save this: Your Week 1 game plan for {{ top_firm }}
 
 **Body:**
 
-Hey [First Name],
+Hey {{ first_name }},
 
-If you're starting a [Firm Name] challenge, here's your Week 1 blueprint:
+When you start your {{ top_firm }} challenge, bookmark this email. It's your Week 1 blueprint:
 
 **Days 1-2: Feel out the platform**
 - Take 1-2 small trades
@@ -361,25 +361,25 @@ If you're starting a [Firm Name] challenge, here's your Week 1 blueprint:
 - Target: Stay flat or small green. Don't dig a hole.
 
 **Days 3-5: Build base profits**
-- Target [X]% of profit goal per day
+- Target 40-50% of profit goal with room to breathe
 - Stay well within drawdown limits
-- Goal: Get 40-50% to target with room to breathe
+- Build a cushion for inevitable bad days
 
 **Days 6-7: Controlled push**
 - Slightly increase size if ahead of pace
 - If behind pace: Stay disciplined, don't force it
 - Remember: There's no time limit. Slow is fine.
 
-**The math:**
-- Profit target: $[X]
-- Optimal daily goal: $[X/10] to $[X/7]
-- This pace passes the consistency rule AND gives you buffer for bad days
+**The universal truth:**
+Traders who take 10-15 days pass more often than traders who rush in 3 days. That's not trading, it's gambling.
 
-Most traders fail because they try to pass in 3 days. That's gambling, not trading.
+Save this for Day 1.
 
-— [Your Name]
+— {{ your_name }}
 
-P.S. Haven't started yet? [Firm Name] is running [X]% off through [date]: [Link]
+**P.S. Ready to start?**
+→ Use code {{ promo_code }} for {{ discount }}
+   (Affiliate link)
 
 ---
 
@@ -389,24 +389,24 @@ P.S. Haven't started yet? [Firm Name] is running [X]% off through [date]: [Link]
 
 **Body:**
 
-Hey [First Name],
+Hey {{ first_name }},
 
 Let's say you pass the evaluation. Congrats — but the game changes.
 
 **3 things that trip up newly funded traders:**
 
 **1. Drawdown rules often get STRICTER**
-- [Firm Name] uses [EOD vs intraday] in evaluation
-- In funded account, it switches to [X]
-- Many traders pass eval, then blow funded account Week 1
+- Many firms use end-of-day drawdown in evaluation
+- In funded account, it switches to intraday trailing (much tighter)
+- Traders pass eval, then blow funded account Week 1
 
 **2. Payout rules have hidden requirements**
-- You need [X] trading days before first payout
-- You must maintain [buffer amount] above drawdown
-- Missing this = payout denied
+- Most firms require 5-10 trading days before first payout
+- You must maintain buffer above drawdown threshold
+- Missing this by $1 = payout denied
 
 **3. The mental shift is real**
-- Evaluation = "just pass, I can reset"
+- Evaluation = "just pass, I can reset if needed"
 - Funded = "this is my business, I can't blow it"
 - Overconfidence post-pass is the #1 killer
 
@@ -417,7 +417,11 @@ Let's say you pass the evaluation. Congrats — but the game changes.
 
 This email might save your funded account. Screenshot it.
 
-— [Your Name]
+— {{ your_name }}
+
+**P.S. Check {{ top_firm }}'s funded account rules:**
+→ [See {{ top_firm }} funded account details]
+   (Link to firm's official funded account page)
 
 ---
 
@@ -427,26 +431,29 @@ This email might save your funded account. Screenshot it.
 
 **Body:**
 
-Hey [First Name],
+Hey {{ first_name }},
 
 Quick question — where are you at?
 
-**A)** Started my [Firm Name] challenge — going well
-**B)** Started my challenge — struggling with [X]
+**A)** Started my {{ top_firm }} challenge — going well
+**B)** Started my challenge — struggling with rules/strategy
 **C)** Haven't started yet — still deciding
 **D)** Went with a different firm
 
-Just reply with A, B, C, or D. 
+Just reply with A, B, C, or D.
 
 If you're stuck on anything, I'll point you in the right direction.
 
-— [Your Name]
+— {{ your_name }}
 
-P.S. If you're still deciding, here's the current promo situation:
+**P.S. Current promo codes for your matches:**
 
-- [Firm 1]: [X]% off with code [CODE]
-- [Firm 2]: [X]% off with code [CODE]
-- [Firm 3]: [X]% off with code [CODE]
+**Your #1:** {{ top_firm }}
+→ {{ promo_code }} for {{ discount }}
+   (Affiliate link)
+
+**Runner-up options:**
+[Display runner-up firms with promo codes - requires additional Kit fields or conditional logic]
 
 These change weekly. I'll keep you posted.
 
@@ -537,14 +544,70 @@ These change weekly. I'll keep you posted.
 
 You now have:
 1. ✅ Landing page copy
-2. ✅ 10 substantive quiz questions
-3. ✅ Email capture screen copy
+2. ✅ 11 substantive quiz questions (Q1-Q10 + Q3a)
+3. ✅ Optional email capture (post-results)
 4. ✅ Results page structure
-5. ✅ 5-email welcome sequence
+5. ✅ 5-email welcome sequence (updated for post-results flow)
 6. ✅ Scoring logic for recommendations
 7. ✅ Weekly newsletter format
-8. ✅ Tool recommendations
+8. ✅ 13 firms analyzed
 
-**Day 1 Goal:** Landing page + Quiz + Email capture + Results page = LIVE
+**Architecture:** Quiz → Results (immediate) → Optional Email Capture
+
+**Stack:** Next.js + Tailwind + Kit (ConvertKit) + Vercel
+
+**Status:** ✅ MVP Complete - Trust-first conversion model
+
+---
+
+## KIT (CONVERTKIT) SETUP
+
+### Custom Fields Required
+
+When setting up your Kit form, create these custom fields:
+
+| Field Name | Purpose | Example Value |
+|------------|---------|---------------|
+| `first_name` | Email personalization | "John" |
+| `top_firm` | Their #1 match | "Apex Trader Funding" |
+| `promo_code` | Current promo for their firm | "SAVE80" |
+| `discount` | Promo discount amount | "80% off first month" |
+| `your_name` | Your name in email signature | "Luke" |
+| `experience_level` | From Q1 | "1_to_3yr" |
+| `budget` | From Q3 | "200_to_400" |
+| `trading_style` | From Q5 | "day_trading" |
+| `submission_type` | When they signed up | "post-results" |
+| `utm_source` | Traffic source | "reddit" |
+| `utm_medium` | Traffic medium | "organic" |
+| `utm_campaign` | Campaign name | "launch-week" |
+
+### Email Sequence Setup
+
+1. Create 5-email sequence with 2-day intervals (Day 0, 2, 4, 6, 8)
+2. Use liquid merge tags: `{{ first_name }}`, `{{ top_firm }}`, `{{ promo_code }}`, `{{ discount }}`, `{{ your_name }}`
+3. Set trigger: "Subscriber added to form"
+4. Test with sample subscriber before going live
+
+### Link Placeholders in Emails
+
+Replace these placeholders when setting up in Kit:
+
+| Placeholder | What to Use Day 1 |
+|-------------|-------------------|
+| `[See {{ top_firm }} evaluation details]` | Link to firm's official rules page (manual per firm) |
+| `[See {{ top_firm }} funded account details]` | Link to firm's official funded account page (manual per firm) |
+| `(Affiliate link)` | Your affiliate link with tracking params |
+
+**Note:** When you build firm pages (Week 2-3), update links to point to your site instead.
+
+### Email #5 Runner-Ups Note
+
+Email #5 mentions runner-up firms with promo codes. Options:
+- **Simple:** Remove runner-ups, only show #1 match (cleaner, less setup)
+- **Advanced:** Add `firm_2`, `firm_2_promo`, `firm_3`, `firm_3_promo` fields to Kit + API (more personalization, more complexity)
+
+Day 1 recommendation: Keep it simple, only promote #1 match.
+
+---
 
 Go build.

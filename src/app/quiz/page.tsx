@@ -44,7 +44,7 @@ export default function QuizPage() {
         body: JSON.stringify({
           email,
           answers,
-          recommendedFirms: results.recommended.map((f) => f.name),
+          recommendedFirms: results.recommended, // Pass full firm data
           utmParams,
           submissionType: 'post-results', // Track that this was optional
         }),

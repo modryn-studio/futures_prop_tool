@@ -1,11 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { addSubscriber } from '@/lib/kit'
-import { saveQuizSubmission, QuizSubmission } from '@/lib/supabase'
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { email, answers, recommendedFirms, utmParams } = body
+    const { email, answers, recommendedFirms, utmParams, submissionType } = body
 
     if (!email || !answers) {
       return NextResponse.json(
@@ -14,43 +13,36 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Save to Supabase (non-blocking for email capture)
-    const submission: QuizSubmission = {
+    // Add to Kit (ConvertKit) with custom fields
+    if (!process.env.KIT_API_SECRET || !process.env.NEXT_PUBLIC_KIT_FORM_ID) {
+      console.error('Kit API credentials not configured')
+      return NextResponse.json(
+        { error: 'Email service not configured' },
+        { status: 500 }
+      )
+    }
+
+    // Extract top firm details for personalization
+    const topFirm = recommendedFirms?.[0]
+    const topFirmName = topFirm?.name || ''
+    const promoCode = topFirm?.promoCode || ''
+    const promoDiscount = topFirm?.promoDiscount || ''
+
+    await addSubscriber({
       email,
-      answers,
-      recommended_firms: recommendedFirms || [],
-      utm_source: utmParams?.utm_source,
-      utm_medium: utmParams?.utm_medium,
-      utm_campaign: utmParams?.utm_campaign,
-    }
-
-    // Try to save to Supabase, but don't fail if it's not configured
-    try {
-      if (process.env.NEXT_PUBLIC_SUPABASE_URL) {
-        await saveQuizSubmission(submission)
-      }
-    } catch (dbError) {
-      console.error('Supabase save failed:', dbError)
-      // Continue - email is more important
-    }
-
-    // Add to Kit (ConvertKit)
-    try {
-      if (process.env.KIT_API_SECRET && process.env.NEXT_PUBLIC_KIT_FORM_ID) {
-        await addSubscriber({
-          email,
-          fields: {
-            top_firm: recommendedFirms?.[0] || '',
-            experience_level: answers.q1_experience || '',
-            budget: answers.q3_budget || '',
-            trading_style: answers.q5_timeframe || '',
-          },
-        })
-      }
-    } catch (kitError) {
-      console.error('Kit subscription failed:', kitError)
-      // Continue - we still have the email
-    }
+      fields: {
+        top_firm: topFirmName,
+        promo_code: promoCode,
+        discount: promoDiscount,
+        experience_level: answers.q1_experience || '',
+        budget: answers.q3_budget || '',
+        trading_style: answers.q5_timeframe || '',
+        submission_type: submissionType || 'unknown',
+        utm_source: utmParams?.utm_source || '',
+        utm_medium: utmParams?.utm_medium || '',
+        utm_campaign: utmParams?.utm_campaign || '',
+      },
+    })
 
     return NextResponse.json({ success: true })
   } catch (error) {
