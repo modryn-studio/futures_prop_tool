@@ -5,7 +5,7 @@
 **Name:** Futures Prop Firm Quiz  
 **Domain:** futuresproptool.com  
 **Type:** Affiliate lead-gen funnel for futures prop trading firms  
-**Stack:** Next.js 14 (App Router) + Tailwind CSS + Vercel + Kit (ConvertKit)
+**Stack:** Next.js 14 (App Router) + Tailwind CSS + Vercel + Mailerlite
 
 ---
 
@@ -34,7 +34,7 @@ The developer (Luke) operates at 5-10x typical speed:
 /lib
   /scoring.ts            → Port of scoring.js
   /firms.ts              → Firm data from propFirmData.ts
-  /kit.ts                → ConvertKit API integration
+  /mailerlite.ts         → Mailerlite API integration
 /components
   /Quiz.tsx              → Quiz state machine
   /QuizQuestion.tsx      → Individual question component
@@ -147,12 +147,12 @@ interface QuizAnswers {
 
 ## API Integrations
 
-### Kit (ConvertKit)
-- Free tier: 1,000 subscribers
-- Use API v3 for subscriber creation
-- Tag subscribers based on quiz results
+### Mailerlite
+- Forever-free tier: 1,000 subscribers
+- Automation builder (available on free plan after trial)
 - Custom fields: top_firm, experience_level, budget, trading_style, submission_type, UTM params
-- Trigger automation on quiz completion
+- Add subscribers to group for automation triggers
+- Bearer token auth with JWT API key
 
 ### Vercel Analytics
 - Track funnel: Landing → Quiz Start → Email Capture → Results → Affiliate Click
@@ -163,9 +163,9 @@ interface QuizAnswers {
 ## Environment Variables
 
 ```env
-# Kit (ConvertKit)
-NEXT_PUBLIC_KIT_FORM_ID=
-KIT_API_SECRET=
+# Mailerlite
+MAILERLITE_API_KEY=
+MAILERLITE_GROUP_ID=
 
 # Affiliate IDs (add as approved)
 NEXT_PUBLIC_APEX_AFFILIATE_ID=PENDING
@@ -210,7 +210,7 @@ NEXT_PUBLIC_GA_ID=
 
 ### Must Test Before Launch
 1. Full quiz flow (all 11 questions)
-2. Email capture → Kit subscriber created
+2. Email capture → Mailerlite subscriber created & added to group
 3. Results page shows correct top 3
 4. Affiliate links have correct UTM params
 5. Mobile responsive on real device

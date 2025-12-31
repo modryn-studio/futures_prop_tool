@@ -239,6 +239,7 @@
 | 2025-12-30 | Removed email gate - results first | quiz/page.tsx, Results.tsx, funnel.md |
 | 2025-12-30 | Added post-results email capture | Results.tsx, submit-quiz/route.ts |
 | 2025-12-30 | Removed Supabase - Kit only | submit-quiz/route.ts, package.json, .env.example, copilot-instructions.md |
+| 2025-12-30 | Migrated from Kit to Mailerlite | mailerlite.ts (new), submit-quiz/route.ts, .env.local, copilot-instructions.md, funnel.md |
 
 ---
 
@@ -324,5 +325,57 @@ Quiz (11 Q's) → Results (immediate) → Email Form (optional)
 - [ ] Verify email sequence triggers correctly in Kit
 - [ ] Deploy to Vercel and test live
 - [ ] Drive first test users through funnel
+
+---
+
+## December 30, 2025 — Day 1 Continued: Mailerlite Migration
+
+### Completed
+- [x] Migrated from Kit (ConvertKit) to Mailerlite
+  - Kit free plan lacks automation builder (deal breaker)
+  - Mailerlite Forever-free plan includes full automation builder
+  - Created new mailerlite.ts integration library
+  - Updated /api/submit-quiz to use Mailerlite API
+  - Bearer token auth with JWT key
+- [x] Environment variables updated
+  - Added MAILERLITE_API_KEY to .env.local and Vercel
+  - Added MAILERLITE_GROUP_ID to .env.local and Vercel
+  - Removed old Kit credentials
+- [x] Updated documentation
+  - copilot-instructions.md — Stack, integrations, env vars
+  - futures_prop_firm_funnel.md — Setup instructions
+  - buildlog.md — Changelog entry
+
+### Key Differences: Kit → Mailerlite
+**API Changes:**
+- Kit: Form-based subscription (single endpoint)
+- Mailerlite: Create subscriber + add to group (2 API calls)
+- Auth: Kit used API secret in body, Mailerlite uses Bearer token in header
+
+**Features Gained:**
+- ✅ Automation builder on free tier (critical for 5-email sequence)
+- ✅ Drag-and-drop email editor
+- ✅ Embedded forms + landing page builder
+- ✅ Same custom field support
+
+**Migration Effort:**
+- Code: ~30 minutes (new mailerlite.ts + route update)
+- Emails: Need to rebuild 5-email sequence in Mailerlite UI
+- Testing: Verify subscriber creation + group assignment
+
+### Files Modified
+- `src/lib/mailerlite.ts` — New Mailerlite integration (replaces kit.ts)
+- `src/app/api/submit-quiz/route.ts` — Updated import and env var checks
+- `.env.local` — Replaced Kit credentials with Mailerlite
+- `.github/copilot-instructions.md` — Updated stack, integrations, env vars, tests
+- `docs/futures_prop_firm_funnel.md` — Updated email setup section
+- `docs/buildlog.md` — Added changelog entry and session notes
+
+### Next Actions
+- [ ] Set up Mailerlite group and automation
+- [ ] Build 5-email sequence in Mailerlite
+- [ ] Create custom fields in Mailerlite
+- [ ] Test subscriber creation end-to-end
+- [ ] Deploy to Vercel with new env vars
 
 ---

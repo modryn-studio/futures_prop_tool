@@ -554,17 +554,17 @@ You now have:
 
 **Architecture:** Quiz → Results (immediate) → Optional Email Capture
 
-**Stack:** Next.js + Tailwind + Kit (ConvertKit) + Vercel
+**Stack:** Next.js + Tailwind + Mailerlite + Vercel
 
 **Status:** ✅ MVP Complete - Trust-first conversion model
 
 ---
 
-## KIT (CONVERTKIT) SETUP
+## MAILERLITE SETUP
 
 ### Custom Fields Required
 
-When setting up your Kit form, create these custom fields:
+When setting up your Mailerlite group, create these custom fields:
 
 | Field Name | Purpose | Example Value |
 |------------|---------|---------------|
@@ -583,14 +583,15 @@ When setting up your Kit form, create these custom fields:
 
 ### Email Sequence Setup
 
-1. Create 5-email sequence with 2-day intervals (Day 0, 2, 4, 6, 8)
-2. Use liquid merge tags: `{{ first_name }}`, `{{ top_firm }}`, `{{ promo_code }}`, `{{ discount }}`, `{{ your_name }}`
-3. Set trigger: "Subscriber added to form"
-4. Test with sample subscriber before going live
+1. Create automation in Mailerlite (available on forever-free plan)
+2. Trigger: "Subscriber joins group" (use MAILERLITE_GROUP_ID)
+3. Create 5 emails with 2-day delays (Day 0, 2, 4, 6, 8)
+4. Use Mailerlite merge tags: `{$first_name}`, `{$top_firm}`, `{$promo_code}`, `{$discount}`, `{$your_name}`
+5. Test with sample subscriber before going live
 
 ### Link Placeholders in Emails
 
-Replace these placeholders when setting up in Kit:
+Replace these placeholders when setting up in Mailerlite:
 
 | Placeholder | What to Use Day 1 |
 |-------------|-------------------|
@@ -604,7 +605,7 @@ Replace these placeholders when setting up in Kit:
 
 Email #5 mentions runner-up firms with promo codes. Options:
 - **Simple:** Remove runner-ups, only show #1 match (cleaner, less setup)
-- **Advanced:** Add `firm_2`, `firm_2_promo`, `firm_3`, `firm_3_promo` fields to Kit + API (more personalization, more complexity)
+- **Advanced:** Add `firm_2`, `firm_2_promo`, `firm_3`, `firm_3_promo` fields to Mailerlite + API (more personalization, more complexity)
 
 Day 1 recommendation: Keep it simple, only promote #1 match.
 

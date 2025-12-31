@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { addSubscriber } from '@/lib/kit'
+import { addSubscriber } from '@/lib/mailerlite'
 
 export async function POST(request: NextRequest) {
   try {
@@ -13,9 +13,9 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Add to Kit (ConvertKit) with custom fields
-    if (!process.env.KIT_API_SECRET || !process.env.NEXT_PUBLIC_KIT_FORM_ID) {
-      console.error('Kit API credentials not configured')
+    // Add to Mailerlite with custom fields
+    if (!process.env.MAILERLITE_API_KEY || !process.env.MAILERLITE_GROUP_ID) {
+      console.error('Mailerlite API credentials not configured')
       return NextResponse.json(
         { error: 'Email service not configured' },
         { status: 500 }
