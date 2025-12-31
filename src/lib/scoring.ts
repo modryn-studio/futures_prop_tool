@@ -62,19 +62,25 @@ type FirmData = Record<FirmKey, Firm>
 // ============================================
 
 const AFFILIATE_IDS: Record<FirmKey, string> = {
-  apex: process.env.NEXT_PUBLIC_APEX_AFFILIATE_ID || 'PENDING',
-  topstep: process.env.NEXT_PUBLIC_TOPSTEP_AFFILIATE_ID || 'PENDING',
-  mffu: process.env.NEXT_PUBLIC_MFFU_AFFILIATE_ID || 'PENDING',
-  tradeday: process.env.NEXT_PUBLIC_TRADEDAY_AFFILIATE_ID || 'PENDING',
-  blusky: process.env.NEXT_PUBLIC_BLUSKY_AFFILIATE_ID || 'PENDING',
-  tpt: process.env.NEXT_PUBLIC_TPT_AFFILIATE_ID || 'PENDING',
-  earn2trade: process.env.NEXT_PUBLIC_EARN2TRADE_AFFILIATE_ID || 'PENDING',
-  elite: process.env.NEXT_PUBLIC_ELITE_AFFILIATE_ID || 'PENDING',
-  bulenox: process.env.NEXT_PUBLIC_BULENOX_AFFILIATE_ID || 'PENDING',
-  alpha: process.env.NEXT_PUBLIC_ALPHA_AFFILIATE_ID || 'PENDING',
-  tradeify: process.env.NEXT_PUBLIC_TRADEIFY_AFFILIATE_ID || 'PENDING',
-  goat: process.env.NEXT_PUBLIC_GOAT_AFFILIATE_ID || 'PENDING',
-  lucid: process.env.NEXT_PUBLIC_LUCID_AFFILIATE_ID || 'PENDING',
+  apex: process.env.NEXT_PUBLIC_APEX_AFFILIATE_ID || '',
+  topstep: process.env.NEXT_PUBLIC_TOPSTEP_AFFILIATE_ID || '',
+  mffu: process.env.NEXT_PUBLIC_MFFU_AFFILIATE_ID || '',
+  tradeday: process.env.NEXT_PUBLIC_TRADEDAY_AFFILIATE_ID || '',
+  blusky: process.env.NEXT_PUBLIC_BLUSKY_AFFILIATE_ID || '',
+  tpt: process.env.NEXT_PUBLIC_TPT_AFFILIATE_ID || '',
+  earn2trade: process.env.NEXT_PUBLIC_EARN2TRADE_AFFILIATE_ID || '',
+  elite: process.env.NEXT_PUBLIC_ELITE_AFFILIATE_ID || '',
+  bulenox: process.env.NEXT_PUBLIC_BULENOX_AFFILIATE_ID || '',
+  alpha: process.env.NEXT_PUBLIC_ALPHA_AFFILIATE_ID || '',
+  tradeify: process.env.NEXT_PUBLIC_TRADEIFY_AFFILIATE_ID || '',
+  goat: process.env.NEXT_PUBLIC_GOAT_AFFILIATE_ID || '',
+  lucid: process.env.NEXT_PUBLIC_LUCID_AFFILIATE_ID || '',
+}
+
+// Helper to build affiliate link - only adds ref param if ID exists
+const buildAffiliateLink = (baseUrl: string, firmKey: FirmKey): string => {
+  const affiliateId = AFFILIATE_IDS[firmKey]
+  return affiliateId ? `${baseUrl}?ref=${affiliateId}` : baseUrl
 }
 
 // ============================================
@@ -93,7 +99,7 @@ export const createFirmData = (): FirmData => ({
     profitSplit: '100% first $25K, then 90/10',
     trustpilot: 4.8,
     keyStrength: 'Best first payout bonus, up to 20 accounts',
-    affiliateLink: `https://apextraderfunding.com/?ref=${AFFILIATE_IDS.apex}`,
+    affiliateLink: buildAffiliateLink('https://apextraderfunding.com', 'apex'),
   },
   topstep: {
     name: 'Topstep',
@@ -107,7 +113,7 @@ export const createFirmData = (): FirmData => ({
     trustpilot: 4.6,
     platforms: 'TopstepX (proprietary), NinjaTrader, TradingView',
     keyStrength: 'Most established (2012), best education/coaching',
-    affiliateLink: `https://topstep.com/?ref=${AFFILIATE_IDS.topstep}`,
+    affiliateLink: buildAffiliateLink('https://topstep.com', 'topstep'),
   },
   mffu: {
     name: 'MyFundedFutures',
@@ -121,7 +127,7 @@ export const createFirmData = (): FirmData => ({
     trustpilot: 4.9,
     activationFee: 'None',
     keyStrength: 'Fastest payouts (32 min avg), no activation fee',
-    affiliateLink: `https://myfundedfutures.com/?ref=${AFFILIATE_IDS.mffu}`,
+    affiliateLink: buildAffiliateLink('https://myfundedfutures.com', 'mffu'),
   },
   tradeday: {
     name: 'TradeDay',
@@ -134,7 +140,7 @@ export const createFirmData = (): FirmData => ({
     profitSplit: '80-95%',
     trustpilot: 4.7,
     keyStrength: '1-day minimum, path to live capital',
-    affiliateLink: `https://tradeday.com/?ref=${AFFILIATE_IDS.tradeday}`,
+    affiliateLink: buildAffiliateLink('https://tradeday.com', 'tradeday'),
   },
   blusky: {
     name: 'BluSky Trading',
@@ -148,7 +154,7 @@ export const createFirmData = (): FirmData => ({
     trustpilot: 4.7,
     drawdownType: 'Trailing or Static (choice)',
     keyStrength: 'Daily payouts, same-day processing, free coaching',
-    affiliateLink: `https://blusky.pro/?ref=${AFFILIATE_IDS.blusky}`,
+    affiliateLink: buildAffiliateLink('https://blusky.pro', 'blusky'),
   },
   tpt: {
     name: 'Take Profit Trader',
@@ -163,7 +169,7 @@ export const createFirmData = (): FirmData => ({
     consistencyRule: '50% (eval only) - No consistency rule in funded account',
     drawdownType: 'EOD (eval), Intraday (PRO funded)',
     keyStrength: 'Day-one withdrawals, no consistency rule in funded',
-    affiliateLink: `https://takeprofittrader.com/?ref=${AFFILIATE_IDS.tpt}`,
+    affiliateLink: buildAffiliateLink('https://takeprofittrader.com', 'tpt'),
   },
   earn2trade: {
     name: 'Earn2Trade',
@@ -178,7 +184,7 @@ export const createFirmData = (): FirmData => ({
     activationFee: '$139 (deducted from first payout)',
     consistencyRule: 'None',
     keyStrength: 'Best education, Career Path scaling to $400K',
-    affiliateLink: `https://earn2trade.com/?ref=${AFFILIATE_IDS.earn2trade}`,
+    affiliateLink: buildAffiliateLink('https://earn2trade.com', 'earn2trade'),
   },
   elite: {
     name: 'Elite Trader Funding',
@@ -193,7 +199,7 @@ export const createFirmData = (): FirmData => ({
     platforms: 'NinjaTrader, Tradovate, TradingView, 31+ total',
     overnightHolding: 'Diamond Hands plan ONLY',
     keyStrength: '5 evaluation types, Diamond Hands allows overnight/weekend',
-    affiliateLink: `https://elitetraderfunding.com/?ref=${AFFILIATE_IDS.elite}`,
+    affiliateLink: buildAffiliateLink('https://elitetraderfunding.com', 'elite'),
   },
   bulenox: {
     name: 'Bulenox',
@@ -207,7 +213,7 @@ export const createFirmData = (): FirmData => ({
     trustpilot: 4.6,
     consistencyRule: '40%',
     keyStrength: 'One-time fee, no monthly recurring',
-    affiliateLink: `https://bulenox.com/?ref=${AFFILIATE_IDS.bulenox}`,
+    affiliateLink: buildAffiliateLink('https://bulenox.com', 'bulenox'),
   },
   alpha: {
     name: 'Alpha Futures',
@@ -222,7 +228,7 @@ export const createFirmData = (): FirmData => ({
     founded: 2024,
     consistencyRule: '50%',
     keyStrength: 'Newest major player, competitive pricing',
-    affiliateLink: `https://alphafutures.com/?ref=${AFFILIATE_IDS.alpha}`,
+    affiliateLink: buildAffiliateLink('https://alphafutures.com', 'alpha'),
   },
   tradeify: {
     name: 'Tradeify',
@@ -236,7 +242,7 @@ export const createFirmData = (): FirmData => ({
     trustpilot: 4.6,
     consistencyRule: '30%',
     keyStrength: 'Low monthly cost, straightforward rules',
-    affiliateLink: `https://tradeify.com/?ref=${AFFILIATE_IDS.tradeify}`,
+    affiliateLink: buildAffiliateLink('https://tradeify.com', 'tradeify'),
   },
   goat: {
     name: 'Goat Funded Futures',
@@ -251,7 +257,7 @@ export const createFirmData = (): FirmData => ({
     activationFee: '$150-$350',
     consistencyRule: 'None',
     keyStrength: 'Instant funding - no evaluation required',
-    affiliateLink: `https://goatfundedfutures.com/?ref=${AFFILIATE_IDS.goat}`,
+    affiliateLink: buildAffiliateLink('https://goatfundedfutures.com', 'goat'),
   },
   lucid: {
     name: 'Lucid Trading',
@@ -269,7 +275,7 @@ export const createFirmData = (): FirmData => ({
     drawdownType: 'Trailing (EOD)',
     founded: 2025,
     keyStrength: '~15 min payouts, one-time fee, no activation fee',
-    affiliateLink: `https://lucidtrading.com/?ref=${AFFILIATE_IDS.lucid}`,
+    affiliateLink: buildAffiliateLink('https://lucidtrading.com', 'lucid'),
   },
 })
 

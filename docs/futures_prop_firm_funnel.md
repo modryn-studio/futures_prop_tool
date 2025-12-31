@@ -278,7 +278,7 @@ This just saved you $[XXX] in wasted challenge fees.
 
 **Body:**
 
-Hey {$first_name},
+Hey,
 
 You just took the quiz. Here's your match:
 
@@ -287,22 +287,19 @@ You just took the quiz. Here's your match:
 **Link:** {$top_firm_link}
 
 **Your runner-ups:**
-- {$firm_2} - Code: {$firm_2_promo} - {$firm_2_link}
-- {$firm_3} - Code: {$firm_3_promo} - {$firm_3_link}
+- {$firm_2} — Code: {$firm_2_promo} — {$firm_2_link}
+- {$firm_3} — Code: {$firm_3_promo} — {$firm_3_link}
 
-**Save this email because:**
-- Promo codes update weekly
-- I'll send you rule changes for {$top_firm}
-- Easy reference when you're ready to start
+Save this email for when you're ready to start.
 
 ---
 
 I'll email you in 2 days with the mistakes that cause most {$top_firm} traders to reset. Worth reading before you start.
 
-- {$your_name}
+— {$your_name}
 futuresproptool.com
 
-P.S. Forward this to your trading buddy - their matches might be different based on their style/budget.
+P.S. Forward this to your trading buddy—their matches might be different based on their style/budget.
 
 ---
 
@@ -312,11 +309,11 @@ P.S. Forward this to your trading buddy - their matches might be different based
 
 **Body:**
 
-Hey {$first_name},
+Hey,
 
 Two days ago you got matched with {$top_firm}.
 
-Before you start, here are the 3 rules that kill most evaluations (regardless of which firm you choose):
+Before you start, here are the 3 rules that kill most evaluations — regardless of which firm you choose:
 
 **1. The Consistency Rule Trap**
 Most firms limit how much you can make on your best day (usually 30-50% of total profit).
@@ -343,7 +340,7 @@ No time limit = no rush. Traders who take 10-15 days pass more often than trader
 
 Tomorrow: Your Week 1 game plan.
 
-- {$your_name}
+— {$your_name}
 
 ---
 
@@ -353,7 +350,7 @@ Tomorrow: Your Week 1 game plan.
 
 **Body:**
 
-Hey {$first_name},
+Hey,
 
 When you start your {$top_firm} challenge, bookmark this email. It's your Week 1 blueprint:
 
@@ -377,7 +374,7 @@ Traders who take 10-15 days pass more often than traders who rush in 3 days. Tha
 
 Save this for Day 1.
 
-- {$your_name}
+— {$your_name}
 
 **P.S. Ready to start?**
 → Use code {$promo_code} for {$discount}
@@ -391,9 +388,9 @@ Save this for Day 1.
 
 **Body:**
 
-Hey {$first_name},
+Hey,
 
-Let's say you pass the evaluation. Congrats, but the game changes.
+Let's say you pass the evaluation. Congrats — but the game changes.
 
 **3 things that trip up newly funded traders:**
 
@@ -419,7 +416,7 @@ Let's say you pass the evaluation. Congrats, but the game changes.
 
 This email might save your funded account. Screenshot it.
 
-- {$your_name}
+— {$your_name}
 
 **P.S. Check {$top_firm}'s funded account rules:**
 → {$top_firm_link}
@@ -432,20 +429,20 @@ This email might save your funded account. Screenshot it.
 
 **Body:**
 
-Hey {$first_name},
+Hey,
 
-Quick question - where are you at?
+Quick question — where are you at?
 
-**A)** Started my {$top_firm} challenge - going well
-**B)** Started my challenge - struggling with rules/strategy
-**C)** Haven't started yet - still deciding
+**A)** Started my {$top_firm} challenge — going well
+**B)** Started my challenge — struggling with rules/strategy
+**C)** Haven't started yet — still deciding
 **D)** Went with a different firm
 
 Just reply with A, B, C, or D.
 
 If you're stuck on anything, I'll point you in the right direction.
 
-- {$your_name}
+— {$your_name}
 
 **P.S. Current promo codes for your matches:**
 
@@ -454,8 +451,8 @@ If you're stuck on anything, I'll point you in the right direction.
    {$top_firm_link}
 
 **Runner-ups:**
-→ {$firm_2}: {$firm_2_promo} - {$firm_2_link}
-→ {$firm_3}: {$firm_3_promo} - {$firm_3_link}
+→ {$firm_2}: {$firm_2_promo} — {$firm_2_link}
+→ {$firm_3}: {$firm_3_promo} — {$firm_3_link}
 
 These change weekly. I'll keep you posted.
 
