@@ -27,13 +27,32 @@ export async function POST(request: NextRequest) {
     const topFirmName = topFirm?.name || ''
     const promoCode = topFirm?.promoCode || ''
     const promoDiscount = topFirm?.promoDiscount || ''
+    const topFirmLink = topFirm?.affiliateLink || ''
+
+    // Extract runner-ups for Email 1 and Email 5
+    const firm2 = recommendedFirms?.[1]
+    const firm2Name = firm2?.name || ''
+    const firm2Link = firm2?.affiliateLink || ''
+    const firm2Promo = firm2?.promoCode || ''
+
+    const firm3 = recommendedFirms?.[2]
+    const firm3Name = firm3?.name || ''
+    const firm3Link = firm3?.affiliateLink || ''
+    const firm3Promo = firm3?.promoCode || ''
 
     await addSubscriber({
       email,
       fields: {
         top_firm: topFirmName,
+        top_firm_link: topFirmLink,
         promo_code: promoCode,
         discount: promoDiscount,
+        firm_2: firm2Name,
+        firm_2_link: firm2Link,
+        firm_2_promo: firm2Promo,
+        firm_3: firm3Name,
+        firm_3_link: firm3Link,
+        firm_3_promo: firm3Promo,
         experience_level: answers.q1_experience || '',
         budget: answers.q3_budget || '',
         trading_style: answers.q5_timeframe || '',

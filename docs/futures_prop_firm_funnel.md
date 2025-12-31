@@ -280,17 +280,19 @@ This just saved you $[XXX] in wasted challenge fees.
 
 Hey {$first_name},
 
-You just took the quiz—here's a permanent link to your results:
-
-→ [Link to saved results page]
+You just took the quiz—here's your match:
 
 **Your top match:** {$top_firm}  
 **Current promo:** {$discount} with code {$promo_code}
 
-**Why bookmark this email:**
-- Promo codes update weekly—I'll keep this link current
-- Your runner-ups are linked above too
-- You can reference it when you're ready to start
+**Your runner-ups:**
+- {$firm_2} — Code: {$firm_2_promo} — {$firm_2_link}
+- {$firm_3} — Code: {$firm_3_promo} — {$firm_3_link}
+
+**Save this email because:**
+- Promo codes update weekly
+- I'll send you rule changes for {$top_firm}
+- Easy reference when you're ready to start
 
 ---
 
@@ -450,10 +452,11 @@ If you're stuck on anything, I'll point you in the right direction.
 
 **Your #1:** {$top_firm}
 → {$promo_code} for {$discount}
-   (Affiliate link)
+   {$top_firm_link}
 
-**Runner-up options:**
-[Display runner-up firms with promo codes - requires additional Mailerlite fields or conditional logic]
+**Runner-ups:**
+→ {$firm_2}: {$firm_2_promo} — {$firm_2_link}
+→ {$firm_3}: {$firm_3_promo} — {$firm_3_link}
 
 These change weekly. I'll keep you posted.
 
@@ -572,7 +575,14 @@ When setting up your Mailerlite group, create these custom fields:
 | `first_name` | Email personalization | "John" |
 | `top_firm` | Their #1 match | "Apex Trader Funding" |
 | `promo_code` | Current promo for their firm | "SAVE80" |
+| `top_firm_link` | Affiliate link to top firm | "https://apextrading.com/?ref=..." |
 | `discount` | Promo discount amount | "80% off first month" |
+| `firm_2` | Runner-up #2 name | "Topstep" |
+| `firm_2_link` | Runner-up #2 affiliate link | "https://topstep.com/?ref=..." |
+| `firm_2_promo` | Runner-up #2 promo code | "SAVE50" |
+| `firm_3` | Runner-up #3 name | "MyFundedFutures" |
+| `firm_3_link` | Runner-up #3 affiliate link | "https://myfundedfutures.com/?ref=..." |
+| `firm_3_promo` | Runner-up #3 promo code | "TRIAL80" |
 | `your_name` | Your name in email signature | "Luke" |
 | `experience_level` | From Q1 | "1_to_3yr" |
 | `budget` | From Q3 | "200_to_400" |
@@ -604,11 +614,7 @@ Replace these placeholders when setting up in Mailerlite:
 
 ### Email #5 Runner-Ups Note
 
-Email #5 mentions runner-up firms with promo codes. Options:
-- **Simple:** Remove runner-ups, only show #1 match (cleaner, less setup)
-- **Advanced:** Add `firm_2`, `firm_2_promo`, `firm_3`, `firm_3_promo` fields to Mailerlite + API (more personalization, more complexity)
-
-Day 1 recommendation: Keep it simple, only promote #1 match.
+Email 1 (reference email) and Email 5 (soft sell) now include personalized runner-up firms with promo codes. Emails 2-4 focus exclusively on the top match to avoid confusion during the education phase.
 
 ---
 
