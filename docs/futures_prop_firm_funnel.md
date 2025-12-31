@@ -283,7 +283,8 @@ Hey {$first_name},
 You just took the quiz—here's your match:
 
 **Your top match:** {$top_firm}  
-**Current promo:** {$discount} with code {$promo_code}
+**Current promo:** {$discount} with code {$promo_code}  
+**Link:** {$top_firm_link}
 
 **Your runner-ups:**
 - {$firm_2} — Code: {$firm_2_promo} — {$firm_2_link}
@@ -332,12 +333,11 @@ No time limit = no rush. Traders who take 10-15 days pass more often than trader
 ---
 
 **Want to review {$top_firm}'s specific rules?**
-→ [See {$top_firm} evaluation details]
-   (Link to firm's official rules page)
+→ {$top_firm_link}
 
 **Ready to start?**
 → Use code {$promo_code} for {$discount}
-   (Affiliate link)
+   {$top_firm_link}
 
 ---
 
@@ -381,7 +381,7 @@ Save this for Day 1.
 
 **P.S. Ready to start?**
 → Use code {$promo_code} for {$discount}
-   (Affiliate link)
+   {$top_firm_link}
 
 ---
 
@@ -422,8 +422,7 @@ This email might save your funded account. Screenshot it.
 — {$your_name}
 
 **P.S. Check {$top_firm}'s funded account rules:**
-→ [See {$top_firm} funded account details]
-   (Link to firm's official funded account page)
+→ {$top_firm_link}
 
 ---
 
