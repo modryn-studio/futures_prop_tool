@@ -278,26 +278,26 @@ This just saved you $[XXX] in wasted challenge fees.
 
 **Body:**
 
-Hey [First Name],
+Hey {$first_name},
 
 You just took the quiz—here's a permanent link to your results:
 
 → [Link to saved results page]
 
-**Your top match:** [Firm Name]  
-**Current promo:** [X]% off with code [CODE]
+**Your top match:** {$top_firm}  
+**Current promo:** {$discount} with code {$promo_code}
 
 **Why bookmark this email:**
 - Promo codes update weekly—I'll keep this link current
-- Your runner-ups ([Firm 2] and [Firm 3]) are here too
+- Your runner-ups are linked above too
 - You can reference it when you're ready to start
 
 ---
 
-I'll email you in 2 days with the mistakes that cause most [Firm Name] traders to reset. Worth reading before you start.
+I'll email you in 2 days with the mistakes that cause most {$top_firm} traders to reset. Worth reading before you start.
 
-— [Your Name]
-[Site Name]
+— {$your_name}
+futuresproptool.com
 
 P.S. Forward this to your trading buddy—their matches might be different based on their style/budget.
 
