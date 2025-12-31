@@ -30,7 +30,7 @@ The developer (Luke) operates at 5-10x typical speed:
   /results
     /page.tsx            → Personalized results (requires email)
   /api
-    /submit-quiz         → Send to Kit
+    /submit-quiz         → Send to Mailerlite
 /lib
   /scoring.ts            → Port of scoring.js
   /firms.ts              → Firm data from propFirmData.ts

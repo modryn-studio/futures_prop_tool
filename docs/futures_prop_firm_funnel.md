@@ -305,13 +305,13 @@ P.S. Forward this to your trading buddy—their matches might be different based
 
 ### EMAIL 2: Day 2
 
-**Subject:** Before you start your {{ top_firm }} challenge, read this
+**Subject:** Before you start your {$top_firm} challenge, read this
 
 **Body:**
 
-Hey {{ first_name }},
+Hey {$first_name},
 
-Two days ago you got matched with {{ top_firm }}.
+Two days ago you got matched with {$top_firm}.
 
 Before you start, here are the 3 rules that kill most evaluations — regardless of which firm you choose:
 
@@ -329,31 +329,31 @@ No time limit = no rush. Traders who take 10-15 days pass more often than trader
 
 ---
 
-**Want to review {{ top_firm }}'s specific rules?**
-→ [See {{ top_firm }} evaluation details]
+**Want to review {$top_firm}'s specific rules?**
+→ [See {$top_firm} evaluation details]
    (Link to firm's official rules page)
 
 **Ready to start?**
-→ Use code {{ promo_code }} for {{ discount }}
+→ Use code {$promo_code} for {$discount}
    (Affiliate link)
 
 ---
 
 Tomorrow: Your Week 1 game plan.
 
-— [Your Name]
+— {$your_name}
 
 ---
 
 ### EMAIL 3: Day 4
 
-**Subject:** Save this: Your Week 1 game plan for {{ top_firm }}
+**Subject:** Save this: Your Week 1 game plan for {$top_firm}
 
 **Body:**
 
-Hey {{ first_name }},
+Hey {$first_name},
 
-When you start your {{ top_firm }} challenge, bookmark this email. It's your Week 1 blueprint:
+When you start your {$top_firm} challenge, bookmark this email. It's your Week 1 blueprint:
 
 **Days 1-2: Feel out the platform**
 - Take 1-2 small trades
@@ -375,10 +375,10 @@ Traders who take 10-15 days pass more often than traders who rush in 3 days. Tha
 
 Save this for Day 1.
 
-— {{ your_name }}
+— {$your_name}
 
 **P.S. Ready to start?**
-→ Use code {{ promo_code }} for {{ discount }}
+→ Use code {$promo_code} for {$discount}
    (Affiliate link)
 
 ---
@@ -389,7 +389,7 @@ Save this for Day 1.
 
 **Body:**
 
-Hey {{ first_name }},
+Hey {$first_name},
 
 Let's say you pass the evaluation. Congrats — but the game changes.
 
@@ -417,10 +417,10 @@ Let's say you pass the evaluation. Congrats — but the game changes.
 
 This email might save your funded account. Screenshot it.
 
-— {{ your_name }}
+— {$your_name}
 
-**P.S. Check {{ top_firm }}'s funded account rules:**
-→ [See {{ top_firm }} funded account details]
+**P.S. Check {$top_firm}'s funded account rules:**
+→ [See {$top_firm} funded account details]
    (Link to firm's official funded account page)
 
 ---
@@ -431,11 +431,11 @@ This email might save your funded account. Screenshot it.
 
 **Body:**
 
-Hey {{ first_name }},
+Hey {$first_name},
 
 Quick question — where are you at?
 
-**A)** Started my {{ top_firm }} challenge — going well
+**A)** Started my {$top_firm} challenge — going well
 **B)** Started my challenge — struggling with rules/strategy
 **C)** Haven't started yet — still deciding
 **D)** Went with a different firm
@@ -444,16 +444,16 @@ Just reply with A, B, C, or D.
 
 If you're stuck on anything, I'll point you in the right direction.
 
-— {{ your_name }}
+— {$your_name}
 
 **P.S. Current promo codes for your matches:**
 
-**Your #1:** {{ top_firm }}
-→ {{ promo_code }} for {{ discount }}
+**Your #1:** {$top_firm}
+→ {$promo_code} for {$discount}
    (Affiliate link)
 
 **Runner-up options:**
-[Display runner-up firms with promo codes - requires additional Kit fields or conditional logic]
+[Display runner-up firms with promo codes - requires additional Mailerlite fields or conditional logic]
 
 These change weekly. I'll keep you posted.
 
@@ -523,12 +523,13 @@ These change weekly. I'll keep you posted.
 - Involve.me ($19/mo) — Good templates, outcome-based quizzes
 
 **Custom (More Control):**
-- React + custom logic + ConvertKit API
+- React + custom logic + Mailerlite API
 - 4-6 hours to build, full control over UX and data
 
 ### Email Tool:
 
-- **ConvertKit** (free to 1K subs) — Best for creators, good automation
+- **Mailerlite** (forever-free to 1K subs) — Full automation builder, drag-drop editor, perfect for this use case
+- **ConvertKit/Kit** (free to 1K subs) — Good for creators, but free tier lacks automation builder
 - **Beehiiv** (free to 2.5K subs) — Newsletter-focused, monetization features
 - **Loops** (free to 1K) — Simple, clean, developer-friendly
 

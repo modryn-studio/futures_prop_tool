@@ -16,12 +16,13 @@
 
 ---
 
-## Phase 2: Kit (ConvertKit) Setup
+## Phase 2: Mailerlite Setup
 
-- [x] Create free Kit account at convertkit.com
-- [x] Create a new Form ('Quiz Signup'), copy Form ID to `.env.local`
-- [x] Create API Secret from Kit Settings → API, copy to `.env.local`
-- [ ] Create 11 custom fields in Kit:
+- [x] Create free Mailerlite account at mailerlite.com
+- [x] Get API key from Mailerlite Settings → Integrations → API
+- [x] Copy API key to `.env.local` as `MAILERLITE_API_KEY`
+- [x] Create a group in Mailerlite, copy Group ID to `.env.local` as `MAILERLITE_GROUP_ID`
+- [ ] Create 11 custom fields in Mailerlite:
   - `first_name`
   - `your_name` (set default to your name, e.g., "Luke")
   - `top_firm`
@@ -34,13 +35,15 @@
   - `utm_source`
   - `utm_medium`
   - `utm_campaign`
-- [ ] Create 5-email sequence (copy from `docs/futures_prop_firm_funnel.md` lines 281-451)
+- [ ] Create automation in Mailerlite with trigger "Subscriber joins group"
+- [ ] Create 5-email sequence (copy from `docs/futures_prop_firm_funnel.md` PART 4)
   - Email 1: Day 0 - "Your results (save this)"
-  - Email 2: Day 2 - "Before you start your {{ top_firm }} challenge"
+  - Email 2: Day 2 - "Before you start your {$top_firm} challenge"
   - Email 3: Day 4 - "Save this: Your Week 1 game plan"
   - Email 4: Day 6 - "What to do AFTER you pass"
   - Email 5: Day 8 - "Quick question"
-- [ ] Set trigger: "Subscriber added to form"
+- [ ] Set delays: 0 days, +2 days, +2 days, +2 days, +2 days
+- [ ] Use Mailerlite merge tags: {$first_name}, {$top_firm}, {$promo_code}, {$discount}, {$your_name}
 - [ ] Add 13 firm homepage/rules page links to emails (manual per firm)
 - [ ] Test sequence by subscribing with your own email
 

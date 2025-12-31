@@ -2,7 +2,7 @@
 
 **Live:** [futuresproptool.com](https://futuresproptool.com)  
 **Type:** Affiliate lead-gen funnel  
-**Stack:** Next.js 14 + Tailwind CSS + Vercel + ConvertKit + Supabase
+**Stack:** Next.js 14 + Tailwind CSS + Vercel + Mailerlite
 
 ## Quick Start
 
@@ -12,7 +12,7 @@ npm install
 
 # Set up environment
 cp .env.example .env.local
-# Add your Kit API key and Supabase credentials
+# Add your Mailerlite API key and group ID
 
 # Run dev server
 npm run dev
