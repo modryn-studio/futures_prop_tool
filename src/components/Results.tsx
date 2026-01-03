@@ -458,7 +458,7 @@ export function Results({ recommended, eliminated, matchStrength, answers, onEma
               </div>
             </div>
 
-            <form onSubmit={handleEmailSubmit} className="flex gap-3">
+            <form onSubmit={handleEmailSubmit} className="flex flex-col sm:flex-row gap-3">
               <input
                 type="email"
                 value={email}
@@ -471,6 +471,7 @@ export function Results({ recommended, eliminated, matchStrength, answers, onEma
                 type="submit" 
                 variant="primary"
                 disabled={emailStatus === 'loading'}
+                className="whitespace-nowrap"
               >
                 {emailStatus === 'loading' ? 'Sending...' : 'Send My Results'}
               </Button>

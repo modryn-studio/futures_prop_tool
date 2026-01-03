@@ -241,6 +241,76 @@
 | 2025-12-30 | Removed Supabase - Kit only | submit-quiz/route.ts, package.json, .env.example, copilot-instructions.md |
 | 2025-12-30 | Migrated from Kit to Mailerlite | mailerlite.ts (new), submit-quiz/route.ts, .env.local, copilot-instructions.md, funnel.md |
 | 2026-01-02 | Elite-level scoring overhaul | scoring.ts, page.tsx, Results.tsx, quiz-data.ts, futures_prop_firms.json, copilot-instructions.md |
+| 2026-01-03 | Added feedback system with side tab | FeedbackButton.tsx, api/feedback/route.ts, layout.tsx, quiz/page.tsx |
+
+---
+
+## January 3, 2026 — Day 4: User Feedback System
+
+### Completed
+- [x] Built feedback collection system for MVP iteration
+  - Created FeedbackButton component with side tab (desktop) and FAB (mobile)
+  - Built slide-out panel with textarea, optional email, success states
+  - Integrated with Mailerlite (creates subscriber with feedback_message field)
+  - Added MAILERLITE_FEEDBACK_GROUP_ID env var
+- [x] Implemented responsive feedback UI
+  - Desktop: Subtle side tab with vertical text (right edge, always visible)
+  - Mobile: FAB (floating action button) bottom-right
+  - Mobile FAB hidden on quiz questions, visible on results
+  - Backdrop blur overlay when panel opens
+  - Smooth spring animations for slide-out
+- [x] Fixed mobile UX issues
+  - Addressed horizontal scroll on results page (email form)
+  - Changed email form to stack vertically on mobile
+  - Added whitespace-nowrap to prevent button text wrapping
+- [x] Configured Mailerlite feedback handling
+  - Anonymous feedback: Uses unique dummy email per submission
+  - Stores feedback in custom field: feedback_message
+  - Tracks submission date and email availability
+  - Group ID: 175594193906829266
+
+### Technical Implementation
+**Component Structure:**
+- `FeedbackButton.tsx` — Main feedback component
+  - Accepts hideOnMobile prop for quiz page
+  - Side tab: hidden md:block (desktop only)
+  - FAB: md:hidden (mobile only)
+  - Conditional rendering based on hideOnMobile prop
+
+**Integration Points:**
+- Landing page: Always shows feedback button
+- Quiz questions: Desktop side tab visible, mobile FAB hidden
+- Results page: Both side tab and FAB visible
+
+**Mailerlite Data Model:**
+- Email: `feedback-${timestamp}@futuresproptool.com` (for anonymous)
+- Custom Fields:
+  - `feedback_message` — Actual feedback text
+  - `feedback_date` — ISO timestamp
+  - `has_email` — "yes" or "no"
+  - `contact_email` — User's email if provided
+
+### Design Decisions
+1. **Side tab over modal** — Industry standard (Hotjar, Intercom pattern)
+2. **Subtle styling** — Muted colors, no bright accent to avoid distraction
+3. **Context-aware visibility** — Hide mobile FAB during quiz to prevent CTA blocking
+4. **Mailerlite storage** — Reuse existing integration vs. separate service
+5. **Unique dummy emails** — Prevent overwriting previous anonymous feedback
+
+### Files Created/Modified
+- `src/components/FeedbackButton.tsx` — 201 lines
+- `src/app/api/feedback/route.ts` — 60 lines
+- `src/app/layout.tsx` — Removed FeedbackButton (moved to page-level)
+- `src/app/page.tsx` — Added FeedbackButton
+- `src/app/quiz/page.tsx` — Added conditional FeedbackButton
+- `src/components/Results.tsx` — Fixed mobile horizontal scroll
+- `src/components/index.ts` — Added FeedbackButton export
+- `.env.local` — Added MAILERLITE_FEEDBACK_GROUP_ID
+
+### Next Actions
+- [ ] Monitor feedback submissions in Mailerlite
+- [ ] Iterate on product based on user feedback
+- [ ] Consider adding feedback analytics (sentiment, categories)
 
 ---
 

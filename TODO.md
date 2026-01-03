@@ -35,6 +35,10 @@
   - `utm_source`
   - `utm_medium`
   - `utm_campaign`
+  - `feedback_message`
+  - `feedback_date`
+  - `has_email`
+  - `contact_email`
 - [x] Create automation in Mailerlite with trigger "Subscriber joins group"
 - [x] Create 5-email sequence (copy from `docs/futures_prop_firm_funnel.md` PART 4)
   - Email 1: Day 0 - "Your results (save this)"
@@ -45,6 +49,8 @@
 - [x] Set delays: 0 days, +2 days, +2 days, +2 days, +2 days
 - [x] Use Mailerlite merge tags: {$first_name}, {$top_firm}, {$promo_code}, {$discount}, {$your_name}
 - [x] Firm homepage links are auto-populated via {$top_firm_link}
+- [x] Create "Feedback" group in Mailerlite (ID: 175594193906829266)
+- [x] Add MAILERLITE_FEEDBACK_GROUP_ID to .env.local
 - [ ] Test sequence by subscribing with your own email
 
 ---

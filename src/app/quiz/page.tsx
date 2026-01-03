@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { Quiz } from '@/components/Quiz'
 import { Results } from '@/components/Results'
 import { scoreQuiz, QuizAnswers, QuizResults } from '@/lib/scoring'
+import FeedbackButton from '@/components/FeedbackButton'
 
 type QuizStep = 'quiz' | 'results'
 
@@ -57,18 +58,26 @@ export default function QuizPage() {
   }
 
   if (step === 'quiz') {
-    return <Quiz onComplete={handleQuizComplete} />
+    return (
+      <>
+        <Quiz onComplete={handleQuizComplete} />
+        <FeedbackButton hideOnMobile={true} />
+      </>
+    )
   }
 
   if (step === 'results' && results && answers) {
     return (
-      <Results
-        recommended={results.recommended}
-        eliminated={results.eliminated}
-        matchStrength={results.matchStrength}
-        answers={answers}
-        onEmailSubmit={handleOptionalEmailSubmit}
-      />
+      <>
+        <Results
+          recommended={results.recommended}
+          eliminated={results.eliminated}
+          matchStrength={results.matchStrength}
+          answers={answers}
+          onEmailSubmit={handleOptionalEmailSubmit}
+        />
+        <FeedbackButton hideOnMobile={false} />
+      </>
     )
   }
 

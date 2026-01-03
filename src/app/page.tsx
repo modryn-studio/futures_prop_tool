@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Button, Marquee } from '@/components/ui'
+import FeedbackButton from '@/components/FeedbackButton'
 import { 
   ArrowRight, 
   CheckCircle,
@@ -464,6 +465,8 @@ export default function Home() {
           </div>
         </div>
       </footer>
+      
+      <FeedbackButton />
     </div>
   )
 }
