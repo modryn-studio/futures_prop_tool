@@ -53,18 +53,18 @@
 
 Visit each firm's website and find current promo codes:
 
-- [ ] **Apex Trader Funding** - Update `src/lib/scoring.ts` line 90
-- [ ] **Topstep** - Update line 103
-- [ ] **MyFundedFutures** - Update line 117
-- [ ] **Tradeday** - Update line 131
-- [ ] **BluSky** - Update line 144
-- [ ] **Take Profit Trader** - Update line 158
-- [ ] **Earn2Trade** - Update line 173
-- [ ] **Elite Trader Funding** - Update line 188
-- [ ] **Bulenox** - Update line 203
-- [ ] **Alpha Capital Group** - Update line 217
-- [ ] **Tradeify** - Update line 232
-- [ ] **Lucid Trading** - Update line 246
+- [x] **Apex Trader Funding** - Update `src/lib/scoring.ts` line 90
+- [x] **Topstep** - Update line 103
+- [x] **MyFundedFutures** - Update line 117
+- [x] **Tradeday** - Update line 131
+- [x] **BluSky** - Update line 144
+- [x] **Take Profit Trader** - Update line 158
+- [x] **Earn2Trade** - Update line 173
+- [x] **Elite Trader Funding** - Update line 188
+- [x] **Bulenox** - Update line 203
+- [x] **Alpha Capital Group** - Update line 217
+- [x] **Tradeify** - Update line 232
+- [x] **Lucid Trading** - Update line 246
 
 **Format in scoring.ts:**
 ```typescript
