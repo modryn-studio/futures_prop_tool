@@ -27,7 +27,9 @@ export async function POST(request: Request) {
     const subscriberData: any = {
       email: email || `feedback-${Date.now()}@futuresproptool.com`,
       fields: {
+        // Store under both spellings to match existing Mailerlite field typo
         feedback_message: feedback,
+        feeback_message: feedback,
         feedback_date: new Date().toISOString(),
         has_email: email ? 'yes' : 'no',
       },
