@@ -24,6 +24,7 @@ export async function addSubscriber(data: MailerliteSubscriberData) {
       body: JSON.stringify({
         email: data.email,
         fields: data.fields,
+        resubscribe: true, // Allow resubscribing previously unsubscribed emails
       }),
     }
   )
@@ -31,6 +32,30 @@ export async function addSubscriber(data: MailerliteSubscriberData) {
   if (!subscriberResponse.ok) {
     const error = await subscriberResponse.json()
     console.error('Mailerlite subscriber API error:', error)
+    
+    // If email is unsubscribed, try to get subscriber ID and resubscribe
+    if (error.subscriber) {
+      console.log('Attempting to resubscribe:', error.subscriber)
+      // Continue to group assignment with the subscriber ID from error
+      const subscriberId = error.subscriber
+      
+      // Try to add to group anyway
+      const groupResponse = await fetch(
+        `https://connect.mailerlite.com/api/subscribers/${subscriberId}/groups/${MAILERLITE_GROUP_ID}`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${MAILERLITE_API_KEY}`,
+          },
+        }
+      )
+      
+      if (groupResponse.ok) {
+        return { data: { id: subscriberId } }
+      }
+    }
+    
     throw new Error(`Failed to create subscriber: ${JSON.stringify(error)}`)
   }
 
