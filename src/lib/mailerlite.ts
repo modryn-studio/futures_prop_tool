@@ -31,7 +31,7 @@ export async function addSubscriber(data: MailerliteSubscriberData) {
   if (!subscriberResponse.ok) {
     const error = await subscriberResponse.json()
     console.error('Mailerlite subscriber API error:', error)
-    throw new Error('Failed to create subscriber')
+    throw new Error(`Failed to create subscriber: ${JSON.stringify(error)}`)
   }
 
   const subscriberData = await subscriberResponse.json()
@@ -53,7 +53,7 @@ export async function addSubscriber(data: MailerliteSubscriberData) {
     if (!groupResponse.ok) {
       const error = await groupResponse.json()
       console.error('Mailerlite group API error:', error)
-      // Don't throw - subscriber was created successfully
+      throw new Error(`Failed to add to group: ${JSON.stringify(error)}`)
     }
   }
 

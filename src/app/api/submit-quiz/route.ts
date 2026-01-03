@@ -66,8 +66,9 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ success: true })
   } catch (error) {
     console.error('Submit quiz error:', error)
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error'
     return NextResponse.json(
-      { error: 'Failed to process submission' },
+      { error: 'Failed to process submission', details: errorMessage },
       { status: 500 }
     )
   }
