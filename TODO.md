@@ -9,9 +9,9 @@
 ## Phase 1: Environment Setup
 
 - [x] Copy `.env.example` to `.env.local`
-- [x] Add Kit API credentials to `.env.local`:
-  - `NEXT_PUBLIC_KIT_FORM_ID=8921202`
-  - `KIT_API_SECRET=t0yinn-5NXEbAkfvw2iJYGJ8-HuRse2tp6GnS579GzI`
+- [x] Add Mailerlite API credentials to `.env.local`:
+  - `MAILERLITE_API_KEY=<your_api_key>`
+  - `MAILERLITE_GROUP_ID=<your_group_id>`
 - [x] Leave affiliate IDs as blank for now (will fill as approved)
 
 ---
@@ -104,7 +104,7 @@ Apply to these firms' affiliate programs (highest volume first):
 
 ---
 
-## Phase 5: Collect Firm Links for Kit Emails
+## Phase 5: Collect Firm Links for Mailerlite Emails
 
 For each of the 12 firms, collect these URLs:
 
@@ -156,9 +156,9 @@ For each of the 12 firms, collect these URLs:
 - [ ] Evaluation rules page: _________________________
 - [ ] Funded account rules page: _________________________
 
-**Use these links in Kit emails:**
-- Email #2: `[See {{ top_firm }} evaluation details]` → firm's evaluation rules URL
-- Email #4: `[See {{ top_firm }} funded account details]` → firm's funded account URL
+**Use these links in Mailerlite emails:**
+- Email #2: `[See {$top_firm} evaluation details]` → firm's evaluation rules URL
+- Email #4: `[See {$top_firm} funded account details]` → firm's funded account URL
 
 ---
 
@@ -167,8 +167,8 @@ For each of the 12 firms, collect these URLs:
 - [ ] Push latest code to GitHub (if not already)
 - [ ] Connect GitHub repo to Vercel (vercel.com)
 - [x] Add environment variables in Vercel dashboard:
-  - `NEXT_PUBLIC_KIT_FORM_ID=8921202`
-  - `KIT_API_SECRET=t0yinn-5NXEbAkfvw2iJYGJ8-HuRse2tp6GnS579GzI`
+  - `MAILERLITE_API_KEY=<your_api_key>`
+  - `MAILERLITE_GROUP_ID=<your_group_id>`
   - All affiliate IDs (add as you get approved)
 - [ ] Deploy to production
 - [ ] Verify domain: futuresproptool.com
@@ -182,7 +182,7 @@ For each of the 12 firms, collect these URLs:
 - [ ] Complete full quiz (all 9 questions)
 - [ ] View results page (should show top 3 matches)
 - [ ] Submit email in optional capture form
-- [ ] Check Kit dashboard - subscriber added?
+- [ ] Check Mailerlite dashboard - subscriber added?
 - [ ] Check email - received Email #1?
 - [ ] Click affiliate link - does it have your ID?
 - [ ] Test on mobile device
@@ -205,10 +205,10 @@ For each of the 12 firms, collect these URLs:
 - [ ] Check all 12 firms for new promo codes
 - [ ] Update `src/lib/scoring.ts` if changed
 - [ ] Redeploy to Vercel if updated
-- [ ] Update Kit email sequence if needed
+- [ ] Update Mailerlite email sequence if needed
 
 ### Every Week
-- [ ] Review Kit analytics (open rates, click rates)
+- [ ] Review Mailerlite analytics (open rates, click rates)
 - [ ] Check affiliate dashboards for conversions
 - [ ] Reply to any email responses
 - [ ] Drive 20-50 new quiz takers
@@ -218,7 +218,7 @@ For each of the 12 firms, collect these URLs:
 ## Future Improvements (Month 2+)
 
 - [ ] Build individual firm pages (12 pages)
-- [ ] Update Kit emails to link to YOUR firm pages
+- [ ] Update Mailerlite emails to link to YOUR firm pages
 - [ ] Add comparison tool (Firm A vs Firm B)
 - [ ] Add drawdown calculator
 - [ ] Consider moving promo codes to database
@@ -229,7 +229,7 @@ For each of the 12 firms, collect these URLs:
 ## Notes
 
 **Critical Path (Day 1):**
-1. Environment setup → Kit setup → Test locally → Deploy
+1. Environment setup → Mailerlite setup → Test locally → Deploy
 2. Everything else can happen Week 1
 
 **Don't Block On:**

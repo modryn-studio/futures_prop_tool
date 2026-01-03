@@ -1,7 +1,7 @@
 # Futures Prop Firm Quiz - Roadmap
 
 **Domain:** futuresproptool.com  
-**Stack:** Next.js + Tailwind + Vercel + Kit (ConvertKit) + Supabase/Vercel Postgres  
+**Stack:** Next.js + Tailwind + Vercel + Mailerlite  
 **Goal:** Funnel-first affiliate site for futures prop firm recommendations
 
 ---
@@ -13,14 +13,14 @@
 - [ ] **Next.js project scaffold** — App router, Tailwind, Vercel deploy
 - [ ] **Landing page** — Single page with headline, CTA, trust elements
 - [ ] **Quiz component** — 11 questions with state management
-- [ ] **Email capture gate** — Kit integration before showing results
+- [ ] **Email capture (optional)** — Mailerlite integration after showing results
 - [ ] **Results page** — Top 3 firms with personalized reasons + affiliate CTAs
 - [ ] **Scoring engine** — Port `scoring.js` to Next.js, test all paths
 - [ ] **Database** — Supabase or Vercel Postgres for quiz responses
 - [ ] **Analytics** — Vercel Analytics + GA4 conversion tracking
 
 ### Day 2 (4-6 hours)
-- [ ] **Kit email sequence** — 5 emails set up with automation triggers
+- [ ] **Mailerlite email sequence** — 5 emails set up with automation triggers
 - [ ] **UTM tracking** — All affiliate links tagged
 - [ ] **Mobile optimization** — Test on real devices
 - [ ] **First deploy** — Live on futuresproptool.com

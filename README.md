@@ -53,10 +53,9 @@ Visit http://localhost:3000
 See [.env.example](.env.example) for all required variables.
 
 Critical variables:
-- `KIT_API_SECRET` — ConvertKit API key
-- `NEXT_PUBLIC_KIT_FORM_ID` — ConvertKit form ID
-- `NEXT_PUBLIC_SUPABASE_URL` — Supabase project URL
-- `NEXT_PUBLIC_SUPABASE_ANON_KEY` — Supabase anon key
+- `MAILERLITE_API_KEY` — Mailerlite API key
+- `MAILERLITE_GROUP_ID` — Mailerlite group ID for quiz subscribers
+- Affiliate IDs for all 12 firms (add as approved)
 
 ## Deployment
 
