@@ -15,7 +15,7 @@ futurespropfirms.com (or your domain)
 │   ├── /bulenox/
 │   ├── /alpha-futures/
 │   ├── /tradeify/
-│   └── /goat-funded-futures/
+│   └── /lucid-trading/
 │
 ├── /compare/
 │   ├── /apex-vs-topstep/

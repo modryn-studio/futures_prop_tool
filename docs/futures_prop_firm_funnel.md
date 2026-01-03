@@ -72,7 +72,7 @@ See Which Firm Fits You →
 - [ ] One-time fee (higher upfront, but no recurring charges)
 - [ ] No preference — whichever firm fits best
 
-*Why we ask: Some firms like Bulenox and Goat Funded offer one-time fees ($85-$535 total). Others charge monthly until you pass. This significantly affects total cost.*
+*Why we ask: Some firms like Bulenox and Lucid Trading offer one-time fees ($60-$535 total). Others charge monthly until you pass. This significantly affects total cost.*
 
 ---
 
@@ -472,19 +472,19 @@ These change weekly. I'll keep you posted.
 |--------|--------------|------------|
 | Budget <$100 | Topstep, BluSky | Apex (without promo), Take Profit Trader |
 | Budget $400+ | Apex, Elite, Earn2Trade | Topstep, BluSky |
-| Prefers one-time fee | Bulenox, Goat Funded | All monthly subscription firms |
+| Prefers one-time fee | Bulenox, Lucid Trading | All monthly subscription firms |
 | Swing trader | Elite (Diamond Hands) | Everyone else (deprioritized, not eliminated) |
 | Scalper/high frequency | Apex (no daily limit), TPT | Earn2Trade (stricter) |
 | Wants education | Topstep, Earn2Trade | Apex, BluSky |
 | Wants fast payouts | MyFundedFutures, BluSky, TPT | Earn2Trade, Elite |
-| First-timer | Topstep, MFFU, Earn2Trade | Elite, Goat Funded |
+| First-timer | Topstep, MFFU, Earn2Trade | Elite |
 | Multiple accounts | Apex (20 accounts) | TPT (single account focus) |
 | Hates consistency rules | TPT (funded), MFFU Expert | Apex, Topstep (strict rules) |
 
 **Dealbreaker Logic (Q10 only — hard elimination):**
 - If "no overnight" is dealbreaker → ONLY recommend Elite Diamond Hands
 - If "no consistency rule" is dealbreaker → Recommend TPT (funded), MFFU Expert, eliminate Apex/Topstep
-- If "no monthly fees" is dealbreaker → Recommend Bulenox, Goat Funded, eliminate monthly firms
+- If "no monthly fees" is dealbreaker → Recommend Bulenox, Lucid Trading, eliminate monthly firms
 
 **Scoring:**
 - Each question assigns points to each firm
@@ -550,7 +550,7 @@ You now have:
 5. ✅ 5-email welcome sequence (updated for post-results flow)
 6. ✅ Scoring logic for recommendations
 7. ✅ Weekly newsletter format
-8. ✅ 13 firms analyzed
+8. ✓ 12 firms analyzed
 
 **Architecture:** Quiz → Results (immediate) → Optional Email Capture
 

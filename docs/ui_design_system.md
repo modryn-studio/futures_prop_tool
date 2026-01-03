@@ -405,7 +405,7 @@ The intersection of Bloomberg Terminal utility and luxury fintech. Dark, data-de
 │                                                          │
 │              [ See Which Firm Fits You → ]              │
 │                                                          │
-│         ✓ 13 firms   ✓ Updated today   ✓ 2 min         │
+│         ✓ 12 firms   ✓ Updated today   ✓ 2 min         │
 │                                                          │
 ├─────────────────────────────────────────────────────────┤
 │                                                          │

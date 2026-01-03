@@ -11,7 +11,7 @@
 - [x] Purchased domain: futuresproptool.com (via Vercel)
 - [x] Signed up for Kit (ConvertKit) - free tier
 - [x] Created comprehensive funnel document (`futures_prop_firm_funnel.md`)
-- [x] Built scoring algorithm (`scoring.js`) - 11 questions, 13 firms
+- [x] Built scoring algorithm (`scoring.js`) - 9 questions, 12 firms
 - [x] Defined tech stack: Next.js + Tailwind + Vercel + Kit + Supabase
 - [x] Created landing page headline options
 - [x] Created roadmap and build log
@@ -34,7 +34,7 @@
 - `.github/copilot-instructions.md` — AI coding guidelines
 
 ### Data Files (Pre-existing)
-- `futures_prop_firms.json` — 13 firms with full data
+- `futures_prop_firms.json` — 12 firms with full data
 - `propFirmData.ts` — TypeScript export of firm data
 - `futures_prop_firm_database.xlsx` — Source spreadsheet
 
@@ -176,11 +176,11 @@
   - Added Lucid Trading to firm logos marquee
   - Updated Results.tsx (12→13 firms compared)
 - [x] Updated documentation
-  - copilot-instructions.md (13 firms)
-  - buildlog.md (13 firms)
-  - landing_page_headline_options.md (13 firms)
-  - page_templates.md (13 firms)
-  - ui_design_system.md (13 firms)
+  - copilot-instructions.md (12 firms after Goat removal)
+  - buildlog.md (12 firms)
+  - landing_page_headline_options.md (12 firms)
+  - page_templates.md (12 firms)
+  - ui_design_system.md (12 firms)
 
 ### Lucid Trading Key Attributes
 - **Strengths:** One-time fee ($60-221), ~15 min payouts (fastest!), no activation fee, 4.8 Trustpilot, LucidFlex removes consistency rule in funded
@@ -240,6 +240,94 @@
 | 2025-12-30 | Added post-results email capture | Results.tsx, submit-quiz/route.ts |
 | 2025-12-30 | Removed Supabase - Kit only | submit-quiz/route.ts, package.json, .env.example, copilot-instructions.md |
 | 2025-12-30 | Migrated from Kit to Mailerlite | mailerlite.ts (new), submit-quiz/route.ts, .env.local, copilot-instructions.md, funnel.md |
+| 2026-01-02 | Elite-level scoring overhaul | scoring.ts, page.tsx, Results.tsx, quiz-data.ts, futures_prop_firms.json, copilot-instructions.md |
+
+---
+
+## January 2, 2026 — Day 3: Elite-Level Scoring Overhaul
+
+### Completed
+- [x] Removed Goat Funded Futures (Trustpilot guideline breach)
+  - Removed from FirmKey type, AFFILIATE_IDS, createFirmData()
+  - Removed all scoring references across Q1-Q10
+  - Removed from page.tsx, Results.tsx, futures_prop_firms.json
+  - Updated quiz-data.ts Q3a whyWeAsk (Goat → Lucid)
+- [x] Updated Trustpilot ratings to current (January 2026)
+  - Apex: 4.8 → 4.5
+  - Topstep: 4.6 → 3.6 (payout complaints)
+  - Elite: 4.1 → 3.8
+  - Bulenox: 4.6 → 4.8
+  - Alpha: 4.5 → 4.9 (top-rated newcomer)
+  - Tradeify: 4.6 → 4.7
+  - BluSky: 4.7 → 4.8
+- [x] Integrated Alpha Futures into all 9 questions
+  - Q1-Q10 comprehensive scoring (was only in 2/9 questions)
+  - Updated keyStrength: "Top-rated newcomer, excellent customer service"
+  - Added customer service focus to Q9 moderate/minimal support
+- [x] Integrated Tradeify into all 9 questions
+  - Q1-Q10 comprehensive scoring (was only in 2/9 questions)
+  - Updated keyStrength: "60-min automated payouts, Lightning Funded option"
+  - Fixed domain: tradeify.com → tradeify.co
+  - Added to Q6 payout_restrictions (+4), Q8 critical payouts (+4)
+- [x] Expanded Bulenox scoring coverage
+  - Q2: Added to attempted_not_passed, passed_didnt_work, currently_funded
+  - Q3: Added to under_100 (+3), all budget tiers
+  - Q5: Added to scalping, day_trading
+  - Q8: Added to important payout priority
+  - Q9: Increased 'none' support from +2 to +3
+- [x] Added Lucid "rising star" boost
+  - +2 baseline score at start of scoreQuiz() for founded 2025 with 4.8 rating
+  - No penalty for being new—reward strong performance
+- [x] Updated firm count across repo (13→12)
+  - scoring.ts totalFirmsEvaluated: 12
+  - page.tsx headline and comparison text
+  - Results.tsx "12 firms compared"
+  - copilot-instructions.md all references
+  - Updated buildlog.md historical entries
+- [x] Fixed domain URLs
+  - Alpha: alphafutures.com → alpha-futures.com
+  - BluSky: Already corrected to blusky.pro
+- [x] Removed Q4/Q7 references from docs (already removed from quiz)
+
+### Research Findings
+Validated all 12 firms via Trustpilot and web research:
+- **Goat Funded**: Trustpilot FLAGGED for "breach of guidelines" (incentivizing reviews)
+- **Alpha Futures**: 4.9 rating, 1,717 reviews—legitimate strong performer
+- **Tradeify**: 4.7 rating, 1,543 reviews—60-min payouts, Luke Littler ambassador
+- **Topstep**: Declining from 4.0+ to 3.6—platform outages and payout complaints
+- **MFFU**: Market leader at 4.9 with 13,861 reviews
+
+### Scoring Coverage Analysis
+**Before:**
+- Alpha: 2/9 questions (22% coverage) ❌
+- Tradeify: 2/9 questions (22% coverage) ❌
+- Bulenox: 5/9 questions (56% coverage) ⚠️
+
+**After:**
+- Alpha: 9/9 questions (100% coverage) ✅
+- Tradeify: 9/9 questions (100% coverage) ✅
+- Bulenox: 8/9 questions (89% coverage) ✅
+
+### Files Modified (7 files, 406 insertions, 309 deletions)
+- `src/lib/scoring.ts` — Complete overhaul with comprehensive firm coverage
+- `src/app/page.tsx` — Updated headline and firm count
+- `src/components/Results.tsx` — Updated firm count
+- `src/lib/quiz-data.ts` — Updated Q3a whyWeAsk text
+- `data/futures_prop_firms.json` — Removed Goat from all sections
+- `.github/copilot-instructions.md` — Updated all references
+- `docs/buildlog.md` — This entry
+
+### Key Decisions
+1. **Remove low-quality firms** — Trustpilot violations = instant removal
+2. **No new-firm penalty** — Lucid gets +2 boost for strong rating despite 2025 founding
+3. **100% scoring coverage** — Every firm must be scored in every relevant question
+4. **Research-driven ratings** — Use current Trustpilot data, not stale snapshot
+
+### Next Actions
+- [ ] Verify no TypeScript errors (✅ Already verified—build successful)
+- [ ] Test quiz with Alpha/Tradeify/Bulenox scenarios
+- [ ] Update any marketing copy mentioning "13 firms"
+- [ ] Consider quarterly Trustpilot rating refresh process
 
 ---
 

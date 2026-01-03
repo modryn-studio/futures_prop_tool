@@ -26,7 +26,7 @@ The developer (Luke) operates at 5-10x typical speed:
 /app
   /page.tsx              → Landing page with quiz CTA
   /quiz
-    /page.tsx            → 11-question quiz flow
+    /page.tsx            → 9-question quiz flow
   /results
     /page.tsx            → Personalized results (requires email)
   /api
@@ -206,7 +206,7 @@ NEXT_PUBLIC_GA_ID=
 ## Testing Priorities
 
 ### Must Test Before Launch
-1. Full quiz flow (all 11 questions)
+1. Full quiz flow (all 9 questions)
 2. Email capture → Mailerlite subscriber created & added to group
 3. Results page shows correct top 3
 4. Affiliate links have correct UTM params
@@ -214,10 +214,10 @@ NEXT_PUBLIC_GA_ID=
 6. Edge case: All firms eliminated by dealbreakers
 
 ### Test Scenarios
-- Beginner with low budget → Expect: Topstep, BluSky
+- Beginner with low budget → Expect: Topstep, BluSky, Tradeify
 - Swing trader → Expect: Elite #1, others deprioritized
-- Hates monthly fees → Expect: Bulenox, Goat only
-- Wants fast payouts → Expect: MFFU, BluSky, TPT
+- Hates monthly fees → Expect: Bulenox, Lucid only
+- Wants fast payouts → Expect: Lucid, MFFU, BluSky, Tradeify
 
 ---
 
