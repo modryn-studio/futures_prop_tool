@@ -221,26 +221,6 @@
       "Key Differentiator": "Low monthly cost, straightforward rules"
     },
     {
-      "Firm Name": "Goat Funded Futures",
-      "Account Sizes": "$50K-$150K",
-      "Challenge Fee": "$97-$277 one-time",
-      "Profit Target": "None (instant funding)",
-      "Max Daily Loss": "3-4%",
-      "Max Drawdown": "6-8%",
-      "Drawdown Type": "Static",
-      "Profit Split": "80%",
-      "Payout Frequency": "Bi-weekly",
-      "Min Trading Days": "5 days",
-      "Time Limit": "",
-      "Consistency Rule": "",
-      "Platforms": "NinjaTrader, Tradovate",
-      "Activation Fee": "$150-$350",
-      "Trustpilot": 4.3,
-      "Founded": 2024,
-      "HQ": "USA",
-      "Key Differentiator": "No evaluation required - instant funding"
-    },
-    {
       "Firm Name": "Lucid Trading",
       "Account Sizes": "$25K-$150K",
       "Challenge Fee": "$60-$221 one-time (often 40-50% off)",
@@ -325,20 +305,13 @@
     "fastest_to_funded": [
       {
         "rank": "1",
-        "firm": "Goat Funded Futures",
-        "why": "Instant funding - no evaluation",
-        "cost": "$97+ one-time",
-        "rating": "4.3"
-      },
-      {
-        "rank": "2",
         "firm": "TradeDay",
         "why": "1-day minimum trading days",
         "cost": "$99/mo",
         "rating": "4.7"
       },
       {
-        "rank": "3",
+        "rank": "2",
         "firm": "Elite Trader Funding (Fast Track)",
         "why": "1-day minimum",
         "cost": "$75+",
@@ -564,17 +537,6 @@
       "Copy Trading": "No",
       "Scaling Rule": "Standard",
       "Contract Limits": "Standard"
-    },
-    {
-      "Firm": "Goat Funded Futures",
-      "Eval Steps": "None (instant)",
-      "Drawdown Calc": "Static",
-      "News Trading": "Yes",
-      "Overnight/Weekend": "Check rules",
-      "Bots/EAs": "Yes",
-      "Copy Trading": "No",
-      "Scaling Rule": "",
-      "Contract Limits": "Varies"
     }
   ],
   "vs_comparisons": [
@@ -722,14 +684,6 @@
       "Common Promo Codes": "35% off",
       "Promo Frequency": "Monthly",
       "Notes": "Newer program"
-    },
-    {
-      "Firm": "Goat Funded Futures",
-      "Has Affiliate": "Yes",
-      "Est. Commission": "$25-50",
-      "Common Promo Codes": "Various",
-      "Promo Frequency": "Occasional",
-      "Notes": "Instant funding angle"
     }
   ],
   "quick_reference": [
@@ -745,8 +699,8 @@
     },
     {
       "Trader Type": "Want fastest funding",
-      "Best Fit": "Goat Funded Futures or TradeDay",
-      "Why": "Instant or 1-day minimum"
+      "Best Fit": "TradeDay or Elite Fast Track",
+      "Why": "1-day minimum to pass"
     },
     {
       "Trader Type": "Want max first payout",
@@ -790,7 +744,7 @@
     },
     {
       "Trader Type": "One-time fee preference",
-      "Best Fit": "Bulenox or Goat Funded",
+      "Best Fit": "Bulenox or Lucid Trading",
       "Why": "No monthly recurring fees"
     }
   ],

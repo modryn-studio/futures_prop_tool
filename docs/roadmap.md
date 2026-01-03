@@ -62,8 +62,9 @@
 1. Top 3 firm detail pages (from quiz click data)
 2. Top 2 VS comparison pages (from user questions)
 3. Homepage with comparison table
-4. Deals page (current promo codes)
-5. Calculator tool
+4. Browse/comparison page (all 13 firms) — Link from quiz results
+5. Deals page (current promo codes)
+6. Calculator tool
 
 ### SEO Foundation
 - [ ] Proper metadata for all pages

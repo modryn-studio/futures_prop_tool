@@ -51,22 +51,11 @@ export const quizQuestions: QuizQuestion[] = [
     id: 'q3a_payment_preference',
     question: 'Would you rather pay monthly or a one-time fee?',
     subtext: 'Some firms offer one-time payment options.',
-    whyWeAsk: 'Some firms like Bulenox and Goat offer one-time evaluation fees instead of monthly subscriptions.',
+    whyWeAsk: 'Firms like Bulenox and Lucid offer one-time evaluation fees instead of monthly subscriptions.',
     options: [
       { value: 'monthly', label: 'Monthly subscription', description: 'Spread out the cost' },
       { value: 'one_time', label: 'One-time payment', description: 'Pay once and done' },
       { value: 'no_preference', label: 'No preference', description: 'Either works for me' },
-    ],
-  },
-  {
-    id: 'q4_account_size',
-    question: 'What funded account size are you targeting?',
-    subtext: 'Larger accounts = larger drawdowns = more room to trade.',
-    options: [
-      { value: '25k_to_50k', label: '$25K-$50K', description: 'Starting size' },
-      { value: '50k_to_100k', label: '$50K-$100K', description: 'Standard' },
-      { value: '100k_to_150k', label: '$100K-$150K', description: 'Serious capital' },
-      { value: '150k_plus', label: '$150K+', description: 'Maximum size' },
     ],
   },
   {
@@ -92,17 +81,6 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'time_pressure', label: 'Time pressure', description: 'Want unlimited time to pass' },
       { value: 'payout_restrictions', label: 'Payout hoops', description: 'Want my money fast' },
       { value: 'not_sure', label: 'Not sure yet', description: 'Show me options' },
-    ],
-  },
-  {
-    id: 'q7_risk',
-    question: 'How would you describe your drawdown tolerance during a trading day?',
-    subtext: "This helps us match you with appropriate drawdown rules.",
-    options: [
-      { value: 'conservative', label: 'Conservative', description: 'Rarely down more than 1-2%' },
-      { value: 'moderate', label: 'Moderate', description: 'Sometimes down 3-4% before recovering' },
-      { value: 'aggressive', label: 'Aggressive', description: 'Comfortable with larger swings' },
-      { value: 'depends', label: 'Depends', description: 'Varies by market conditions' },
     ],
   },
   {

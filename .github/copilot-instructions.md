@@ -44,7 +44,7 @@ The developer (Luke) operates at 5-10x typical speed:
 
 ### Key Files Reference
 - `scoring.js` — Complete quiz scoring logic (port to TypeScript)
-- `futures_prop_firms.json` — Full firm data (13 firms)
+- `futures_prop_firms.json` — Full firm data (12 firms)
 - `propFirmData.ts` — TypeScript firm data export
 - `futures_prop_firm_funnel.md` — All copy (landing, quiz, emails)
 - `roadmap.md` — Project phases and success criteria
@@ -81,18 +81,16 @@ The developer (Luke) operates at 5-10x typical speed:
 
 ## Quiz Logic Rules
 
-### 11 Questions
+### 9 Questions
 1. `q1_experience` — Experience level (4 options)
 2. `q2_situation` — Previous prop firm attempts (4 options)
 3. `q3_budget` — Monthly budget (4 options)
 4. `q3a_payment_preference` — Monthly vs one-time (3 options)
-5. `q4_account_size` — Target account size (4 options)
-6. `q5_timeframe` — Trading style/duration (4 options)
-7. `q6_concern` — Biggest rule concern (6 options)
-8. `q7_risk` — Risk tolerance (4 options)
-9. `q8_payout_priority` — Payout speed importance (4 options)
-10. `q9_support` — Education/support preference (4 options)
-11. `q10_dealbreakers` — Multi-select dealbreakers (7 options)
+5. `q5_timeframe` — Trading style/duration (4 options)
+6. `q6_concern` — Biggest rule concern (6 options)
+7. `q8_payout_priority` — Payout speed importance (4 options)
+8. `q9_support` — Education/support preference (4 options)
+9. `q10_dealbreakers` — Multi-select dealbreakers (7 options)
 
 ### Scoring Approach
 - Each answer adds/subtracts points to relevant firms
@@ -103,7 +101,8 @@ The developer (Luke) operates at 5-10x typical speed:
 ### Critical Scoring Rules
 - Q5 "swing_trading" → Boost Elite +5, deprioritize others -2 (DON'T eliminate)
 - Q10 dealbreakers → Hard elimination with reason
-- Q3a "one_time" → Boost Bulenox/Goat +5
+- Q3a "one_time" → Boost Bulenox/Lucid +5
+- Lucid gets +2 "rising star" boost (new firm with 4.8 Trustpilot)
 
 ---
 
@@ -133,10 +132,8 @@ interface QuizAnswers {
   q2_situation: 'first_time' | 'attempted_not_passed' | 'passed_didnt_work' | 'currently_funded';
   q3_budget: 'under_100' | '100_to_200' | '200_to_400' | '400_plus';
   q3a_payment_preference: 'monthly' | 'one_time' | 'no_preference';
-  q4_account_size: '25k_to_50k' | '50k_to_100k' | '100k_to_150k' | '150k_plus';
   q5_timeframe: 'scalping' | 'day_trading' | 'swing_trading' | 'mixed';
   q6_concern: 'drawdown_limits' | 'consistency_rules' | 'overnight_restrictions' | 'time_pressure' | 'payout_restrictions' | 'not_sure';
-  q7_risk: 'conservative' | 'moderate' | 'aggressive' | 'depends';
   q8_payout_priority: 'critical' | 'important' | 'flexible' | 'other_factors';
   q9_support: 'none' | 'minimal' | 'moderate' | 'significant';
   q10_dealbreakers: string[]; // Multi-select
@@ -171,7 +168,7 @@ MAILERLITE_GROUP_ID=
 NEXT_PUBLIC_APEX_AFFILIATE_ID=PENDING
 NEXT_PUBLIC_TOPSTEP_AFFILIATE_ID=PENDING
 NEXT_PUBLIC_MFFU_AFFILIATE_ID=PENDING
-# ... etc for all 13 firms
+# ... etc for all 12 firms
 
 # Analytics
 NEXT_PUBLIC_GA_ID=
@@ -183,15 +180,15 @@ NEXT_PUBLIC_GA_ID=
 
 ### "Build the quiz component"
 → Use `futures_prop_firm_funnel.md` PART 2 for question copy
-→ Reference `scoring.js` for answer value keys
-→ 11 questions total (Q1-Q10, plus Q3a)
+→ Reference `scoring.ts` for answer value keys
+→ 9 questions total (Q1-Q3, Q3a, Q5-Q6, Q8-Q10)
 → Email capture BEFORE showing results
 
 ### "Add a new firm"
 → Add to `futures_prop_firms.json`
 → Add to `propFirmData.ts`
-→ Add to `createFirmData()` in scoring.js
-→ Add scoring logic for all 11 questions
+→ Add to `createFirmData()` in scoring.ts
+→ Add scoring logic for all 9 questions
 → Add affiliate ID env var
 
 ### "Update promo codes"

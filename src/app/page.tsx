@@ -17,7 +17,7 @@ import {
 const trustPoints = [
   '13 futures prop firms',
   'Updated December 2025',
-  '11 questions, real recommendation',
+  '9 questions, real recommendation',
 ]
 
 const painPoints = [
@@ -32,7 +32,7 @@ const firmLogosRow1 = [
 ]
 
 const firmLogosRow2 = [
-  'BluSky Trading', 'Take Profit Trader', 'Elite Trader Funding', 'Alpha Futures', 'Tradeify', 'Goat Funded Futures', 'Lucid Trading'
+  'BluSky Trading', 'Take Profit Trader', 'Elite Trader Funding', 'Alpha Futures', 'Tradeify', 'Lucid Trading'
 ]
 
 export default function Home() {
@@ -57,14 +57,14 @@ export default function Home() {
 
             {/* Headline */}
             <h1 className="text-display md:text-[4rem] text-text-primary mb-6 max-w-4xl mx-auto leading-tight">
-              Tired of Paying{' '}
-              <span className="text-accent">Reset Fees?</span>
+              Which of These{' '}
+              <span className="text-accent">12 Prop Firms</span>{' '}
+              Is Right for You?
             </h1>
 
             {/* Subhead */}
             <p className="text-body md:text-lg text-text-secondary max-w-2xl mx-auto mb-8">
-              This quiz matches you with a prop firm that fits your style — 
-              so you stop failing evaluations and wasting money on resets.
+              Answer 9 questions. Get a personalized recommendation — not a paid ranking.
             </p>
 
             {/* CTA */}
@@ -108,8 +108,59 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+            className="relative grid grid-cols-1 md:grid-cols-3 gap-6"
           >
+            {/* Connecting Lines - Desktop Only */}
+            <div className="hidden md:block absolute top-1/2 left-0 right-0 -translate-y-1/2 pointer-events-none">
+              <svg className="w-full h-12" viewBox="0 0 100 50" preserveAspectRatio="none">
+                {/* Line 1 to 2 */}
+                <motion.line
+                  x1="33"
+                  y1="25"
+                  x2="50"
+                  y2="25"
+                  stroke="currentColor"
+                  className="text-accent/30"
+                  strokeWidth="2"
+                  strokeDasharray="4 4"
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: 1 }}
+                  transition={{ duration: 1, delay: 0.7 }}
+                />
+                <motion.polygon
+                  points="50,25 47,23 47,27"
+                  fill="currentColor"
+                  className="text-accent"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3, delay: 1.5 }}
+                />
+                
+                {/* Line 2 to 3 */}
+                <motion.line
+                  x1="67"
+                  y1="25"
+                  x2="84"
+                  y2="25"
+                  stroke="currentColor"
+                  className="text-accent/30"
+                  strokeWidth="2"
+                  strokeDasharray="4 4"
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: 1 }}
+                  transition={{ duration: 1, delay: 1.2 }}
+                />
+                <motion.polygon
+                  points="84,25 81,23 81,27"
+                  fill="currentColor"
+                  className="text-accent"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3, delay: 2 }}
+                />
+              </svg>
+            </div>
+
             {/* Step 1 */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -126,9 +177,27 @@ export default function Home() {
                 </div>
                 <div className="flex-1">
                   <div className="font-mono text-micro text-accent mb-2">STEP 01</div>
-                  <div className="text-text-primary font-medium mb-1">Answer 11 questions</div>
+                  <div className="text-text-primary font-medium mb-1">Answer 9 questions</div>
                   <div className="text-small text-text-muted">Trading style, budget, dealbreakers</div>
                 </div>
+              </div>
+            </motion.div>
+
+            {/* Vertical Connector 1-2 (Mobile) */}
+            <motion.div
+              initial={{ opacity: 0, scaleY: 0 }}
+              animate={{ opacity: 1, scaleY: 1 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
+              className="md:hidden flex justify-center -my-3 relative z-10"
+            >
+              <div className="flex flex-col items-center">
+                <div className="w-0.5 h-6 bg-gradient-to-b from-accent/30 to-accent/10" />
+                <motion.div
+                  initial={{ y: -10, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.3, delay: 1.1 }}
+                  className="w-2 h-2 rotate-45 bg-accent"
+                />
               </div>
             </motion.div>
 
@@ -154,6 +223,24 @@ export default function Home() {
               </div>
             </motion.div>
 
+            {/* Vertical Connector 2-3 (Mobile) */}
+            <motion.div
+              initial={{ opacity: 0, scaleY: 0 }}
+              animate={{ opacity: 1, scaleY: 1 }}
+              transition={{ duration: 0.5, delay: 1.3 }}
+              className="md:hidden flex justify-center -my-3 relative z-10"
+            >
+              <div className="flex flex-col items-center">
+                <div className="w-0.5 h-6 bg-gradient-to-b from-accent/30 to-accent/10" />
+                <motion.div
+                  initial={{ y: -10, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.3, delay: 1.6 }}
+                  className="w-2 h-2 rotate-45 bg-accent"
+                />
+              </div>
+            </motion.div>
+
             {/* Step 3 */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
@@ -170,7 +257,7 @@ export default function Home() {
                 </div>
                 <div className="flex-1">
                   <div className="font-mono text-micro text-accent mb-2">STEP 03</div>
-                  <div className="text-text-primary font-medium mb-1">Start funded</div>
+                  <div className="text-text-primary font-medium mb-1">Choose your firm</div>
                   <div className="text-small text-text-muted">Apply with confidence</div>
                 </div>
               </div>
@@ -249,7 +336,7 @@ export default function Home() {
               We analyze every major futures prop firm
             </h2>
             <p className="text-body text-text-secondary">
-              13 firms compared across rules, fees, payouts, and platforms
+              12 firms compared across rules, fees, payouts, and platforms
             </p>
           </motion.div>
 
@@ -352,7 +439,7 @@ export default function Home() {
             </h2>
             
             <p className="text-body text-text-secondary mb-8">
-              11 questions. 2 minutes. Your personalized recommendations are waiting.
+              9 questions. 2 minutes. Your personalized recommendations are waiting.
             </p>
 
             <Link href="/quiz">

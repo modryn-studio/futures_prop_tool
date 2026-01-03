@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { FirmWithKey, QuizAnswers, generateMatchReason, generateWarning } from '@/lib/scoring'
 import { Button } from '@/components/ui'
 import { 
@@ -191,6 +191,7 @@ export function Results({ recommended, eliminated, matchStrength, answers, onEma
   const animatedMatchStrength = useCountUp(matchStrength, 1200)
   const [email, setEmail] = useState('')
   const [emailStatus, setEmailStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [showModal, setShowModal] = useState(true)
   const topFirmName = recommended[0]?.name || 'your top match'
 
   const handleEmailSubmit = async (e: React.FormEvent) => {
@@ -200,10 +201,124 @@ export function Results({ recommended, eliminated, matchStrength, answers, onEma
     setEmailStatus('loading')
     const success = await onEmailSubmit(email)
     setEmailStatus(success ? 'success' : 'error')
+    if (success) {
+      setTimeout(() => setShowModal(false), 1500)
+    }
+  }
+
+  const handleCloseModal = () => {
+    setShowModal(false)
   }
   
   return (
     <div className="min-h-screen bg-background py-12 px-4">
+      {/* Email Capture Modal */}
+      <AnimatePresence>
+        {showModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          >
+            {/* Backdrop */}
+            <div className="absolute inset-0 bg-background/90 backdrop-blur-sm" />
+            
+            {/* Modal */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="relative bg-background-card border border-border rounded-card p-8 max-w-md w-full shadow-2xl"
+            >
+              {/* Close button - small and subtle */}
+              <button
+                onClick={handleCloseModal}
+                className="absolute top-3 right-3 p-1 text-text-muted hover:text-text-secondary transition-colors"
+                aria-label="Close"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+
+              {emailStatus === 'success' ? (
+                <div className="text-center py-4">
+                  <div className="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-4">
+                    <Check className="w-8 h-8 text-accent" />
+                  </div>
+                  <h3 className="text-title text-text-primary mb-2">You're in!</h3>
+                  <p className="text-body text-text-secondary">Loading your results...</p>
+                </div>
+              ) : (
+                <>
+                  {/* Icon */}
+                  <div className="w-14 h-14 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-6">
+                    <Trophy className="w-7 h-7 text-accent" />
+                  </div>
+
+                  {/* Heading */}
+                  <h2 className="text-title text-text-primary text-center mb-2">
+                    Your results are ready!
+                  </h2>
+                  
+                  <p className="text-body text-text-secondary text-center mb-6">
+                    We found <span className="text-accent font-semibold">{recommended.length} firms</span> that match your trading style
+                  </p>
+
+                  {/* Benefits */}
+                  <div className="space-y-3 mb-6">
+                    <div className="flex items-center gap-3 text-small text-text-secondary">
+                      <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
+                      <span>Email copy of your results + promo codes</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-small text-text-secondary">
+                      <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
+                      <span>5-email guide: How to pass evaluations</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-small text-text-secondary">
+                      <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
+                      <span>Follow-ups if you get stuck</span>
+                    </div>
+                  </div>
+
+                  {/* Email Form */}
+                  <form onSubmit={handleEmailSubmit} className="space-y-3">
+                    <div className="relative">
+                      <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-text-muted" />
+                      <input
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="Enter your email"
+                        className="w-full pl-12 pr-4 py-3 bg-background border border-border rounded-lg text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent"
+                        required
+                      />
+                    </div>
+                    <Button 
+                      type="submit" 
+                      variant="primary"
+                      className="w-full"
+                      disabled={emailStatus === 'loading'}
+                    >
+                      {emailStatus === 'loading' ? 'Sending...' : 'Send My Results'}
+                    </Button>
+                  </form>
+
+                  {emailStatus === 'error' && (
+                    <p className="text-small text-status-error text-center mt-2">Something went wrong. Try again?</p>
+                  )}
+
+                  <p className="text-micro text-text-muted text-center mt-4">
+                    No spam, ever. Unsubscribe anytime.
+                  </p>
+                </>
+              )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <div className="max-w-3xl mx-auto">
         {/* Header */}
         <motion.div
@@ -297,11 +412,11 @@ export function Results({ recommended, eliminated, matchStrength, answers, onEma
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-small text-text-muted">
             <div className="flex items-center gap-2">
               <CheckCircle className="w-4 h-4 text-accent" />
-              <span>11 factors analyzed</span>
+              <span>9 factors analyzed</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle className="w-4 h-4 text-accent" />
-              <span>13 firms compared</span>
+              <span>12 firms compared</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle className="w-4 h-4 text-accent" />
@@ -310,76 +425,64 @@ export function Results({ recommended, eliminated, matchStrength, answers, onEma
           </div>
         </motion.div>
 
-        {/* Optional Email - Deal Alerts */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.65 }}
-          className="mt-8 bg-accent/5 border border-accent/20 rounded-card p-6"
-        >
-          {emailStatus === 'success' ? (
-            <div className="flex items-center gap-3">
+        {/* Optional Email - Deal Alerts (only if modal closed without submitting) */}
+        {!showModal && emailStatus !== 'success' && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.65 }}
+            className="mt-8 bg-accent/5 border border-accent/20 rounded-card p-6"
+          >
+            <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center">
-                <Check className="w-5 h-5 text-accent" />
+                <Bell className="w-5 h-5 text-accent" />
               </div>
               <div>
-                <h3 className="text-subtitle text-text-primary">You're subscribed</h3>
-                <p className="text-small text-text-muted">Watch your inbox for {topFirmName} deals</p>
+                <h3 className="text-subtitle text-text-primary">Want these results emailed to you?</h3>
+                <p className="text-small text-text-muted">Plus a 5-email guide to pass your evaluation</p>
               </div>
             </div>
-          ) : (
-            <>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center">
-                  <Bell className="w-5 h-5 text-accent" />
-                </div>
-                <div>
-                  <h3 className="text-subtitle text-text-primary">Get notified when {topFirmName} runs a promo</h3>
-                  <p className="text-small text-text-muted">I track deals so you don't have to</p>
-                </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-body text-text-secondary mb-4">
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
+                <span>Email copy with promo codes</span>
               </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-body text-text-secondary mb-4">
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
-                  <span>Promo alerts for {topFirmName.split(' ')[0]}</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
-                  <span>I'll email if their rules change</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
-                  <span>Weekly deals from all 12 firms</span>
-                </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
+                <span>5-day evaluation guide</span>
               </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
+                <span>Tips to pass your challenge</span>
+              </div>
+            </div>
 
-              <form onSubmit={handleEmailSubmit} className="flex gap-3">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Your email"
-                  className="flex-1 px-4 py-3 bg-background border border-border rounded-lg text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent"
-                  required
-                />
-                <Button 
-                  type="submit" 
-                  variant="primary"
-                  disabled={emailStatus === 'loading'}
-                >
-                  {emailStatus === 'loading' ? 'Subscribing...' : 'Get Alerts'}
-                </Button>
-              </form>
-              
-              {emailStatus === 'error' && (
-                <p className="text-small text-status-error mt-2">Something went wrong. Try again?</p>
-              )}
-              
-              <p className="text-micro text-text-muted mt-3">No spam. Unsubscribe anytime.</p>
-            </>
-          )}
-        </motion.div>
+            <form onSubmit={handleEmailSubmit} className="flex gap-3">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Your email"
+                className="flex-1 px-4 py-3 bg-background border border-border rounded-lg text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent"
+                required
+              />
+              <Button 
+                type="submit" 
+                variant="primary"
+                disabled={emailStatus === 'loading'}
+              >
+                {emailStatus === 'loading' ? 'Sending...' : 'Send My Results'}
+              </Button>
+            </form>
+            
+            {emailStatus === 'error' && (
+              <p className="text-small text-status-error mt-2">Something went wrong. Try again?</p>
+            )}
+            
+            <p className="text-micro text-text-muted mt-3">No spam. Unsubscribe anytime.</p>
+          </motion.div>
+        )}
 
         {/* Footer CTA */}
         <motion.div
