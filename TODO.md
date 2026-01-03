@@ -2,7 +2,7 @@
 
 **Project:** futuresproptool.com  
 **Status:** Pre-Launch  
-**Updated:** December 30, 2025
+**Updated:** January 2, 2026
 
 ---
 
@@ -64,8 +64,7 @@ Visit each firm's website and find current promo codes:
 - [ ] **Bulenox** - Update line 203
 - [ ] **Alpha Capital Group** - Update line 217
 - [ ] **Tradeify** - Update line 232
-- [ ] **Goat Funded Trader** - Update line 246
-- [ ] **Lucid Trading** - Update line 261
+- [ ] **Lucid Trading** - Update line 246
 
 **Format in scoring.ts:**
 ```typescript
@@ -95,7 +94,6 @@ Apply to these firms' affiliate programs (highest volume first):
 - [ ] **Bulenox**
 - [ ] **Alpha Capital Group**
 - [ ] **Tradeify**
-- [ ] **Goat Funded Trader**
 - [ ] **Lucid Trading**
 
 **When approved:**
@@ -108,7 +106,7 @@ Apply to these firms' affiliate programs (highest volume first):
 
 ## Phase 5: Collect Firm Links for Kit Emails
 
-For each of the 13 firms, collect these URLs:
+For each of the 12 firms, collect these URLs:
 
 ### Apex Trader Funding
 - [ ] Evaluation rules page: _________________________
@@ -154,10 +152,6 @@ For each of the 13 firms, collect these URLs:
 - [ ] Evaluation rules page: _________________________
 - [ ] Funded account rules page: _________________________
 
-### Goat Funded Trader
-- [ ] Evaluation rules page: _________________________
-- [ ] Funded account rules page: _________________________
-
 ### Lucid Trading
 - [ ] Evaluation rules page: _________________________
 - [ ] Funded account rules page: _________________________
@@ -185,7 +179,7 @@ For each of the 13 firms, collect these URLs:
 
 - [ ] Visit futuresproptool.com
 - [ ] Click "See Which Firm Fits You"
-- [ ] Complete full quiz (all 11 questions)
+- [ ] Complete full quiz (all 9 questions)
 - [ ] View results page (should show top 3 matches)
 - [ ] Submit email in optional capture form
 - [ ] Check Kit dashboard - subscriber added?
@@ -208,7 +202,7 @@ For each of the 13 firms, collect these URLs:
 ## Weekly Maintenance
 
 ### Every Monday
-- [ ] Check all 13 firms for new promo codes
+- [ ] Check all 12 firms for new promo codes
 - [ ] Update `src/lib/scoring.ts` if changed
 - [ ] Redeploy to Vercel if updated
 - [ ] Update Kit email sequence if needed
@@ -223,7 +217,7 @@ For each of the 13 firms, collect these URLs:
 
 ## Future Improvements (Month 2+)
 
-- [ ] Build individual firm pages (13 pages)
+- [ ] Build individual firm pages (12 pages)
 - [ ] Update Kit emails to link to YOUR firm pages
 - [ ] Add comparison tool (Firm A vs Firm B)
 - [ ] Add drawdown calculator
@@ -240,7 +234,7 @@ For each of the 13 firms, collect these URLs:
 
 **Don't Block On:**
 - Perfect promo codes (use placeholders, update later)
-- All 13 affiliate approvals (launch with 3-5, add rest over time)
+- All 12 affiliate approvals (launch with 3-5, add rest over time)
 - Firm pages (link to their sites Day 1)
 
 **First Revenue Timeline:**
@@ -260,4 +254,4 @@ For each of the 13 firms, collect these URLs:
 
 ---
 
-**Last Updated:** December 30, 2025
+**Last Updated:** January 2, 2026
