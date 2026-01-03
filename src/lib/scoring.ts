@@ -412,6 +412,7 @@ export function scoreQuiz(answers: QuizAnswers): QuizResults {
     case 'one_time':
       firms.bulenox.score += 5
       firms.lucid.score += 5
+      firms.tradeify.score += 5 // Lightning Funded (instant funding)
       firms.elite.score += 2 // Has one-time options
       firms.topstep.score -= 1
       firms.mffu.score -= 1
@@ -593,7 +594,8 @@ export function scoreQuiz(answers: QuizAnswers): QuizResults {
   if (dealbreakers.includes('monthly_fees')) {
     firms.bulenox.score += 4
     firms.lucid.score += 4
-    const monthlyFirms: FirmKey[] = ['topstep', 'mffu', 'apex', 'tradeday', 'tpt', 'earn2trade', 'blusky', 'alpha', 'tradeify']
+    firms.tradeify.score += 4 // Lightning Funded (one-time fee)
+    const monthlyFirms: FirmKey[] = ['topstep', 'mffu', 'apex', 'tradeday', 'tpt', 'earn2trade', 'blusky', 'alpha']
     monthlyFirms.forEach((key) => {
       firms[key].eliminated = true
       firms[key].eliminationReason = 'Has monthly recurring fees'
@@ -700,34 +702,87 @@ export function scoreQuiz(answers: QuizAnswers): QuizResults {
 export function generateMatchReason(firmKey: string, answers: QuizAnswers): string[] {
   const reasons: string[] = []
 
-  if (answers.q3_budget === 'under_100' && ['topstep', 'blusky', 'tradeify', 'lucid'].includes(firmKey)) {
-    reasons.push('Fits your budget at under $100/month')
+  // Budget-based reasons
+  if (answers.q3_budget === 'under_100') {
+    if (['topstep', 'blusky', 'tradeify', 'lucid'].includes(firmKey)) {
+      reasons.push('Fits your budget at under $100/month')
+    }
+    if (['alpha', 'bulenox'].includes(firmKey)) {
+      reasons.push('Competitive pricing fits your budget')
+    }
   }
 
-  if (answers.q1_experience === 'less_than_6mo' && ['topstep', 'earn2trade'].includes(firmKey)) {
-    reasons.push('Strong education and coaching for newer traders')
+  if (answers.q3_budget === '100_to_200') {
+    if (['apex', 'mffu', 'tpt'].includes(firmKey)) {
+      reasons.push('Premium features within your $100-200 budget')
+    }
   }
 
-  if (answers.q8_payout_priority === 'critical') {
-    if (firmKey === 'mffu') reasons.push('Fastest payouts in the industry (32-min average)')
-    if (firmKey === 'lucid') reasons.push('Ultra-fast payouts (~15 min average)')
-    if (firmKey === 'blusky') reasons.push('Same-day payout processing')
-    if (firmKey === 'tpt') reasons.push('Day-one withdrawal capability')
-    if (firmKey === 'tradeify') reasons.push('60-minute automated payouts')
+  if (answers.q3_budget === '400_plus') {
+    if (['apex', 'elite'].includes(firmKey)) {
+      reasons.push('Access to larger account sizes with your budget')
+    }
   }
 
-  if (answers.q3_budget === 'under_100' && ['alpha', 'bulenox'].includes(firmKey)) {
-    reasons.push('Competitive pricing fits your budget')
-  }
-
-  if (answers.q3a_payment_preference === 'one_time' && ['bulenox', 'lucid'].includes(firmKey)) {
+  // Payment preference
+  if (answers.q3a_payment_preference === 'one_time' && ['bulenox', 'lucid', 'tradeify'].includes(firmKey)) {
     reasons.push('One-time fee means no ongoing monthly costs')
   }
 
-  if (firmKey === 'alpha' && answers.q9_support !== 'none') {
-    reasons.push('Excellent customer service with dedicated support team')
+  if (answers.q3a_payment_preference === 'monthly' && ['apex', 'mffu', 'topstep'].includes(firmKey)) {
+    reasons.push('Monthly plan aligns with your payment preference')
   }
 
+  // Experience-based reasons
+  if (answers.q1_experience === 'less_than_6mo') {
+    if (['topstep', 'earn2trade'].includes(firmKey)) {
+      reasons.push('Strong education and coaching for newer traders')
+    }
+    if (firmKey === 'blusky') {
+      reasons.push('Beginner-friendly with strong support resources')
+    }
+  }
+
+  if (answers.q1_experience === '3yr_plus' && firmKey === 'apex') {
+    reasons.push('Trusted by experienced traders with multiple accounts')
+  }
+
+  // Previous situation
+  if (answers.q2_situation === 'first_time' && ['topstep', 'tradeify', 'blusky'].includes(firmKey)) {
+    reasons.push('Great for first-time prop firm traders')
+  }
+
+  if (answers.q2_situation === 'attempted_not_passed' && ['earn2trade', 'topstep'].includes(firmKey)) {
+    reasons.push('Comprehensive coaching helps you pass this time')
+  }
+
+  if (answers.q2_situation === 'passed_didnt_work' && ['mffu', 'tpt', 'lucid'].includes(firmKey)) {
+    reasons.push('Flexible rules help you maintain funded status')
+  }
+
+  if (answers.q2_situation === 'currently_funded') {
+    if (firmKey === 'apex') reasons.push('Run up to 20 accounts simultaneously')
+    if (['elite', 'mffu'].includes(firmKey)) reasons.push('Scale up with additional accounts')
+  }
+
+  // Trading style
+  if (answers.q5_timeframe === 'scalping' && ['apex', 'mffu', 'tpt'].includes(firmKey)) {
+    reasons.push('No restrictions on scalping strategies')
+  }
+
+  if (answers.q5_timeframe === 'day_trading' && ['topstep', 'blusky', 'tradeify'].includes(firmKey)) {
+    reasons.push('Ideal rules for day trading strategies')
+  }
+
+  if (answers.q5_timeframe === 'swing_trading' && firmKey === 'elite') {
+    reasons.push('Elite allows overnight and weekend holding with $1M+ positions')
+  }
+
+  if (answers.q5_timeframe === 'mixed' && ['apex', 'mffu', 'elite'].includes(firmKey)) {
+    reasons.push('Flexible rules support multiple trading styles')
+  }
+
+  // Concerns
   if (answers.q6_concern === 'consistency_rules') {
     if (firmKey === 'tpt') reasons.push('No consistency rule in funded account')
     if (firmKey === 'mffu') reasons.push('Consistency rule removed after evaluation')
@@ -740,15 +795,71 @@ export function generateMatchReason(firmKey: string, answers: QuizAnswers): stri
     }
   }
 
-  if (answers.q9_support === 'significant' && ['topstep', 'earn2trade'].includes(firmKey)) {
-    reasons.push('Extensive coaching and educational resources')
+  if (answers.q6_concern === 'overnight_restrictions') {
+    if (firmKey === 'elite') reasons.push('Full overnight and weekend holding with large positions')
+    if (['mffu', 'lucid', 'alpha'].includes(firmKey)) reasons.push('Allows overnight positions')
   }
 
-  if (answers.q2_situation === 'currently_funded' && firmKey === 'apex') {
-    reasons.push('Run up to 20 accounts simultaneously')
+  if (answers.q6_concern === 'time_pressure') {
+    if (['apex', 'mffu', 'tpt'].includes(firmKey)) {
+      reasons.push('No minimum trading days requirement')
+    }
   }
 
-  return reasons.length > 0 ? reasons : ['Strong overall match based on your trading profile']
+  if (answers.q6_concern === 'payout_restrictions') {
+    if (firmKey === 'tpt') reasons.push('Withdraw profits immediately from day one')
+    if (['mffu', 'lucid', 'tradeify'].includes(firmKey)) reasons.push('Fast, reliable payout system')
+  }
+
+  // Payout priority
+  if (answers.q8_payout_priority === 'critical') {
+    if (firmKey === 'lucid') reasons.push('Ultra-fast payouts (~15 min average)')
+    if (firmKey === 'mffu') reasons.push('Fastest payouts in the industry (32-min average)')
+    if (firmKey === 'tradeify') reasons.push('60-minute automated payouts')
+    if (firmKey === 'blusky') reasons.push('Same-day payout processing')
+    if (firmKey === 'tpt') reasons.push('Day-one withdrawal capability')
+  }
+
+  if (answers.q8_payout_priority === 'important' && ['apex', 'topstep'].includes(firmKey)) {
+    reasons.push('Reliable payout system with proven track record')
+  }
+
+  // Support needs
+  if (answers.q9_support === 'significant') {
+    if (['topstep', 'earn2trade'].includes(firmKey)) {
+      reasons.push('Extensive coaching and educational resources')
+    }
+    if (firmKey === 'alpha') {
+      reasons.push('Excellent customer service with dedicated support team')
+    }
+  }
+
+  if (answers.q9_support === 'moderate' && ['blusky', 'tradeify', 'mffu'].includes(firmKey)) {
+    reasons.push('Good balance of support and independence')
+  }
+
+  if (answers.q9_support === 'none' && ['apex', 'tpt', 'bulenox'].includes(firmKey)) {
+    reasons.push('Straightforward rules, minimal hand-holding needed')
+  }
+
+  // Firm-specific strengths (always add if no other reasons)
+  if (reasons.length === 0) {
+    if (firmKey === 'apex') reasons.push('Industry leader with 100% of first $25K profits', '90% profit split and up to 20 accounts')
+    if (firmKey === 'topstep') reasons.push('Established reputation with strong trader community')
+    if (firmKey === 'mffu') reasons.push('32-minute average payouts and flexible rules')
+    if (firmKey === 'tpt') reasons.push('Day-one withdrawals and no consistency rule in funded')
+    if (firmKey === 'blusky') reasons.push('Low-cost entry with same-day payouts')
+    if (firmKey === 'earn2trade') reasons.push('Comprehensive education program included')
+    if (firmKey === 'elite') reasons.push('Unique overnight holding with $1M+ positions')
+    if (firmKey === 'bulenox') reasons.push('One-time payment option with competitive pricing')
+    if (firmKey === 'alpha') reasons.push('Excellent customer service and support')
+    if (firmKey === 'tradeify') reasons.push('60-minute automated payouts with low fees')
+    if (firmKey === 'lucid') reasons.push('Rising star with 15-minute payouts and 4.8 Trustpilot')
+    if (firmKey === 'tradeday') reasons.push('Established firm with flexible account options')
+  }
+
+  // Limit to top 3-4 most relevant reasons
+  return reasons.slice(0, 4)
 }
 
 export function generateWarning(firmKey: string): string {

@@ -51,7 +51,7 @@ export const quizQuestions: QuizQuestion[] = [
     id: 'q3a_payment_preference',
     question: 'Would you rather pay monthly or a one-time fee?',
     subtext: 'Some firms offer one-time payment options.',
-    whyWeAsk: 'Firms like Bulenox and Lucid offer one-time evaluation fees instead of monthly subscriptions.',
+    whyWeAsk: 'Firms like Bulenox, Lucid, and Tradeify (Lightning Funded) offer one-time evaluation fees instead of monthly subscriptions.',
     options: [
       { value: 'monthly', label: 'Monthly subscription', description: 'Spread out the cost' },
       { value: 'one_time', label: 'One-time payment', description: 'Pay once and done' },

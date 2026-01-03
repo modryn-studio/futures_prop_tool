@@ -472,7 +472,7 @@ These change weekly. I'll keep you posted.
 |--------|--------------|------------|
 | Budget <$100 | Topstep, BluSky | Apex (without promo), Take Profit Trader |
 | Budget $400+ | Apex, Elite, Earn2Trade | Topstep, BluSky |
-| Prefers one-time fee | Bulenox, Lucid Trading | All monthly subscription firms |
+| Prefers one-time fee | Bulenox, Lucid Trading, Tradeify (Lightning) | All monthly subscription firms |
 | Swing trader | Elite (Diamond Hands) | Everyone else (deprioritized, not eliminated) |
 | Scalper/high frequency | Apex (no daily limit), TPT | Earn2Trade (stricter) |
 | Wants education | Topstep, Earn2Trade | Apex, BluSky |
@@ -484,7 +484,7 @@ These change weekly. I'll keep you posted.
 **Dealbreaker Logic (Q10 only — hard elimination):**
 - If "no overnight" is dealbreaker → ONLY recommend Elite Diamond Hands
 - If "no consistency rule" is dealbreaker → Recommend TPT (funded), MFFU Expert, eliminate Apex/Topstep
-- If "no monthly fees" is dealbreaker → Recommend Bulenox, Lucid Trading, eliminate monthly firms
+- If "no monthly fees" is dealbreaker → Recommend Bulenox, Lucid Trading, Tradeify (Lightning Funded), eliminate monthly firms
 
 **Scoring:**
 - Each question assigns points to each firm
